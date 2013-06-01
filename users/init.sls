@@ -16,8 +16,7 @@
     - before: '^#*\s*DIR_MODE\s*=\s*.*$'
     - after: 'DIR_MODE=0711'
 
-{% for user, args in pillar['users'].iteritems() %}
-{% if 'present' in args %}
+{% for user, args in pillar.get('users', {}).iteritems() %}
 {{ user }}:
   user.present:
     - home: /home/{{ user }}
@@ -35,24 +34,27 @@
     {% if 'password' in args %}
     - password: {{ args['password']}}
     {% endif %}
-{% elif 'present' not in args %}
-{{ user }}:
-  user.absent
-{% endif %}
 
 # SSH-Keys per User setzen
-{% if 'ssh_auth' in args %}
-{% for auth in args['ssh_auth'] %}
-{% if 'present' in args %}
+{% for auth in args.get('ssh_auth', []) %}
 {{ auth['key'] }}:
   ssh_auth:
     - present
     - user: {{ user }}
     - enc: {{ auth['type'] }}
     - comment: {{ auth.get('comment', user)}}
-{% endif %}
 {% endfor %}
-{% endif %}
+{% for auth in args.get('absent_ssh_auth', []) %}
+{{ auth }}: 
+  ssh_auth:
+    - absent
+    - user: {{ user }}
+{% endfor %}
 
+{% endfor %}
+
+{% for user in pillar.get('absent_users', []) %}
+{{ user }}:
+  user.absent
 {% endfor %}
 
