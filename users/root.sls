@@ -21,3 +21,10 @@
 {% endfor %}
 {% endfor %}
 
+{% for auth in pillar.get('absent_root_ssh_auth', []) %}
+{{ auth }}_root_ssh_auth:
+  ssh_auth:
+    - absent
+    - user: root
+    - name: {{ auth }}
+{% endfor %}
