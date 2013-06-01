@@ -1,18 +1,15 @@
-apache2-pkg:
-  pkg:
-    - installed
-    - names:
-      - apache2-mpm-prefork
-
 apache2:
   service:
     - running
     - enabled: true    
     - reload: true
     - require:
-      - pkg: apache2-mpm-prefork
+      - pkg: apache2
     - watch:
-      - pkg: apache2-mpm-prefork
+      - pkg: apache2
+  pkg:
+    - installed
+    - name: apache2-mpm-prefork
 
 www-data:
   alias.present:
@@ -36,6 +33,8 @@ www-data:
     - user: www-data
     - group: www-data
     - mode: 0755
+    - require:
+      - pkg: apache2
 
 {% for mod in ['include', 'proxy_http', 'rewrite', 'ssl', 'expires'] %}
 a2enmod {{mod}}:
