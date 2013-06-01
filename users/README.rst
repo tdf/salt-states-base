@@ -34,6 +34,10 @@ For using this Module you need a corresponding pillar/user. The structure of the
   absent_users:
     - <USER-NAME>
     - <USER-NAME>
+  absent_root_ssh_auth:
+    - <KEY>
+    - <KEY>
+
 
 To generate the Password you can use mkpasswd
 
