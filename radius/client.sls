@@ -1,4 +1,3 @@
 radius-client:
   pkg.installed:
-    - names:
-      - freeradius-utils
+    - name: freeradius-utils
