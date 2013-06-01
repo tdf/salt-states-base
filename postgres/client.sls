@@ -1,4 +1,2 @@
 postgresql-client:
-  pkg.installed:
-    - names:
-      - postgresql-client
+  pkg.installed
