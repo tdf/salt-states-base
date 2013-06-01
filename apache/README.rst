@@ -9,6 +9,11 @@ server
 
 The server.sls installs the needes apache modules and manages a base set of files to secure the Apache installation.
 
+macro
+=====
+
+The macro.sls installs additional apache macro module.
+
 php
 ===
 

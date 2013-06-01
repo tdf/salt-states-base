@@ -3,7 +3,6 @@ apache2-pkg:
     - installed
     - names:
       - apache2-mpm-prefork
-      - libapache2-mod-macro
 
 apache2:
   service:
@@ -28,15 +27,6 @@ www-data:
     - watch_in:
       - service: apache2
 
-/etc/apache2/conf.d/TEMPLATE.VHost:
-  file.managed:
-    - source: salt://apache/TEMPLATE.VHost
-    - user: root
-    - group: root
-    - mode: 0644
-    - watch_in:
-      - service: apache2
-
 /var/www/index.html:
   file.absent
 
@@ -47,7 +37,7 @@ www-data:
     - group: www-data
     - mode: 0755
 
-{% for mod in ['macro', 'include', 'proxy_http', 'rewrite', 'ssl', 'expires'] %}
+{% for mod in ['include', 'proxy_http', 'rewrite', 'ssl', 'expires'] %}
 a2enmod {{mod}}:
   cmd.run:
     - unless: test -f /etc/apache2/mods-enabled/{{mod}}.load
