@@ -1,0 +1,13 @@
+<Directory />
+  Options -Indexes FollowSymLinks
+  AllowOverride none
+  Order deny,allow
+  Deny from all
+</Directory>
+
+<Directory /var/www/>
+  Options -Indexes MultiViews ExecCGI SymLinksIfOwnerMatch IncludesNoExec
+  AllowOverride all
+  Order deny,allow
+  Deny from all
+</Directory>

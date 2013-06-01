@@ -1,0 +1,44 @@
+<Macro VHost $fqdn>
+  ServerName $fqdn
+  ServerAdmin webmaster@einsle.de
+  DocumentRoot /srv/www/$fqdn/content
+  ErrorLog /srv/www/$fqdn/logs/error.log
+  CustomLog /srv/www/$fqdn/logs/access.log combined
+  <IfModule mod_rewrite.c>
+    RewriteEngine On
+  </IfModule>
+  <Directory "/srv/www/$fqdn/content">
+    Order deny,allow
+    Allow from all
+  </Directory>
+</Macro>
+
+<Macro VHostTo $fqdn $dest>
+  ServerName $fqdn
+  ServerAdmin webmaster@einsle.de
+  DocumentRoot /srv/www/$fqdn/content
+  ErrorLog /srv/www/$fqdn/logs/error.log
+  CustomLog /srv/www/$fqdn/logs/access.log combined
+  <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule (.*) $dest$1 [R=301,L]
+  </IfModule>
+</Macro>
+
+<Macro VHostSSL $fqdn>
+  ServerName $fqdn
+  ServerAdmin webmaster@einsle.de
+  DocumentRoot /srv/www/$fqdn/content
+  SSLEngine On
+  SSLCertificateFile      /srv/www/$fqdn/ssl/$fqdn.pem
+  SSLCertificateKeyFile   /srv/www/$fqdn/ssl/$fqdn.pem
+  ErrorLog /srv/www/$fqdn/logs/error.log
+  CustomLog /srv/www/$fqdn/logs/access.log combined
+  <IfModule mod_rewrite.c>
+    RewriteEngine On
+  </IfModule>
+  <Directory "/srv/www/$fqdn/content">
+    Order deny,allow
+    Allow from all
+  </Directory>
+</Macro>
