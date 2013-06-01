@@ -7,12 +7,12 @@ This salt-ssh-module is responsible for ssh client and server management.
 client
 ======
 
-The client.sls installs openssh-client and managed ssh_config
+The client.sls installs openssh-client and managed ssh_config.
 
 server
 ======
 
-The server.sls installs needed openssh-server and openssh-blacklist and manages /etc/ssh/sshd_config
+The server.sls installs needed openssh-server and openssh-blacklist and manages /etc/ssh/sshd_config.
 
 init
 ====
