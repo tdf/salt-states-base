@@ -11,9 +11,8 @@ For using this Module you need a corresponding pillar/user. The structure of the
 
 .. code-block:: yaml
 
-  user:
+  users:
     <USER-NAME>:
-	    present: True
       uid: <UID>
       fullname: <NAME>
       password: <CRYPTED-PW>
@@ -27,8 +26,14 @@ For using this Module you need a corresponding pillar/user. The structure of the
         - key: <KEY>
           type: ssh-rsa
           comment: <KEY-COMMENT>
+      absent_ssh_auth:
+        - <KEY>
+        - <KEY>
     <USER-NAME>:
       ..
+  absent_users:
+    - <USER-NAME>
+    - <USER-NAME>
 
 To generate the Password you can use mkpasswd
 

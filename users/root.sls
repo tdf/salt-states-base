@@ -1,29 +1,23 @@
 # root SSH-Key Management
-root:
+{% for user, args in pillar.get('users', {}).iteritems() %}
+{% for auth in args.get('ssh_auth', []) %}
+{{ auth['key'] }}_root_ssh_auth:
   ssh_auth:
     - present
     - user: root
-    - enc: ssh-rsa
-    - comment: no-comment
-    - names:
-{% for user, args in pillar['users'].iteritems() %}
-{% if 'present' in args %}
-{% if 'ssh_auth' in args %}
-{% for auth in args['ssh_auth'] %}
-      - {{ auth['type'] }} {{ auth['key'] }}  {{ auth.get('comment', user)}}
+    - enc: {{ auth['type'] }}
+    - comment: {{ auth.get('comment', user) }}
+    - name: {{ auth['key'] }}
 {% endfor %}
-{% endif %}
-{% endif %}
 {% endfor %}
 
-{% for user, args in pillar['users'].iteritems() %}
-{% if 'present' not in args %}
-{% for auth in args['ssh_auth'] %}
-{{ auth['key'] }}:
+{% for user, args in pillar.get('users', {}).iteritems() %}
+{% for auth in args.get('absent_ssh_auth', []) %}
+{{ auth['key'] }}_root_ssh_auth:
   ssh_auth:
     - absent
     - user: root
+    - name: {{ auth['key'] }}
 {% endfor %}
-{% endif %}
 {% endfor %}
 
