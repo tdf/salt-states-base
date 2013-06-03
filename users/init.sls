@@ -22,6 +22,7 @@
     - home: /home/{{ user }}
     - uid: {{ args['uid'] }}
     - fullname: {{ args['fullname'] }}
+    - remove_groups: False
     {% if 'shell' in args %}
     - shell: {{ args['shell'] }}
     {% endif %}
@@ -43,6 +44,8 @@
     - user: {{ user }}
     - enc: {{ auth['type'] }}
     - comment: {{ auth.get('comment', user)}}
+    - require:
+        - user: {{ user }}
 {% endfor %}
 {% for auth in args.get('absent_ssh_auth', []) %}
 {{ auth }}: 
