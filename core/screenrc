@@ -110,6 +110,6 @@ defnonblock 5
 # screen -t mail 8 mutt
 # screen -t daemon 9 tail -f /var/log/daemon.log
 
-caption always "%{wb}[%H]%{-} %c %d.%m.%Y | %-Lw%{= br}%50>%n%f* %t%{-}%+Lw%<"
+caption always "%{wb}[%H]%{-} %c %d.%m.%Y | %-Lw%{= bw}%50>%n%f* %t%{-}%+Lw%<"
 shell -$SHELL
 
