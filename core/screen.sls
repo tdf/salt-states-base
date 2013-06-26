@@ -1,11 +1,11 @@
-vim:
+screen:
   pkg.installed
 
-/etc/vim/vimrc:
+/etc/screenrc:
     file.managed:
-     - source: salt://core/vimrc
+     - source: salt://core/screenrc
      - user: root
      - group: root
      - mode: 0644
      - require:
-       - pkg: vim
+       - pkg: screen
