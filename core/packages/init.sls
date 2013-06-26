@@ -24,7 +24,6 @@ core-packages:
       - tig
       - traceroute
       - unzip
-      - vim 
       - vlan
       - vnstat
       - wget
