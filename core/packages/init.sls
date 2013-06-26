@@ -17,7 +17,6 @@ core-packages:
       - nmap 
       - ntp
       - rsync
-      - screen 
       - sipcalc
       - smartmontools
       - tcpdump 
