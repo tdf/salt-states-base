@@ -23,5 +23,7 @@ a2enmod {{mod}}:
     - user: root
     - group: root
     - mode: 0644
+    - require:
+      - pkg: libapache2-mod-macro
     - watch_in:
       - service: apache2
