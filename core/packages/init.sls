@@ -3,6 +3,7 @@ core-packages:
     - installed
     - names:
       - bash-completion
+      - debconf-utils
       - dnsutils
       - ethtool
       - git
