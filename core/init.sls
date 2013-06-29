@@ -1,5 +1,6 @@
 include:
   - core.apticron
+  - core.locales
   - core.packages
   - core.profile
   - core.screen
