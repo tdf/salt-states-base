@@ -1,4 +1,5 @@
 include:
+  - core.apticron
   - core.packages
   - core.profile
   - core.screen
