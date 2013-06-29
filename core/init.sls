@@ -5,4 +5,5 @@ include:
   - core.profile
   - core.screen
   - core.sudo
+  - core.timezone
   - core.vim
