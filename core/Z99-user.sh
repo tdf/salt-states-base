@@ -6,3 +6,4 @@
 
 alias grepconf='grep -vE "^#|^$|^[\w]+#"'
 alias screen='screen "-e^Tt"'
+alias greg='grep --color'
