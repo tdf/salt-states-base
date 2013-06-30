@@ -1,0 +1,6 @@
+console-setup console-setup/fontface47 select VGA
+console-setup console-setup/fontsize-text47 select 16
+console-setup console-setup/fontsize-fb47 select 16
+console-setup console-setup/fontsize string 16
+console-setup console-setup/charmap47 select UTF-8
+
