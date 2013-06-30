@@ -16,6 +16,11 @@
     - before: '^#*\s*DIR_MODE\s*=\s*.*$'
     - after: 'DIR_MODE=0711'
 
+/etc/login.defs:
+  file.sed:
+    - before: '^USERGROUPS_ENAB yes$' 
+    - after: 'USERGROUPS_ENAB no'
+
 {% for user, args in pillar.get('users', {}).iteritems() %}
 {{ user }}:
   user.present:
