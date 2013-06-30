@@ -4,6 +4,20 @@ Salt Core Module
 
 This salt-core-module is responsible for core package management to install the needed packages.
 
+apticron
+========
+
+The apticron.sls installs apticron and configures it to do dayly security-updates of the system.
+console
+=======
+
+The console.sls changes the installed console-settings to default VGA 
+
+locales
+=======
+
+The locales.sls installs german language packs.
+
 packages
 ========
 
@@ -36,10 +50,21 @@ sudo
 
 The sudo.sls is to install and configure sudo as needed Package. 
 
+timezone
+========
+
+The timezone.sls configures timezone to default UTC. If other timezone is needed, a pillar is used.
+
+Layout of the pillar:
+
+.. code-block:: yaml
+
+  timezone: Etc/UTC
+
 init
 ====
 
-The init.sls includes packages and sudo, so if only core is included in top.sls, both, packages and sudo will be run.
+The init.sls includes apticron, console, locales, packages, sudo and timezone, so if only core is included in top.sls, both, packages and sudo will be run.
 
 License
 =======
