@@ -6,6 +6,7 @@ core-packages:
       - debconf-utils
       - dnsutils
       - ethtool
+      - findutils
       - git
       - git-core
       - htop
@@ -15,6 +16,7 @@ core-packages:
       - lsof
       - lynx
       - mc
+      - mlocate
       - nmap 
       - ntp
       - rsync
