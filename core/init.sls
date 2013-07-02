@@ -1,6 +1,7 @@
 include:
   - core.apticron
   - core.console
+  - core.debconf
   - core.locales
   - core.packages
   - core.profile

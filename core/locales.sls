@@ -10,6 +10,8 @@ locale-gen:
   cmd.wait:
     - watch:
       - pkg: de-locale
+    - require:
+      - pkg: debconf-utils
 
 update-locale:
   cmd.wait:
