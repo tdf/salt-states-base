@@ -8,4 +8,5 @@ apticron:
     - after: 'LISTCHANGES_PROFILE="apticron"'
     - require:
       - pkg: apticron
+      - pkg: debconf-utils
 
