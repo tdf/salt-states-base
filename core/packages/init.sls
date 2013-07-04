@@ -10,6 +10,7 @@ core-packages:
       - git
       - git-core
       - htop
+      - ifenslave-2.6
       - iftop
       - iptraf
       - links
@@ -33,8 +34,3 @@ core-packages:
       - wget
       - whois
       - zip
-{% if grains['os'] == 'Debian' %}
-      - ifenslave
-{% elif grains['os'] == 'Ubuntu' %}
-      - ifenslave-2.6
-{% endif %}
