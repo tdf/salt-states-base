@@ -1,5 +1,6 @@
 include:
   - core.apticron
+  - core.apt-listchanges
   - core.console
   - core.debconf
   - core.locales
@@ -8,4 +9,5 @@ include:
   - core.screen
   - core.sudo
   - core.timezone
+  - core.unattended-upgrades
   - core.vim

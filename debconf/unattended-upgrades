@@ -1,0 +1,2 @@
+unattended-upgrades unattended-upgrades/enable_auto_updates boolean true
+

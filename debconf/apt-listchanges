@@ -1,0 +1,6 @@
+apt-listchanges apt-listchanges/frontend select pager
+apt-listchanges apt-listchanges/confirm boolean false
+apt-listchanges apt-listchanges/which select both
+apt-listchanges apt-listchanges/email-address string
+apt-listchanges apt-listchanges/save-seen boolean false
+
