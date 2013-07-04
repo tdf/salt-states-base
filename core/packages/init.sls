@@ -19,10 +19,12 @@ core-packages:
       - mlocate
       - nmap 
       - ntp
+      - pwgen
       - rsync
       - sipcalc
       - smartmontools
       - tcpdump 
+      - telnet
       - tig
       - traceroute
       - unzip
