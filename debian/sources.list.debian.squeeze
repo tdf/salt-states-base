@@ -1,0 +1,12 @@
+# Debian Squeeze Repository
+deb http://ftp.de.debian.org/debian/ squeeze main contrib non-free
+deb-src http://ftp.de.debian.org/debian/ squeeze main contrib non-free
+
+# Debian Squeeze Security Updates
+deb http://security.debian.org/ squeeze/updates main contrib non-free
+deb-src http://security.debian.org/ squeeze/updates main contrib non-free
+
+# Debian Squeeze Updates
+deb http://ftp.de.debian.org/debian/ squeeze-updates main contrib non-free
+deb-src http://ftp.de.debian.org/debian/ squeeze-updates main contrib non-free
+

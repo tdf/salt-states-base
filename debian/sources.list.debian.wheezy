@@ -1,0 +1,12 @@
+# Debian Packages Sources
+deb http://ftp.de.debian.org/debian/ wheezy main contrib non-free
+deb-src http://ftp.de.debian.org/debian/ wheezy main contrib non-free
+
+# Debian Security Patches
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+# Debian Wheezy Updates
+deb http://ftp.de.debian.org/debian/ wheezy-updates main contrib non-free
+deb-src http://ftp.de.debian.org/debian/ wheezy-updates main contrib non-free
+
