@@ -6,8 +6,8 @@ include:
   - core.locales
   - core.packages
   - core.profile
-  - core.screen
   - core.sudo
   - core.timezone
   - core.unattended-upgrades
-  - core.vim
+  - editor
+  - util
