@@ -3,7 +3,7 @@ sudo:
 
 /etc/sudoers:
     file.managed:
-     - source: salt://core/sudoers
+     - source: salt://util/sudoers
      - user: root
      - group: root
      - mode: 0440
