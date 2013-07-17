@@ -1,5 +1,5 @@
 include:
-  - core.apt
-  - core.apticron
-  - core.apt-listchanges
+  - apt.apt
+  - apt.apticron
+  - apt.apt-listchanges
  
