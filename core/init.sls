@@ -9,5 +9,4 @@ include:
   - core.sudo
   - core.timezone
   - core.unattended-upgrades
-  - editor
-  - util
+ 
