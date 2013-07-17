@@ -1,6 +1,4 @@
 include:
-  - core.apticron
-  - core.apt-listchanges
   - core.console
   - core.debconf
   - core.locales
