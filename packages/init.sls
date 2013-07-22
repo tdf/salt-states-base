@@ -6,8 +6,10 @@ core-packages:
   pkg:
     - installed
     - names:
+      - atop
       - bash-completion
       - debconf-utils
+      - dstat
       - findutils
       - htop
       - links
