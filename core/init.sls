@@ -4,7 +4,6 @@ include:
   - core.locales
   - core.packages
   - core.profile
-  - core.sudo
   - core.timezone
   - core.unattended-upgrades
  
