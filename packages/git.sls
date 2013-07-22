@@ -1,4 +1,4 @@
-core-packages:
+git-packages:
   pkg:
     - installed
     - names:

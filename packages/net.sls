@@ -1,4 +1,4 @@
-core-packages:
+net-packages:
   pkg:
     - installed
     - names:
