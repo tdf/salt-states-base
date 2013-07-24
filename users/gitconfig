@@ -3,4 +3,6 @@
     email = {{ email }}
 [color]
     ui = auto
+[push]
+    default = matching
 
