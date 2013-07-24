@@ -1,3 +1,8 @@
+#
+# this file is managed by salt!
+# changes will be overwritten!
+#
+
 [user]
     name = {{ fullname }}
     email = {{ email }}
