@@ -1,0 +1,6 @@
+[user]
+    name = {{ fullname }}
+    email = {{ email }}
+[color]
+    ui = auto
+
