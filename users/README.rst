@@ -15,6 +15,7 @@ For using this Module you need a corresponding pillar/user. The structure of the
     <USER-NAME>:
       uid: <UID>
       fullname: <NAME>
+      email: <EMAIL>
       password: <CRYPTED-PW>
       shell: /bin/bash
       groups:
@@ -44,6 +45,11 @@ To generate the Password you can use mkpasswd
 .. code-block:: bash
 
   mkpasswd --method=sha-512 --salt=$(pwgen 8 1)
+
+git
+===
+
+Managging .gitconfig for users for configuring git-stuff.
 
 init
 ====
