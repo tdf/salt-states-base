@@ -1,3 +1,4 @@
+# installs and manage service for ntp
 ntp:
   service:
     - running
