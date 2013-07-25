@@ -1,7 +1,4 @@
-radius-server:
-  pkg.installed:
-    - name: freeradius
-
+# installs freeradius and defines service for managing radius
 freeradius:
   service.running:
     - enabled: true
@@ -11,3 +8,4 @@ freeradius:
       - file: /etc/freeradius/users
     - require:
       - pkg: radius-server
+  pkg.installed
