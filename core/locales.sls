@@ -1,3 +1,7 @@
+# make sure, locales is installed
+locales:
+  pkg.installed
+
 # installs german manpages and on ubuntu german language pack
 de-locale:
   pkg.installed:
@@ -6,6 +10,8 @@ de-locale:
 {% if grains['os'] == 'Ubuntu' %}
       - language-pack-de
 {% endif %}
+    - require:
+      - pkg: locales
 
 # runs locale-gen if de-locale changes
 locale-gen:
@@ -14,6 +20,7 @@ locale-gen:
       - pkg: de-locale
     - require:
       - pkg: debconf-utils
+      - pkg: locales
 
 # updates locales of locale-gen runs
 update-locale:
