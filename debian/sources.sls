@@ -1,3 +1,4 @@
+# installes dependend on installed os the needed sources.list
 /etc/apt/sources.list:
   file.managed:
 {% if grains['os'] == 'Debian' %}
