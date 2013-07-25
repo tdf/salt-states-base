@@ -1,12 +1,15 @@
+# includes apache.server as Dependencie
 include:
   - apache.server
 
+# installs apache-module macro
 libapache2-mod-macro:
   pkg:
     - installed
     - watch_in:
       - service: apache2
 
+# enables apache-module macro in apache
 {% for mod in ['macro'] %}
 a2enmod {{mod}}:
   cmd.run:
@@ -17,6 +20,8 @@ a2enmod {{mod}}:
       - service: apache2
 {% endfor %}
 
+# creates apache macro template for creating many vhosts.
+# The templates can be used to create vhosts in apache
 /etc/apache2/conf.d/TEMPLATE.VHost:
   file.managed:
     - source: salt://apache/TEMPLATE.VHost

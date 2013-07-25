@@ -1,3 +1,4 @@
+# installs apache2 packages and defines service for apache
 apache2:
   service:
     - running
@@ -11,10 +12,12 @@ apache2:
     - installed
     - name: apache2-mpm-prefork
 
+# create alias from www-data to root in aliases
 www-data:
   alias.present:
     - target: root
 
+# overwrites localized-error-pages with default configuration
 /etc/apache2/conf.d/localized-error-pages:
   file.managed:
     - source: salt://apache/localized-error-pages
@@ -24,9 +27,11 @@ www-data:
     - watch_in:
       - service: apache2
 
+# removed /var/www/index.html
 /var/www/index.html:
   file.absent
 
+# created /srv/www directory
 /srv/www:
   file.directory:
     - makedirs: True
@@ -36,6 +41,7 @@ www-data:
     - require:
       - pkg: apache2
 
+# enables apache2 modules
 {% for mod in ['include', 'proxy_http', 'rewrite', 'ssl', 'expires'] %}
 a2enmod {{mod}}:
   cmd.run:
@@ -44,6 +50,7 @@ a2enmod {{mod}}:
       - service: apache2
 {% endfor %}
 
+# sets ServerTokens Prod in apache config
 /etc/apache2/conf.d/security_servertoken:
   file.sed:
     - name: /etc/apache2/conf.d/security
@@ -52,6 +59,7 @@ a2enmod {{mod}}:
     - watch_in:
       - service: apache2
 
+# sets ServerSignature Off in apache config
 /etc/apache2/conf.d/security_serversignature:
   file.sed:
     - name: /etc/apache2/conf.d/security
@@ -60,6 +68,7 @@ a2enmod {{mod}}:
     - watch_in:
       - service: apache2
 
+# Disabling Indexing
 /etc/apache2/mods-available/alias.conf:
   file.sed:
     - before: '^Options Indexes MultiViews$'
@@ -67,6 +76,7 @@ a2enmod {{mod}}:
     - watch_in:
       - service: apache2
 
+# Creates user-config for apache
 /etc/apache2/conf.d/z99-user:
   file.managed:
     - source: salt://apache/z99-user
