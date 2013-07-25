@@ -1,3 +1,4 @@
+# defines php5 modules to be installed
 php5-pkg:
   pkg:
     - installed

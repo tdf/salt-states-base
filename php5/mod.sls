@@ -1,10 +1,16 @@
+# installs php5-module for apache and manages configurations
+
+# includes apache.server and php5.modules
 include:
+  - apache.server
   - php5.modules
 
+# installs apache2 php5-module
 libapache2-mod-php5:
   pkg:
     - installed
 
+# defines expose_php off in php.ini
 /etc/php5/apache2/php.ini_expose:
   file.sed:
     - names: 
@@ -17,6 +23,7 @@ libapache2-mod-php5:
     - watch_in:
       - service: apache2
 
+# disallow url_fopen in php.ini
 /etc/php5/apache2/php.ini_allow_url_fopen:
   file.sed:
     - names: 
@@ -29,6 +36,7 @@ libapache2-mod-php5:
     - watch_in:
       - service: apache2
 
+# sets max_file_size in php.ini
 /etc/php5/apache2/php.ini_upload_max_filesize:
   file.sed:
     - names: 
@@ -41,6 +49,7 @@ libapache2-mod-php5:
     - watch_in:
       - service: apache2
 
+# sets post_max_size in php.ini
 /etc/php5/apache2/php.ini_post_max_size:
   file.sed:
     - names: 
