@@ -1,5 +1,5 @@
 # includes installation of debconf-utils
-includes:
+include:
   - core.debconf
 
 # definition of sonsole-setup to configure console-setup
