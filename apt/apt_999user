@@ -1,2 +1,3 @@
+# sets timeouts for apache http and ftp transports
 Acquire::http::Timeout "120";
 Acquire::ftp::Timeout "120";
