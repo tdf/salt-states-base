@@ -1,3 +1,4 @@
+# includes all core salt-modules
 include:
   - core.console
   - core.debconf
@@ -5,4 +6,3 @@ include:
   - core.profile
   - core.timezone
   - core.unattended-upgrades
- 

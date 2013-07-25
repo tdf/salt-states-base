@@ -1,3 +1,4 @@
+# installs profile-settings for user-configuration
 /etc/profile.d/Z99-user.sh:
   file.managed:
     - source: salt://core/Z99-user.sh
