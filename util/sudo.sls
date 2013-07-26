@@ -1,6 +1,8 @@
+# installs sudo
 sudo:
   pkg.installed
 
+# manages sudoers
 /etc/sudoers:
     file.managed:
      - source: salt://util/sudoers

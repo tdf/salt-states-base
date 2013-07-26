@@ -1,6 +1,8 @@
+# installs screen
 screen:
   pkg.installed
 
+# manages screenrc using predefined values
 /etc/screenrc:
     file.managed:
      - source: salt://util/screenrc
