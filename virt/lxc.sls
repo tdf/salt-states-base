@@ -1,3 +1,3 @@
-virt-lxc-packages:
-  pkg.installed:
-    - name: lxc
+# installs lxc packages
+indluce:
+  - packages.lxc
