@@ -1,26 +1,26 @@
-# User-Verwaltung
-#
-# Die Userverwaltung liest die pillar users aus, und pflegt anhand dieser Daten
-# die User im System.
-#
+# management of useraccounts
 
+# change adduser not to create usergroups
 /etc/adduser.conf_usergroups:
   file.sed:
     - name: /etc/adduser.conf
     - before: '^#*\s*USERGROUPS\s*=\s*.*$'
     - after: 'USERGROUPS=no'
 
+# change dirmode for adduser
 /etc/adduser.conf_dir_mode:
   file.sed:
     - name: /etc/adduser.conf
     - before: '^#*\s*DIR_MODE\s*=\s*.*$'
     - after: 'DIR_MODE=0711'
 
+# change useradd not to create usergroups
 /etc/login.defs:
   file.sed:
     - before: '^USERGROUPS_ENAB yes$' 
     - after: 'USERGROUPS_ENAB no'
 
+# read out pillar-data and create useraccounts
 {% for user, args in pillar.get('users', {}).iteritems() %}
 {{ user }}:
   user.present:
@@ -41,7 +41,7 @@
     - password: {{ args['password']}}
     {% endif %}
 
-# SSH-Keys per User setzen
+# set ssh-keys for created users
 {% for auth in args.get('ssh_auth', []) %}
 {{ auth['key'] }}:
   ssh_auth:
@@ -52,17 +52,20 @@
     - require:
         - user: {{ user }}
 {% endfor %}
+
+# remove absent ssh-keys
 {% for auth in args.get('absent_ssh_auth', []) %}
 {{ auth }}: 
   ssh_auth:
     - absent
     - user: {{ user }}
 {% endfor %}
-
 {% endfor %}
 
+# remove absent users
 {% for user in pillar.get('absent_users', []) %}
 {{ user }}:
   user.absent
+
 {% endfor %}
 
