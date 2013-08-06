@@ -3,17 +3,17 @@
   file.managed:
 {% if grains['os'] == 'Debian' %}
 
-{% if grains['lsb_codename'] == 'wheezy' %}
+{% if grains['lsb_distrib_codename'] == 'wheezy' %}
     - source: salt://debian/sources.list.debian.wheezy
-{% elif grains['lsb_codename'] == 'squeeze' %}
+{% elif grains['lsb_distrib_codename'] == 'squeeze' %}
     - source: salt://debian/sources.list.debian.squeeze
 {% endif %}
 
 {% elif grains['os'] == 'Ubuntu' %}
 
-{% if grains['lsb_codename'] == 'precise' %}
+{% if grains['lsb_distrib_codename'] == 'precise' %}
     - source: salt://debian/sources.list.ubuntu.precise
-{% elif grains['lsb_codename'] == 'quantal' %}
+{% elif grains['lsb_distrib_codename'] == 'quantal' %}
     - source: salt://debian/sources.list.ubuntu.quantal
 {% endif %}
 
