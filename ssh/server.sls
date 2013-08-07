@@ -2,7 +2,7 @@
 sshd:
   service.running:
     - name: ssh
-    - enabled: true
+    - enable: true
     - require:
       - pkg: openssh-server
     - watch:
