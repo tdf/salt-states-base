@@ -2,7 +2,7 @@
 postgresql:
   service:
     - running
-    - enabled: true    
+    - enable: true    
     - reload: true
     - require:
       - pkg: postgresql

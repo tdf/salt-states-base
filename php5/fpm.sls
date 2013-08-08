@@ -8,7 +8,7 @@ include:
 php5-fpm:
   service:
     - running
-    - enabled: true    
+    - enable: true    
     - reload: true
   pkg:
     - installed
