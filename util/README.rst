@@ -4,6 +4,11 @@ Salt Core Module
 
 This salt-core-module is responsible for core package management to install the needed packages.
 
+ip_forward
+==========
+
+ip_forward.sls persistent enables ip_forwaring for linux
+
 screen
 ======
 
