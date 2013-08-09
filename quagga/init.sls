@@ -1,0 +1,2 @@
+quagga:
+  pkg.installed
