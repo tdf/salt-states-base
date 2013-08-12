@@ -16,5 +16,6 @@ net-packages:
       - traceroute
       - vlan
       - vnstat
+      - wakeonlan
       - wget
       - whois
