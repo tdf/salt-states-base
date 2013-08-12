@@ -10,4 +10,6 @@
     - context: 
       email: {{ args['email'] }}
       fullname: {{ args['fullname'] }}
+    - require:
+      - user: {{ user }}
 {% endfor %}
