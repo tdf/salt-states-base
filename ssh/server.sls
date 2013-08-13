@@ -1,7 +1,9 @@
 # installs openssh server and blacklist and defines service
-sshd:
+ssh:
   service.running:
-    - name: ssh
+{% if grains['os_family'] == 'RedHat' %}
+    - name: sshd
+{% endif %}
     - enable: true
     - require:
       - pkg: openssh-server
