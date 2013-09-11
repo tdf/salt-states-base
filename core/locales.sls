@@ -28,3 +28,21 @@ update-locale:
     - name: update-locale LANG="en_US.UTF-8" LANGUAGE="en_US:en"
     - watch:
       - cmd: locale-gen
+
+# manages german keyboard layout
+{% if grains['os'] == 'Debian' %}
+/etc/default/keyboard:
+  file.managed:
+    - source: salt://core/keyboard.debian
+    - user: root
+    - group: root
+    - mode: 0644
+{% endif %}
+{% if grains['os'] == 'Ubuntu' %}
+/etc/default/keyboard:
+  file.managed:
+    - source: salt://core/keyboard.ubuntu
+    - user: root
+    - group: root
+    - mode: 0644
+{% endif %}
