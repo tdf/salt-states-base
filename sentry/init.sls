@@ -94,5 +94,7 @@ sentry_upgrade:
     - template: jinja
     - context:
         domain: sentry.{{ grains['domain'] }}
+    - require:
+        - pkg: nginx
     - watch_in:
         - service: nginx
