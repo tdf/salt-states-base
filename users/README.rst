@@ -46,6 +46,12 @@ To generate the Password you can use mkpasswd
 
   mkpasswd --method=sha-512 --salt=$(pwgen 8 1)
 
+If mkpasswd is not available to you, you can use python
+
+.. code-block:: python
+
+  import crypt; print crypt.crypt('PASSWORD','$6$HASH')
+
 git
 ===
 
