@@ -1,8 +1,8 @@
 ===========
-Core Module
+Util Module
 ===========
 
-This salt-core-module is responsible for core package management to install the needed packages.
+This module handles different util tools.
 
 ip_forward
 ----------
