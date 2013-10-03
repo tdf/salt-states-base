@@ -1,6 +1,6 @@
-================
-Salt User Module
-================
+===========
+User Module
+===========
 
 This salt-user-module is responsible for Managing Users.
 

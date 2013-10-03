@@ -1,6 +1,6 @@
-===================
-Salt Rsyslog Module
-===================
+==============
+Rsyslog Module
+==============
 
 This salt-module manages rsyslog for remote logging.
 

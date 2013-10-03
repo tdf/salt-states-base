@@ -1,6 +1,6 @@
-====================
-Salt Postgres Module
-====================
+===============
+Postgres Module
+===============
 
 This salt-postgres-module is responsible for postgres client and server management.
 

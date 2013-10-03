@@ -1,6 +1,6 @@
-====================
-Salt Python Module
-====================
+===============
+Python Module
+===============
 
 This salt-python-module is responsible for additional python packages.
 

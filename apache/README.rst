@@ -1,6 +1,6 @@
-==================
-Salt Apache Module
-==================
+=============
+Apache Module
+=============
 
 This salt-apache-module is responsible for Apache Web-Server installation.
 

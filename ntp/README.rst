@@ -1,6 +1,6 @@
-===============
-Salt ntp Module
-===============
+==========
+Ntp Module
+==========
 
 This salt-ntp-module is responsible for installing and configuring ntp.
 

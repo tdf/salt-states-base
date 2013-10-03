@@ -1,6 +1,6 @@
-==================
-Salt Radius Module
-==================
+=============
+Radius Module
+=============
 
 This salt-radius-module is responsible for radius client and server management.
 

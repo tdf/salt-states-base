@@ -1,6 +1,6 @@
-===============
-Salt Apt Module
-===============
+==========
+Apt Module
+==========
 
 This salt-apt-module is responsible for Apt-Stuff.
 

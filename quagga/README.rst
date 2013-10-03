@@ -1,6 +1,6 @@
-==================
-Salt Quagga Module
-==================
+=============
+Quagga Module
+=============
 
 This salt-module installs quagga as dynamic routing daemon
 
