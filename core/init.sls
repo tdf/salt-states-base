@@ -2,7 +2,7 @@
 include:
   - console
   - core.debconf
-  - core.locales
+  - locales
   - core.profile
   - core.timezone
   - core.unattended-upgrades
