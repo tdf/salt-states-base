@@ -1,6 +1,6 @@
-================
-Salt Virt Module
-================
+===========
+Virt Module
+===========
 
 This salt-virt-module is responsible for installing needed Packages for Virtualisation.
 

@@ -1,6 +1,6 @@
-================
-Salt Core Module
-================
+===========
+Core Module
+===========
 
 This salt-core-module is responsible for core package management to install the needed packages.
 

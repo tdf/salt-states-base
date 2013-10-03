@@ -1,6 +1,6 @@
-==================
-Salt Debian Module
-==================
+=============
+Debian Module
+=============
 
 This salt-debian-module is responsible for debian-specific settings.
 

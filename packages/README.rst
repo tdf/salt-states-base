@@ -1,6 +1,6 @@
-===================
-Salt Package Module
-===================
+==============
+Package Module
+==============
 
 This salt-package-module is installs defined packages.
 

@@ -1,6 +1,6 @@
-=================
-Salt Nginx Module
-=================
+============
+Nginx Module
+============
 
 This salt-nginx-module is responsible for Nginx Web-Server installation.
 

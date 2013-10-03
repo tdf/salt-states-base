@@ -1,6 +1,6 @@
-==================
-Salt Editor Module
-==================
+=============
+Editor Module
+=============
 
 This module manages installation and configuration of editors
 

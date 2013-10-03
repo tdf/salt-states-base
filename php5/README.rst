@@ -1,6 +1,6 @@
-================
-Salt php5 Module
-================
+===========
+Php5 Module
+===========
 
 This salt-php5-module is responsible for installing most common php5 modules.
 

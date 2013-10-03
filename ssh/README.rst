@@ -1,6 +1,6 @@
-===============
-Salt SSH Module
-===============
+==========
+SSH Module
+==========
 
 This salt-ssh-module is responsible for ssh client and server management.
 
