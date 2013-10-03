@@ -30,19 +30,9 @@ update-locale:
       - cmd: locale-gen
 
 # manages german keyboard layout
-{% if grains['os'] == 'Debian' %}
 /etc/default/keyboard:
   file.managed:
-    - source: salt://core/keyboard.debian
+    - source: salt://foo.conf.{{ grains['os']|lower }}
     - user: root
     - group: root
     - mode: 0644
-{% endif %}
-{% if grains['os'] == 'Ubuntu' %}
-/etc/default/keyboard:
-  file.managed:
-    - source: salt://core/keyboard.ubuntu
-    - user: root
-    - group: root
-    - mode: 0644
-{% endif %}
