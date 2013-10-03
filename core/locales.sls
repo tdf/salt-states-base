@@ -32,7 +32,7 @@ update-locale:
 # manages german keyboard layout
 /etc/default/keyboard:
   file.managed:
-    - source: salt://foo.conf.{{ grains['os']|lower }}
+    - source: salt://core/keyboard.{{ grains['os']|lower }}
     - user: root
     - group: root
     - mode: 0644
