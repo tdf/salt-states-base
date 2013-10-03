@@ -12,10 +12,3 @@ raven
 -----
 
 The file raven.sls includes the python-based sentry client raven
-
-License
--------
-
-Ths Code is distributed under Apache 2.0 License
-
-.. _`Apache 2.0 license`: http://www.apache.org/licenses/LICENSE-2.0.html
