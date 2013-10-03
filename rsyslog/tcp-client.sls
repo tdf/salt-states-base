@@ -9,6 +9,7 @@ include:
     - mode: 0644
     - template: jinja
     - context:
-      syslog_server: {{ pillar.get('rsyslog-tcp-server', '') }}
+      rsyslog_server: {{ pillar.get('rsyslog-tcp-server', 'loghost') }}
+      rsyslog_port: {{ pillar.get('rsyslog-tcp-port', '514') }}
     - watch_in:
       - service: rsyslog
