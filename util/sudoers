@@ -1,4 +1,12 @@
 #
+# !!!
+# !!! THIS FILE IS MANAGED WITH SALT AND WILL BE OVERWRITTEN !!!
+# !!!
+
+
+
+
+#
 # This file MUST be edited with the 'visudo' command as root.
 #
 # Please consider adding local content in /etc/sudoers.d/ instead of
