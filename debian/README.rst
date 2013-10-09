@@ -13,3 +13,8 @@ init
 ----
 
 The init.sls includes sources.
+
+backports
+---------
+
+Enables backports in :file:`/etc/apt/sources.list.d/backports.list`

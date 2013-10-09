@@ -6,3 +6,7 @@
     - group: root
     - mode: 0644
 
+
+# Local Variables:
+# mode: yaml
+# End:
