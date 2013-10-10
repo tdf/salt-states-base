@@ -43,6 +43,11 @@ pacemaker
 
 pacemaker installs needed packages for pacemaker
 
+zsh
+---
+
+installes the zsh shell
+
 init
 ----
 
