@@ -1,0 +1,2 @@
+deb http://debian.saltstack.com/debian squeeze-saltstack main
+deb http://backports.debian.org/debian-backports squeeze-backports main contrib non-free
