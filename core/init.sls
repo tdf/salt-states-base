@@ -1,8 +1,8 @@
 # includes all core salt-modules
 include:
-  - core.console
+  - console
   - core.debconf
-  - core.locales
+  - locales
   - core.profile
   - core.timezone
   - core.unattended-upgrades

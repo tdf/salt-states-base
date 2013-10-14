@@ -6,6 +6,7 @@
     - user: {{ user }}
     - group: users
     - mode: 0644
+    - replace: False
     - template: jinja
     - context: 
       email: {{ args['email'] }}

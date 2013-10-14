@@ -1,0 +1,3 @@
+zsh:
+  pkg:
+    - installed

@@ -2,13 +2,15 @@
 locales:
   pkg.installed
 
+{% set shortlang = pillar.get('lang', 'de') %}
+
 # installs german manpages and on ubuntu german language pack
 de-locale:
   pkg.installed:
     - pkgs:
-      - manpages-de
+      - manpages-{{ shortlang }}
 {% if grains['os'] == 'Ubuntu' %}
-      - language-pack-de
+      - language-pack-{{ shortlang }}
 {% endif %}
     - require:
       - pkg: locales
@@ -17,7 +19,7 @@ de-locale:
 locale-gen:
   cmd.wait:
     - watch:
-      - pkg: de-locale
+      - pkg: {{ shortlang }}-locale
     - require:
       - pkg: debconf-utils
       - pkg: locales
@@ -30,19 +32,9 @@ update-locale:
       - cmd: locale-gen
 
 # manages german keyboard layout
-{% if grains['os'] == 'Debian' %}
 /etc/default/keyboard:
   file.managed:
-    - source: salt://core/keyboard.debian
+    - source: salt://locales/{{ shortlang }}.keyboard.{{ grains['os']|lower }}
     - user: root
     - group: root
     - mode: 0644
-{% endif %}
-{% if grains['os'] == 'Ubuntu' %}
-/etc/default/keyboard:
-  file.managed:
-    - source: salt://core/keyboard.ubuntu
-    - user: root
-    - group: root
-    - mode: 0644
-{% endif %}

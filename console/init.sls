@@ -5,7 +5,7 @@ include:
 # definition of sonsole-setup to configure console-setup
 console-setup_debconf:
   debconf.set_file:
-    - source: salt://debconf/console-setup
+    - source: salt://console/console-setup
     - require:
       - pkg: debconf-utils
 

@@ -1,6 +1,6 @@
-====================
-Salt Python Module
-====================
+===============
+Python Module
+===============
 
 This salt-python-module is responsible for additional python packages.
 
@@ -14,10 +14,3 @@ dev
 ---
 
 The dev.sls installed development packages for python
-
-License
--------
-
-Ths Code is distributed under Apache 2.0 License
-
-.. _`Apache 2.0 license`: http://www.apache.org/licenses/LICENSE-2.0.html

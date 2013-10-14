@@ -1,16 +1,16 @@
-===================
-Salt Package Module
-===================
+==============
+Package Module
+==============
 
 This salt-package-module is installs defined packages.
 
 drbd
-====
+----
 
 drbd.sls installs needed packages for a drbd managed volume
 
 extra
-=====
+-----
 
 extra.sls installs packages defines in pillar.data
 
@@ -24,33 +24,31 @@ The pillar-data should looks like:
     - ...
 
 git
-===
+---
 
 git.sls installs packages for git version-control-system
 
 lxc
-===
+---
 
 lxc.sls installs needed packages for a lxc container-host
 
 net
-===
+---
 
 net.sls installs core networking packages
 
 pacemaker
-=========
+---------
 
 pacemaker installs needed packages for pacemaker
 
+zsh
+---
+
+installes the zsh shell
+
 init
-====
+----
 
 The init.sls includes git and net and installs additions packages
-
-License
-=======
-
-Ths Code is distributed under Apache 2.0 License
-
-.. _`Apache 2.0 license`: http://www.apache.org/licenses/LICENSE-2.0.html
