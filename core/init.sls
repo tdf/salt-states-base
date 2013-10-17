@@ -4,5 +4,5 @@ include:
   - core.debconf
   - locales
   - core.profile
-  - core.timezone
+  - timezone
   - packages.upgrades
