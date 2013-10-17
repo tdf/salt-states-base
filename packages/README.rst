@@ -43,6 +43,11 @@ pacemaker
 
 pacemaker installs needed packages for pacemaker
 
+upgrades
+--------
+
+upgrades installs packages needed for automatically system upgrades
+
 zsh
 ---
 
