@@ -5,4 +5,4 @@ include:
   - locales
   - core.profile
   - core.timezone
-  - core.unattended-upgrades
+  - packages.upgrades
