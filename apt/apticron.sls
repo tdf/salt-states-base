@@ -1,7 +1,7 @@
 # installs apticron for automatically installs updates
 apticron:
   pkg.installed:
-    - debconf: salt://debconf/apticron
+    - debconf: salt://apt/apticron
 
 # configuring apticron
 /etc/apticron/apticron.conf:
