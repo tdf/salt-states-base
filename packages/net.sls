@@ -1,21 +1,7 @@
+# Install net-Packages provided by pillar.sls
 net-packages:
-  pkg:
-    - installed
+  pkg.installed:
     - names:
-      - dnsutils
-      - ethtool
-      - ifenslave-2.6
-      - iftop
-      - iptraf
-      - nmap 
-      - ntp
-      - rsync
-      - sipcalc
-      - tcpdump 
-      - telnet
-      - traceroute
-      - vlan
-      - vnstat
-      - wakeonlan
-      - wget
-      - whois
+{% for pkg in pillar.get('packages_net', []) %}
+      - {{ pkg }}
+{% endfor %}

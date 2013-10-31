@@ -1,4 +1,4 @@
-# Install git-Packages provided by pillar.sls
+# Install net-Packages provided by pillar.sls
 core-packages:
   pkg.installed:
     - names:
