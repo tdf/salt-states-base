@@ -1,7 +1,7 @@
 # Install git-Packages provided by pillar.sls
-git-packages:
+core-packages:
   pkg.installed:
     - names:
-{% for pkg in pillar.get('packages_git', []) %}
+{% for pkg in pillar.get('packages_core', []) %}
       - {{ pkg }}
 {% endfor %}
