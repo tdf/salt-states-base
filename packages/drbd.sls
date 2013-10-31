@@ -1,4 +1,7 @@
+# Install drbd-Packages provided by pillar.sls
 drbd-packages:
   pkg.installed:
     - names:
-      - drbd8-utils
+{% for pkg in pillar.get('packages_drbd', []) %}
+      - {{ pkg }}
+{% endfor %}
