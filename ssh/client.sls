@@ -1,6 +1,10 @@
 # installs openssh client
-openssh-client:
-  pkg.installed
+openssh-client-packages:
+  pkg.installed:
+    - names:
+{% for pkg in pillar.get('packages_ssh_client', []) %}
+      - {{ pkg }}
+{% endfor %}
 
 # installs predefines sshd config
 /etc/ssh/ssh_config:
