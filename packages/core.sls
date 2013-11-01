@@ -1,7 +1,7 @@
 # Install net-Packages provided by pillar.sls
-net-packages:
+core-packages:
   pkg.installed:
     - names:
-{% for pkg in pillar.get('packages_net', []) %}
+{% for pkg in pillar.get('packages_core', []) %}
       - {{ pkg }}
 {% endfor %}

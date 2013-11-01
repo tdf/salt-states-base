@@ -1,7 +1,7 @@
+# Install git-Packages provided by pillar.sls
 git-packages:
-  pkg:
-    - installed
+  pkg.installed:
     - names:
-      - git
-      - git-core
-      - tig
+{% for pkg in pillar.get('packages_git', []) %}
+      - {{ pkg }}
+{% endfor %}

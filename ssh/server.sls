@@ -1,4 +1,11 @@
 # installs openssh server and blacklist and defines service
+openssh-server-packages:
+  pkg.installed:
+    - names:
+{% for pkg in pillar.get('packages_ssh_server', []) %}
+      - {{ pkg }}
+{% endfor %}
+
 ssh:
   service.running:
 {% if grains['os_family'] == 'RedHat' %}
@@ -6,14 +13,10 @@ ssh:
 {% endif %}
     - enable: true
     - require:
-      - pkg: openssh-server
+      - pkg: openssh-server-packages
     - watch:
-      - pkg: openssh-server
+      - pkg: openssh-server-packages
       - file: /etc/ssh/sshd_config
-  pkg.installed:
-    - names: 
-      - openssh-server
-      - openssh-blacklist
 
 # configures sshd_config using predefined configuration
 /etc/ssh/sshd_config:

@@ -1,6 +1,7 @@
+# Install pacemaker-Packages provided by pillar.sls
 pacemaker-packages:
   pkg.installed:
     - names:
-      - corosync
-      - fuse-utils
-      - pacemaker
+{% for pkg in pillar.get('packages_pacemaker', []) %}
+      - {{ pkg }}
+{% endfor %}

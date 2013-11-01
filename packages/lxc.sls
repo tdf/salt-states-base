@@ -1,5 +1,7 @@
+# Install lxc-Packages provided by pillar.sls
 lxc-packages:
   pkg.installed:
     - names:
-      - lxc
-      - lxctl
+{% for pkg in pillar.get('packages_lxc', []) %}
+      - {{ pkg }}
+{% endfor %}
