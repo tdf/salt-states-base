@@ -1,5 +1,6 @@
 include:
   - packages.git
+  - requisites
 
 etckeeper:
   pkg: 
@@ -22,3 +23,12 @@ etckeeper:
        - pkg: etckeeper
        - file: /etc/etckeeper/etckeeper.conf
     - unless: test -d /etc/.git
+
+installed-packages-etckeeper:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - etckeeper
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

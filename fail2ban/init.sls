@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 fail2ban:
   pkg: 
     - installed
@@ -15,3 +18,13 @@ fail2ban:
        - service: fail2ban
     - require:
        - pkg: fail2ban
+
+
+installed-packages-fail2ban:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - fail2ban
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

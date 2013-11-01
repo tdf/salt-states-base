@@ -1,6 +1,7 @@
 # includes apache.server as Dependencie
 include:
   - apache.server
+  - requisites
 
 # installs apache-module macro
 libapache2-mod-macro:
@@ -32,3 +33,12 @@ a2enmod {{mod}}:
       - pkg: libapache2-mod-macro
     - watch_in:
       - service: apache2
+
+installed-packages-apache-macro:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - libapache2-mod-macro
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

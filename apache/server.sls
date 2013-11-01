@@ -1,4 +1,7 @@
 # installs apache2 packages and defines service for apache
+include:
+  - requisites
+
 apache2:
   service:
     - running
@@ -85,3 +88,12 @@ a2enmod {{mod}}:
     - mode: 0644
     - watch_in:
       - service: apache2
+
+installed-packages-apache-server:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - apache2-mpm-prefork
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

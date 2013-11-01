@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # make sure, locales is installed
 locales:
   pkg.installed
@@ -38,3 +41,13 @@ update-locale:
     - user: root
     - group: root
     - mode: 0644
+
+
+installed-packages-locales:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - locales
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

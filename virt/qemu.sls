@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # installs qemu packages
 virt-qemu-packages:
   pkg:
@@ -33,3 +36,12 @@ net.ipv4.tcp_syncookies:
     - present
     - value: 1
 
+installed-packages-virt-qemu:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - qemu-kvm
+      - libvirt-bin
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

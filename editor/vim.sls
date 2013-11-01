@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # installs vim-package
 vim:
   pkg.installed
@@ -11,3 +14,12 @@ vim:
     - mode: 0644
     - require:
       - pkg: vim
+
+installed-packages-editor-vim:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - vim
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

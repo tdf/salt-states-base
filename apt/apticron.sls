@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # installs apticron for automatically installs updates
 apticron:
   pkg.installed:
@@ -11,3 +14,13 @@ apticron:
     - require:
       - pkg: apticron
       - pkg: debconf-utils
+
+
+installed-packages-apt-apticron:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - apticron
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst
