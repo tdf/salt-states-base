@@ -1,6 +1,6 @@
 # management of useraccounts
 include:
-  - users/profile
+  - users.profile
 
 # change adduser not to create usergroups
 /etc/adduser.conf_usergroups:
