@@ -1,6 +1,6 @@
 # let quagga packages be installed
 include:
-  - quagga.service
+  - quagga
 
 # ebables zebra on all interfaces
 /etc/quagga/debian.conf-zebra:

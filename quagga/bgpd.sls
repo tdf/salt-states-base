@@ -1,6 +1,6 @@
 # let quagga packages be installed
 include:
-  - quagga.service
+  - quagga
   - quagga.zebra
 
 # ebables bgp on all interfaces

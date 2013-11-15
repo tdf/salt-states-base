@@ -4,10 +4,10 @@ Quagga Module
 
 This salt-module installs quagga as dynamic routing daemon
 
-service
--------
+init
+----
 
-The service.sls installs needed quagga packages and defines service for starting
+The init.sls installs needed quagga packages and defines service for starting
 
 zebra
 -----
