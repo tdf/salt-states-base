@@ -38,31 +38,31 @@ def create(hostname,
     '''
     Create new VMs
 
-    hostname: name of the vm to be created
-    ipaddress: the ipaddress the new created vm will use
-    netmask: the netmask of the ipaddress
-    gateway: the default gateway the vm will use
-    bridge: the bridge the network-interface will be created on
+    :param hostname: name of the vm to be created
+    :param ipaddress: the ipaddress the new created vm will use
+    :param netmask: the netmask of the ipaddress
+    :param gateway: the default gateway the vm will use
+    :param bridge: the bridge the network-interface will be created on
         (defaults to br0)
-    domain: the domain-name of the host
-    interface: the interface insite the vm that will be configured
+    :param domain: the domain-name of the host
+    :param interface: the interface insite the vm that will be configured
         (defaults to eth0)
-    nameserver: the nameserver the vm will use
-    ntpserver: the ntpserver the vm will use
-    proxy: the proxyserver the vm will use
-    location: the location (url) of the installer
+    :param nameserver: the nameserver the vm will use
+    :param ntpserver: the ntpserver the vm will use
+    :param proxy: the proxyserver the vm will use
+    :param location: the location (url) of the installer
         (defaults to http://ftp.de.debian.org/debian/dists/wheezy/main/installer-amd64/)
-    preseed_url: url of the preseed-file for the installation
+    :param preseed_url: url of the preseed-file for the installation
         (defaults to http://www.einsle.de/wheezy-test.cfg)
-    ram: the amount of ram in mb the vm will be have
+    :param ram: the amount of ram in mb the vm will be have
         (defaults to 1024)
-    vcpus: the amount of virtual cpus the vm will be have
+    :param vcpus: the amount of virtual cpus the vm will be have
         (defaults to 1)
-    vg_name: the volume_group the vm will be installed in
+    :param vg_name: the volume_group the vm will be installed in
         (defaults to vg_data)
-    lv_name: the new lv name for the vm
+    :param lv_name: the new lv name for the vm
         (defaults to lv_{hostname})
-    lv_size: the size in GB the image for the vm will be created
+    :param lv_size: the size in GB the image for the vm will be created
         (defaults to 10)
 
     CLI Example::
