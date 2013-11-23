@@ -9,7 +9,7 @@ debconf-utils:
 
 /root/saltdoc/installed_packages.rst:
   file.managed:
-    - source: salt://requisites/installed_packages.rst
+    - source: salt://requisites/installed_packages.rst.tpl
     - template: jinja
     - require:
       - file: /root/saltdoc
