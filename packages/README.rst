@@ -2,12 +2,31 @@
 Package Module
 ==============
 
-This salt-package-module is installs defined packages.
+This salt-package-module is installs miscellaneous packages.
+
+core
+----
+
+Installs core packages. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_core:
+    - bash-completion
+    - debconf-utils
+    - dstat
+    - ...
 
 drbd
 ----
 
-drbd.sls installs needed packages for a drbd managed volume
+Installs drbd packages. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_drbd:
+    - drbd8-utils
+    - ...
 
 extra
 -----

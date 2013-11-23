@@ -7,12 +7,12 @@ This salt-nginx-module is responsible for Nginx Web-Server installation.
 php
 ---
 
-The php.sls installs additional files for php5 installation. It includes nginx.sls, so nginx is installed to.
+Includes the nginx server as well as the php5 fpm states.
 
 server
 ------
 
-server.sls installs nginx and defines a service for restarting nginx on config-changes
+Installs the `nginx` package and manages the service with the same name. An e-mail alias from `www-data` to `root` is added.
 
 init
 ----
