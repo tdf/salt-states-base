@@ -16,7 +16,7 @@ Enables backports in :file:`/etc/apt/sources.list.d/backports.list` with one of 
 debconf
 -------
 
-.. deprecated::
+.. deprecated:: 0.0
 
   The package `debconf-utils` is now always included in the requisites
 
