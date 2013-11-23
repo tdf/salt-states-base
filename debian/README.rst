@@ -17,7 +17,6 @@ debconf
 -------
 
 .. deprecated:: 0.0
-
   The package `debconf-utils` is now always included in the requisites
 
 sources
