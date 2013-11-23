@@ -8,7 +8,7 @@ locales:
 {% set shortlang = pillar.get('lang', 'de') %}
 
 # installs german manpages and on ubuntu german language pack
-de-locale:
+{{ shortlang }}-locale:
   pkg.installed:
     - pkgs:
       - manpages-{{ shortlang }}
