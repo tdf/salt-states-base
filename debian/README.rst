@@ -7,17 +7,36 @@ This salt-debian-module is responsible for debian-specific settings.
 backports
 ---------
 
-Enables backports in :file:`/etc/apt/sources.list.d/backports.list`
+Enables backports in :file:`/etc/apt/sources.list.d/backports.list` with one of the following files:
+
+.. literalinclude:: sources.list.debian.wheezy.backports
+   :linenos:
+
 
 debconf
 -------
 
-debconf installes debconf-utils for debconf-setups
+.. deprecated::
+
+  The package `debconf-utils` is now always included in the requisites
 
 sources
 -------
 
-The soruces.sls updates sources.list.
+Updates the file :file:`/etc/apt/sources.list` with one of the following files:
+
+.. literalinclude:: sources.list.debian.squeeze
+   :linenos:
+
+.. literalinclude:: sources.list.debian.wheezy
+   :linenos:
+
+.. literalinclude:: sources.list.ubuntu.precise
+   :linenos:
+
+.. literalinclude:: sources.list.ubuntu.quantal
+   :linenos:
+
 
 init
 ----
