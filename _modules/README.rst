@@ -2,9 +2,10 @@
 Modules
 =======
 
-Here are additional Modules for adding more powerul commands to salt
+Custom modules that add more powerful commands to Salt.
 
-vm.py
------
+vm
+---
 
-vm.py is a command to let salt create new libvirt machines. Additional Documentation is part of the module.
+.. automodule:: vm
+   :members:
