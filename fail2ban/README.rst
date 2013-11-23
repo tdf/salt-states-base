@@ -1,8 +1,8 @@
-===============
-fail2ban Module
-===============
+========
+fail2ban
+========
 
-This salt-fail2ban-module is responsible for installing fail2ban.
+These states install an configure fail2ban.
 
 init
 ----

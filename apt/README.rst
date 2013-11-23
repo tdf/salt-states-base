@@ -1,8 +1,8 @@
-==========
-Apt Module
-==========
+===
+Apt
+===
 
-This salt-apt-module is responsible for Apt-Stuff.
+These states configure apt, apt-listchanges and apticron.
 
 apt
 ---

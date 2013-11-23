@@ -1,8 +1,8 @@
-=============
-Apache Module
-=============
+======
+Apache
+======
 
-This salt-apache-module is responsible for Apache Web-Server installation.
+These states install and configure the webserver of the Apache project.
 
 macro
 -----

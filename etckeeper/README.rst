@@ -1,8 +1,8 @@
-================
-etckeeper Module
-================
+=========
+etckeeper
+=========
 
-This salt-etckeeper -module is responsible for installing etckeeper.
+These states manage the installation and configuration of etckeeper with git as backend.
 
 init
 ----

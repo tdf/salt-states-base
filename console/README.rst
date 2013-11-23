@@ -1,8 +1,8 @@
-==============
-Console Module
-==============
+=======
+Console
+=======
 
-This salt-module manages console-settings.
+These states manage console-settings.
 
 init
 ----

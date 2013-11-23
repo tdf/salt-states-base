@@ -1,8 +1,8 @@
-==========
-Ntp Module
-==========
+===
+Ntp
+===
 
-This salt-ntp-module is responsible for installing and configuring ntp.
+These states are responsible for installing an configuring ntp.
 
 conf
 ----

@@ -1,8 +1,8 @@
-============
-Nginx Module
-============
+=====
+Nginx
+=====
 
-This salt-nginx-module is responsible for Nginx Web-Server installation.
+States to install and configure the fast and light webserver Nginx.
 
 php
 ---

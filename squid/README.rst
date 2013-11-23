@@ -1,8 +1,8 @@
-============
-Squid Module
-============
+=====
+Squid
+=====
 
-This salt-squid-module is responsible for Squid Proxy-Server installation.
+These states are responsible for the installation and configuration of the Squid proxy-server.
 
 init
 ----

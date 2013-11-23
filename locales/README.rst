@@ -2,7 +2,7 @@
 Locales
 =======
 
-Module to configure locales and keyboard settings
+States to configure locales and keyboard settings
 
 init
 ----

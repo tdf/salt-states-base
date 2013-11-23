@@ -1,8 +1,8 @@
-=============
-Radius Module
-=============
+======
+Radius
+======
 
-This salt-radius-module is responsible for radius client and server management.
+These states are responsible for the installation and configuration of the radius client and server.
 
 client
 ------

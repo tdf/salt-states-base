@@ -1,8 +1,8 @@
-===============
-Timezone Module
-===============
+========
+Timezone
+========
 
-This salt-module is responsible for timezone settings.
+These states are responsible for timezone settings.
 
 init
 ----

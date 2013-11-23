@@ -1,8 +1,8 @@
-==============
-Package Module
-==============
+=======
+Package
+=======
 
-This salt-package-module is installs miscellaneous packages.
+This is a collection of various states that intall miscellaneous packages.
 
 core
 ----

@@ -1,8 +1,8 @@
-=============
-Editor Module
-=============
+======
+Editor
+======
 
-This module manages installation and configuration of editors
+These states manage the installation and configuration of editors
 
 vim
 ---

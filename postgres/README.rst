@@ -1,8 +1,8 @@
-===============
-Postgres Module
-===============
+========
+Postgres
+========
 
-This salt-postgres-module is responsible for postgres client and server management.
+These states are responsible for the installation and configuration of postgresql server and client.
 
 client
 ------

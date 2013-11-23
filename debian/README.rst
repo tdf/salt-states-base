@@ -1,8 +1,8 @@
-=============
-Debian Module
-=============
+======
+Debian
+======
 
-This salt-debian-module is responsible for debian-specific settings.
+These states manage debian-specific settings.
 
 backports
 ---------

@@ -1,8 +1,8 @@
-===========
-User Module
-===========
+====
+User
+====
 
-This salt-user-module is responsible for Managing Users.
+These states are responsible for the management of Users.
 
 Pillar
 ------
