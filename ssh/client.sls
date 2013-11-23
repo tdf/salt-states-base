@@ -1,5 +1,5 @@
 # installs openssh client
-openssh-client-packages:
+openssh-client:
   pkg.installed:
     - names:
 {% for pkg in pillar.get('packages_ssh_client', []) %}
@@ -16,3 +16,13 @@ openssh-client-packages:
     - require:
       - pkg: openssh-client
 
+installed-packages-ssh-client:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+{% for pkg in pillar.get('packages_ssh_client', []) %}
+      - {{ pkg }}
+{% endfor %}
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

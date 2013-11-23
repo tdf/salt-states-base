@@ -23,3 +23,4 @@ installed-packages-util-sudo:
       - sudo
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+

@@ -66,7 +66,8 @@ def create(hostname,
         (defaults to 10)
 
     CLI Example::
-        salt '*' vm.create hostname='<name>' ip_address='10.0.0.2' netmask='255.255.255.0' gateway='10.0.0.1'
+      
+      salt '*' vm.create hostname='<name>' ip_address='10.0.0.2' netmask='255.255.255.0' gateway='10.0.0.1'
     '''
     if netmask is None:
         netmask = __salt__['pillar.get']('vm:netmask', '')
