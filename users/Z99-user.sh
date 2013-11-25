@@ -5,6 +5,5 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 alias grepconf='grep -vE "^#|^$|^[\w]+#"'
-alias screen='screen "-e^Tt"'
 alias greg='grep --color'
 alias sudox='sudo cp ~/.Xauthority /root && sudo '
