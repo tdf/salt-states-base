@@ -1,7 +1,8 @@
 ==========
 Supervisor
 ==========
-This salt-supervisor-module is responsible for installation of the Supervisord process controller
+
+These states are responsible for the installation and configuration of the Supervisord process controller
 
 init
 ----

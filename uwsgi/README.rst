@@ -1,8 +1,8 @@
-============
-uWSGI Module
-============
+=====
+uWSGI
+=====
 
-This salt-uwsgi-module is responsible for installation of the uWSGI application server container
+These states are responsible for the installation and configuration of the uWSGI application server container
 
 init
 ----

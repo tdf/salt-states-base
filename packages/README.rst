@@ -1,20 +1,37 @@
-==============
-Package Module
-==============
+=======
+Package
+=======
 
-This salt-package-module is installs defined packages.
+This is a collection of various states that intall miscellaneous packages.
+
+core
+----
+
+Installs core packages. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_core:
+    - bash-completion
+    - debconf-utils
+    - dstat
+    - ...
 
 drbd
 ----
 
-drbd.sls installs needed packages for a drbd managed volume
+Installs drbd packages. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_drbd:
+    - drbd8-utils
+    - ...
 
 extra
 -----
 
-extra.sls installs packages defines in pillar.data
-
-The pillar-data should looks like:
+Installs extra packages. The list of packages is defined as such:
 
 .. code-block:: yaml
 
@@ -26,34 +43,77 @@ The pillar-data should looks like:
 git
 ---
 
-git.sls installs packages for git version-control-system
+Installs packages for git. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_git:
+    - package1
+    - package2
+    - ...
+
 
 lxc
 ---
 
-lxc.sls installs needed packages for a lxc container-host
+Installs packages for lxc. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_lxc:
+    - package1
+    - package2
+    - ...
+
 
 net
 ---
 
-net.sls installs core networking packages
+Installs networking packages. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_net:
+    - package1
+    - package2
+    - ...
+
 
 pacemaker
 ---------
 
-pacemaker installs needed packages for pacemaker
+Installs packages for pacemaker. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_pacemaker:
+    - package1
+    - package2
+    - ...
+
 
 upgrades
 --------
 
-upgrades installs packages needed for automatically system upgrades
+Installs the `unattended-upgrades` packages and configures it with this debconf:
+
+.. literalinclude:: upgrades.debconf
+   :linenos:
+
 
 zsh
 ---
 
-installes the zsh shell
+Installs packages needed for a basic zsh installation. The list of packages is defined as such:
+
+.. code-block:: yaml
+
+  packages_zsh:
+    - package1
+    - package2
+    - ...
 
 init
 ----
 
-The init.sls includes git and net and installs additions packages
+Includes core, git and net

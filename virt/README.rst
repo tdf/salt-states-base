@@ -1,8 +1,8 @@
-===========
-Virt Module
-===========
+====
+Virt
+====
 
-This salt-virt-module is responsible for installing needed Packages for Virtualisation.
+These states are responsible for the installation and configuration of packages vor different virtualisation techniques.
 
 client
 ------

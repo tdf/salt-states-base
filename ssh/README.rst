@@ -1,8 +1,8 @@
-==========
-SSH Module
-==========
+===
+SSH
+===
 
-This salt-ssh-module is responsible for ssh client and server management.
+These states manage and configure the ssh client and server.
 
 client
 ------

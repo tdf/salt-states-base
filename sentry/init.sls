@@ -31,6 +31,16 @@ sentry-psycopg2:
     - require:
         - virtualenv: /srv/sentry/
 
+installed-packages-sentry-virtualenv:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - psycopg2 (PIP, Virtualenv /srv/sentry)
+      - sentry (PIP, Virtualenv /srv/sentry)
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst
+
 sentry:
   pip:
     - installed

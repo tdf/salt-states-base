@@ -1,8 +1,8 @@
-===========
-Php5 Module
-===========
+====
+Php5
+====
 
-This salt-php5-module is responsible for installing most common php5 modules.
+These states are responsible for installing and configuring the most common php modules.
 
 fpm
 ---

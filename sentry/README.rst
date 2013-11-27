@@ -1,7 +1,8 @@
 ======
 Sentry
 ======
-This salt-sentry-module is responsible for installation of the sentry log aggregation platform.
+
+These states are responsible for the installation and configuration of the sentry log aggregation platform.
 
 init
 ----

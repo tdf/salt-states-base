@@ -15,7 +15,7 @@ sudo:
      - require:
        - pkg: sudo
 
-installed-packages-util-sudi:
+installed-packages-util-sudo:
   file.accumulated:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
@@ -23,3 +23,4 @@ installed-packages-util-sudi:
       - sudo
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+

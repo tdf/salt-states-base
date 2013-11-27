@@ -1,8 +1,8 @@
-===========
-Util Module
-===========
+====
+Util
+====
 
-This module handles different util tools.
+These states handle different utilities.
 
 ip_forward
 ----------

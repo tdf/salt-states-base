@@ -1,20 +1,23 @@
-==========
-Ntp Module
-==========
+===
+Ntp
+===
 
-This salt-ntp-module is responsible for installing and configuring ntp.
+These states are responsible for installing an configuring ntp.
 
 conf
 ----
 
-conf.sls manages the configuration of ntp-daemon
+Manages the file :file:`/etc/ntp.conf`:
+
+.. literalinclude:: ntp.conf
+   :linenos:
 
 pkg
 ---
 
-installs ntp and defines service for ntp to let ntp restart on config-changes
+Installs the package `ntp` and manages the service with the same name.
 
 init
 ----
 
-The init.sls pkg and conf.
+Includes conf and pkg.

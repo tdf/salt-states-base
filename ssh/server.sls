@@ -1,5 +1,5 @@
 # installs openssh server and blacklist and defines service
-openssh-server-packages:
+openssh-server:
   pkg.installed:
     - names:
 {% for pkg in pillar.get('packages_ssh_server', []) %}
@@ -13,9 +13,9 @@ ssh:
 {% endif %}
     - enable: true
     - require:
-      - pkg: openssh-server-packages
+      - pkg: openssh-server
     - watch:
-      - pkg: openssh-server-packages
+      - pkg: openssh-server
       - file: /etc/ssh/sshd_config
 
 # configures sshd_config using predefined configuration
@@ -27,3 +27,15 @@ ssh:
     - mode: 0644
     - require:
       - pkg: openssh-server
+
+
+installed-packages-ssh-server:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+{% for pkg in pillar.get('packages_ssh_server', []) %}
+      - {{ pkg }}
+{% endfor %}
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

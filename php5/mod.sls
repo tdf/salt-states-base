@@ -61,3 +61,12 @@ libapache2-mod-php5:
       - pkg: php5-pkg
     - watch_in:
       - service: apache2
+
+installed-packages-php5-mod:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - libapache2-mod-php5
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

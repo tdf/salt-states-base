@@ -1,10 +1,15 @@
-================
-etckeeper Module
-================
+=========
+etckeeper
+=========
 
-This salt-etckeeper -module is responsible for installing etckeeper.
+These states manage the installation and configuration of etckeeper with git as backend.
 
 init
 ----
 
-The init.sls installs etckeeper using git repository.
+Installs `etckeeper` and configures it with the file :file:`/etc/etckeeper/etckeeper.conf`:
+
+.. literalinclude:: etckeeper.conf
+   :linenos:
+
+The repository is initialized afterwards.

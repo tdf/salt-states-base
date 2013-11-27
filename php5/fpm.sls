@@ -68,3 +68,12 @@ php5-fpm:
       - pkg: php5-fpm
     - watch_in:
       - service: php5-fpm
+
+installed-packages-php5-fpm:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - php5-fpm
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

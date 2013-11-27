@@ -9,3 +9,13 @@ freeradius:
     - require:
       - pkg: radius-server
   pkg.installed
+
+
+installed-packages-radius-server:
+  file.accumulated:
+    - name: installed_packages
+    - filename: /root/saltdoc/installed_packages.rst
+    - text:
+      - radius-server
+    - require_in:
+      - file: /root/saltdoc/installed_packages.rst

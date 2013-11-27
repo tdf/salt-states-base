@@ -1,13 +1,17 @@
-=============
-Editor Module
-=============
+======
+Editor
+======
 
-This module manages installation and configuration of editors
+These states manage the installation and configuration of editors
 
 vim
 ---
 
-vim.sls installs and configures vim editor
+Installs the package `vim` and configures it using the following file :file:`/etc/vim/vimrc`:
+
+.. literalinclude:: vimrc
+   :language: vim
+   :linenos:
 
 init
 ----

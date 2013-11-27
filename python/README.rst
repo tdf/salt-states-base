@@ -1,8 +1,8 @@
-===============
-Python Module
-===============
+======
+Python
+======
 
-This salt-python-module is responsible for additional python packages.
+These states are responsible for the installation and configuration of additional python packages.
 
 
 init
