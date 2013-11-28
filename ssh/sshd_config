@@ -62,7 +62,7 @@ ChallengeResponseAuthentication no
 
 X11Forwarding yes
 X11DisplayOffset 10
-X11UseLocalhost no
+X11UseLocalhost yes
 PrintMotd no
 PrintLastLog yes
 TCPKeepAlive yes
