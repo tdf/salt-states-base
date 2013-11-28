@@ -14,6 +14,11 @@ server
 
 The server.sls installs needed openssh-server and openssh-blacklist and manages /etc/ssh/sshd_config.
 
+server_disabletcpforwarding
+---------------------------
+
+Disables TCP-Portforwarding for the SSH-Server
+
 init
 ----
 
