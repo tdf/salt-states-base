@@ -5,5 +5,5 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 alias grepconf='grep -vE "^#|^$|^[\w]+#"'
-alias greg='grep --color'
+alias grep='grep --color'
 alias sudox='sudo cp ~/.Xauthority /root && sudo '
