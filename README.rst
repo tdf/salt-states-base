@@ -38,6 +38,19 @@ Getting started
         - /srv/pillar/salt-pillar-base
 
 
+TODO
+----
+
+- automated testing using docker on github push
+
+- supported Platforms: i386, x64, debian wheezy, debian squeeze, ubuntu 12.04 lts, ubuntu 14.04 lts, centos 6.x
+
+- api stability once basics are implemented
+
+- create howto to write new modules
+
+- best practices
+
 
 Reference
 ---------
