@@ -15,3 +15,4 @@ popd
 pushd docker/centos-6
 docker build -t "salt-states-base/centos:6" .
 popd
+docker run -rm=true -v ..:/srv/salt:ro -v etc:/etc/salt:ro salt-states-base/debian:7 salt-call state.highstate

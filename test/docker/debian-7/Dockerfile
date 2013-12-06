@@ -21,3 +21,5 @@ RUN apt-get install -y -o DPkg::Options::=--force-confold apt-utils
 RUN apt-get install -y -o DPkg::Options::=--force-confold python-software-properties
 RUN apt-get install -y -o DPkg::Options::=--force-confold software-properties-common
 RUN apt-get install -y -o DPkg::Options::=--force-confold salt-minion
+
+VOLUME ["/srv/salt", "/srv/pillar", "/etc/salt"]
