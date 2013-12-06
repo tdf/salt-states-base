@@ -9,3 +9,9 @@ popd
 pushd docker/debian-6
 docker build -t "salt-states-base/debian:6" .
 popd
+pushd docker/ubuntu-12.04
+docker build -t "salt-states-base/ubuntu:12.04" .
+popd
+pushd docker/centos-6
+docker build -t "salt-states-base/centos:6" .
+popd
