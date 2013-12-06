@@ -55,11 +55,9 @@ TODO
 Reference
 ---------
 
-.. toctree::
-   :maxdepth: 2
-   :glob:
+:doc:`Full table of contents </doc/contents>`
+    Complete table of contents
 
-   */*
 
 License
 -------
