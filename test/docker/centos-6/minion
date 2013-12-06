@@ -1,1 +1,8 @@
-../../etc/minion
+file_client: local
+file_roots:
+  base:
+    - /srv/salt/test/state
+    - /srv/salt
+pillar_roots:
+  base:
+    - /srv/pillar
