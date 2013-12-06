@@ -3,6 +3,7 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
+set -e
 pushd docker/debian-7
 docker build -t "salt-states-base/debian:7" .
 popd
@@ -15,4 +16,5 @@ popd
 pushd docker/centos-6
 docker build -t "salt-states-base/centos:6" .
 popd
-docker run -rm=true -v ..:/srv/salt:ro -v etc:/etc/salt:ro salt-states-base/debian:7 salt-call state.highstate
+set +e
+docker run -rm=true -v ..:/srv/salt:ro salt-states-base/debian:7 salt-call state.highstate -l debug

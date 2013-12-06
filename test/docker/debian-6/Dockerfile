@@ -20,4 +20,5 @@ RUN apt-get update && apt-get upgrade -y -o DPkg::Options::=--force-confold
 RUN apt-get install -y -o DPkg::Options::=--force-confold python
 RUN apt-get install -y -o DPkg::Options::=--force-confold salt-minion
 
-VOLUME ["/srv/salt", "/srv/pillar", "/etc/salt"]
+ADD ../etc/minion /etc/salt/minion
+VOLUME ["/srv/salt", "/srv/pillar"]

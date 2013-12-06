@@ -19,4 +19,5 @@ RUN yum install -y --enablerepo=epel python-setuptools
 
 RUN easy_install-2.6 https://github.com/saltstack/salt/archive/develop.tar.gz
 
-VOLUME ["/srv/salt", "/srv/pillar", "/etc/salt"]
+ADD ../etc/minion /etc/salt/minion
+VOLUME ["/srv/salt", "/srv/pillar"]
