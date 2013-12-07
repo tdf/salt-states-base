@@ -58,6 +58,8 @@ Reference
 :doc:`Full table of contents </doc/contents>`
     Complete table of contents
 
+:doc:`Developer guide </doc/development>`
+    Start here if you are interested in contributing to this repository
 
 License
 -------
