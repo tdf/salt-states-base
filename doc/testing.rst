@@ -27,11 +27,20 @@ Usage
 
     sudo ./build.sh
 
+  This will download Debian 6, Debian 7, CentOS 6 and Ubuntu 12.04 containers and install and configure a masterless salt in them.
+
 - Run the test suite::
 
     sudo ./run.sh
 
-- This will do the following:
-  
-  - Download Debian 6, Debian 7, Centos 6, Ubuntu 12.04 Containers
-  - Run a local highstate with all states enabled in each of them
+  This runs a local highstate with all states enabled in each of the containers. The output can be found in the directory :file:`test/log`.
+
+- It is also possible to run own commands in the test suite. For example, if you want to test a specific state::
+
+    sudo ./run.sh state.sls my.state
+
+
+Notes
+-----
+
+The command :program:`run.sh` is designed to make sure that every time it is called, a fresh container is used.
