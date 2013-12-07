@@ -2,7 +2,9 @@
 salt-states-base
 ================
 
-Collection of salt states for basic system configuration
+This is a collection of salt states for basic system configuration.
+Most of the different states are interdependent, it was therefore decided to host them in one repository.
+
 
 
 Getting started
@@ -41,15 +43,12 @@ Getting started
 TODO
 ----
 
-- automated testing using docker on github push
-
+- automated testing github push
 - supported Platforms: i386, x64, debian wheezy, debian squeeze, ubuntu 12.04 lts, ubuntu 14.04 lts, centos 6.x
-
 - api stability once basics are implemented
-
 - create howto to write new modules
-
 - best practices
+- don't require pillar data, use something like http://docs.saltstack.com/topics/conventions/formulas.html#map-jinja
 
 
 Reference
