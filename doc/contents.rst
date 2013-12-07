@@ -19,6 +19,14 @@ Available states
     :maxdepth: 1
     :glob:
 
-    /_modules/*
-    /_returners/*
-    /*/README
+    /[!_]*/README
+
+
+Additional functions
+--------------------
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   /_*/README
