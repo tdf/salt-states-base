@@ -12,7 +12,7 @@ nginx:
     - installed
 
 # defines mail-alias from www-data to root
-www-data:
+www-data_nginx:
   alias.present:
     - target: root
 

@@ -16,7 +16,7 @@ apache2:
     - name: apache2-mpm-prefork
 
 # create alias from www-data to root in aliases
-www-data:
+www-data_apache:
   alias.present:
     - target: root
 
