@@ -45,10 +45,11 @@ include:
 
 # set ssh-keys for created users
 {% for auth in args.get('ssh_auth', []) %}
-{{ auth['key'] }}:
+{{ user }}_{{ auth['key'] }}:
   ssh_auth:
     - present
     - user: {{ user }}
+    - name: {{ auth['key'] }}
     - enc: {{ auth['type'] }}
     - comment: {{ auth.get('comment', user)}}
     - require:
