@@ -16,7 +16,7 @@ Getting started
     cd /srv/salt
     git clone git@github.com:tdf/salt-states-base.git salt-states-base
 
-- Add this location to your `file_roots`, e.g. in :file:`/etc/salt/master.d/paths`:
+- Add this location to your `file_roots`, e.g. in :file:`/etc/salt/master.d/paths.conf`:
 
   .. code-block:: yaml
 
@@ -30,7 +30,7 @@ Getting started
     cd /srv/pillar
     git clone git@github.com:tdf/salt-pillar-base.git salt-pillar-base
 
-- Add this location to your `pillar_roots`, e.g. in :file:`/etc/salt/master.d/paths`:
+- Add this location to your `pillar_roots`, e.g. in :file:`/etc/salt/master.d/paths.conf`:
 
   .. code-block:: yaml
 
