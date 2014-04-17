@@ -1,3 +1,5 @@
+# this file is managed by salt
+
 <Directory />
   Options -Indexes FollowSymLinks
   AllowOverride none

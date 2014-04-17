@@ -1,3 +1,5 @@
+# this file is managed by salt
+
 <Macro VHost $fqdn>
   ServerName $fqdn
   ServerAdmin webmaster@einsle.de

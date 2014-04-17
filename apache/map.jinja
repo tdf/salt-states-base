@@ -1,0 +1,10 @@
+{% set apache = salt['grains.filter_by']({
+    'Debian': {
+        'server': 'apache2-mpm-prefork',
+        'service': 'apache2',
+        'user': 'www-data',
+        'group': 'www-data',
+        'site-dir': '/etc/apache2/sites-enabled',
+        'conf-dir': '/etc/apache2/conf.d', 
+    },
+}, merge=salt['pillar.get']('apache2:lookup')) %}
