@@ -48,7 +48,7 @@ TODO
 - api stability once basics are implemented
 - create howto to write new modules
 - best practices
-- don't require pillar data, use something like http://docs.saltstack.com/topics/conventions/formulas.html#map-jinja
+- don't require pillar data, use something like http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html
 
 
 Reference
