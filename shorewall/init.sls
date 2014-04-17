@@ -1,6 +1,9 @@
 shorewall:
   pkg:
     - installed
+    - names:
+      - shorewall
+      - shorewall6
   service:
     - running
     - enable: True
