@@ -5,3 +5,7 @@
     - user: root
     - group: root
     - mode: 0755
+
+/root/.bash_profile:
+  file.managed:
+    - source: salt://users/root.bash_profile
