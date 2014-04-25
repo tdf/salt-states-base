@@ -19,7 +19,7 @@ nginx:
 nginx-include-dir:
   file:
     - recurse
-    - name: {{ nginx.include-dir }}
+    - name: {{ nginx.include_dir }}
     - source: salt://nginx/includes
     - require:
       - pkg: nginx

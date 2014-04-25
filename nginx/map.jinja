@@ -3,7 +3,7 @@
         'server': 'nginx',
         'service': 'nginx',
         'user': 'www-data',
-        'site-dir': '/etc/nginx/sites-enabled',
-        'include-dir': '/etc/nginx/includes',
+        'site_dir': '/etc/nginx/sites-enabled',
+        'include_dir': '/etc/nginx/includes',
     },
 }, merge=salt['pillar.get']('nginx:lookup')) %}
