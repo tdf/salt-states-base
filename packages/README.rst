@@ -4,96 +4,65 @@ Package
 
 This is a collection of various states that intall miscellaneous packages.
 
-core
-----
+Available pillar settings
+-------------------------
 
-Installs core packages. The list of packages is defined as such:
+To adapt the installed packages, define your pillar data as such:
 
 .. code-block:: yaml
 
-  packages_core:
-    - bash-completion
-    - debconf-utils
-    - dstat
-    - ...
+  package:
+    lookup:
+      <core>:
+        - bash-completion
+        - debconf-utils
+        - dstat
+        - ...
+
+Available states
+----------------
+
+core
+^^^^
+
+Installs core packages.
 
 drbd
-----
+^^^^
 
-Installs drbd packages. The list of packages is defined as such:
-
-.. code-block:: yaml
-
-  packages_drbd:
-    - drbd8-utils
-    - ...
+Installs drbd packages.
 
 extra
------
+^^^^^
 
-Installs extra packages. The list of packages is defined as such:
-
-.. code-block:: yaml
-
-  packages_extra:
-    - package1
-    - package2
-    - ...
+Installs extra packages.
 
 git
----
+^^^
 
-Installs packages for git. The list of packages is defined as such:
-
-.. code-block:: yaml
-
-  packages_git:
-    - package1
-    - package2
-    - ...
+Installs packages for git.
 
 
 lxc
----
+^^^
 
-Installs packages for lxc. The list of packages is defined as such:
-
-.. code-block:: yaml
-
-  packages_lxc:
-    - package1
-    - package2
-    - ...
+Installs packages for lxc.
 
 
 net
----
+^^^
 
-Installs networking packages. The list of packages is defined as such:
-
-.. code-block:: yaml
-
-  packages_net:
-    - package1
-    - package2
-    - ...
+Installs networking packages.
 
 
 pacemaker
----------
+^^^^^^^^^
 
-Installs packages for pacemaker. The list of packages is defined as such:
-
-.. code-block:: yaml
-
-  packages_pacemaker:
-    - package1
-    - package2
-    - ...
+Installs packages for pacemaker.
 
 
 upgrades
---------
+^^^^^^^^
 
 Installs the `unattended-upgrades` packages and configures it with this debconf:
 
@@ -102,18 +71,11 @@ Installs the `unattended-upgrades` packages and configures it with this debconf:
 
 
 zsh
----
+^^^
 
-Installs packages needed for a basic zsh installation. The list of packages is defined as such:
-
-.. code-block:: yaml
-
-  packages_zsh:
-    - package1
-    - package2
-    - ...
+Installs packages needed for a basic zsh installation.
 
 init
-----
+^^^^
 
 Includes core, git and net

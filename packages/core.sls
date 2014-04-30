@@ -1,8 +1,10 @@
-# Install net-Packages provided by pillar.sls
+{% from 'packages/map.jinja' import packages with context %}
+
+{% if packages.core %}
 core-packages:
   pkg.installed:
     - names:
-{% for pkg in pillar.get('packages_core', []) %}
+{% for pkg in packages.core %}
       - {{ pkg }}
 {% endfor %}
 
@@ -11,8 +13,9 @@ installed-packages-packages-core:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-{% for pkg in pillar.get('packages_core', []) %}
+{% for pkg in packages.core %}
       - {{ pkg }}
 {% endfor %}
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+{% endif %}

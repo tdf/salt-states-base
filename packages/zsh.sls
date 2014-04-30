@@ -1,8 +1,11 @@
+{% from 'packages/map.jinja' import packages with context %}
+
+{% if packages.zsh %}
 # Install zsh-Packages provided by pillar.sls
 zsh-packages:
   pkg.installed:
     - names:
-{% for pkg in pillar.get('packages_zsh', []) %}
+{% for pkg in packages.zsh %}
       - {{ pkg }}
 {% endfor %}
 
@@ -11,8 +14,9 @@ installed-packages-packages-zsh:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-{% for pkg in pillar.get('packages_zsh', []) %}
+{% for pkg in packages.zsh %}
       - {{ pkg }}
 {% endfor %}
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+{% endif %}

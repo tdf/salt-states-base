@@ -1,8 +1,10 @@
-# Install drbd-Packages provided by pillar.sls
+{% from 'packages/map.jinja' import packages with context %}
+
+{% if packages.drbd %}
 drbd-packages:
   pkg.installed:
     - names:
-{% for pkg in pillar.get('packages_drbd', []) %}
+{% for pkg in packages.drbd %}
       - {{ pkg }}
 {% endfor %}
 
@@ -11,8 +13,9 @@ installed-packages-packages-drbd:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-{% for pkg in pillar.get('packages_drbd', []) %}
+{% for pkg in packages.drbd %}
       - {{ pkg }}
 {% endfor %}
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+{% endif %}

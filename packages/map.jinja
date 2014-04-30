@@ -1,0 +1,13 @@
+{% set packages = salt['grains.filter_by']({
+    'Debian': {
+        'core':       ('bash-completion', 'debconf-utils', 'dstat', 'findutils', 'htop', 'links', 'lsof', 'lynx', 'mc', 'mlocate', 'pwgen', 'sipcalc', 'smartmontools', 'unzip', 'zip'),
+        'drbd':       ('drbd8-utils',),
+        'git':        ('git', 'git-core', 'tig'),
+        'lxc':        ('lxc', 'lxctl'),
+        'net':        ('dnsutils', 'ethtool', 'ifenslave-2.6', 'iftop', 'iptraf', 'nmap', 'ntp', 'rsync', 'sipcalc', 'tcpdump', 'telnet', 'traceroute', 'vlan', 'vnstat', 'wakeonlan', 'wget', 'whois'),
+        'pacemaker':  ('corosync', 'fuse-utils', 'pacemaker'),
+        'ssh_client': ('openssh-client', ),
+        'ssh_server': ('openssh-server', 'openssh-blacklist', 'openssh-blacklist-extra' ),
+        'zsh':        ('zsh', ),
+    },
+}, merge=salt['pillar.get']('packages:lookup')) %}

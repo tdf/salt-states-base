@@ -1,7 +1,10 @@
+{% from 'packages/map.jinja' import packages with context %}
+
+{% if packages.extra %}
 extra-packages:
   pkg.installed:
     - names:
-{%- for pkg in pillar.get('packages_extra', []) %}
+{%- for pkg in packages.extra %}
       - {{ pkg }}
 {%- endfor %}
 
@@ -10,8 +13,10 @@ installed-packages-packages-extra:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-{%- for pkg in pillar.get('packages_extra', []) %}
+{%- for pkg in packages.extra %}
       - {{ pkg }}
 {%- endfor %}
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+
+{% endif %}
