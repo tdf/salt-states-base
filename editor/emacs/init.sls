@@ -1,0 +1,2 @@
+include:
+  - editor.emacs.nox
