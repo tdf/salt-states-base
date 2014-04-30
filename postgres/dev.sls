@@ -1,12 +1,14 @@
+{% from "postgres/map.jinja" import postgres with context %}
+
 libpq-dev:
   pkg:
-    - installed
+    - {{ postgres.dev }}
 
 installed-packages-postgres-dev:
   file.accumulated:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-      - libpq-dev
+      - {{ postgres.dev }}
     - require_in:
       - file: /root/saltdoc/installed_packages.rst

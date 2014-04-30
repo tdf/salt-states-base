@@ -1,0 +1,8 @@
+{% set postgres = salt['grains.filter_by']({
+    'Debian': {
+        'server': 'postgresql',
+        'service': 'postgresql',
+        'client': 'postgresql-client',
+        'dev': 'libpq-dev',
+    },
+}, merge=salt['pillar.get']('postgres:lookup')) %}
