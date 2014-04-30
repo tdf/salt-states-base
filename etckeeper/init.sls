@@ -1,3 +1,5 @@
+{% from 'etckeeper/map.jinja' include etckeeper with context %}
+
 include:
   - packages.git
   - requisites
@@ -5,6 +7,7 @@ include:
 etckeeper:
   pkg: 
     - installed
+    - name: {{ etckeeper.etckeeper }}
     - require:
       - pkg: git-packages
 
@@ -29,6 +32,6 @@ installed-packages-etckeeper:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-      - etckeeper
+      - {{ etckeeper.etckeeper }}
     - require_in:
       - file: /root/saltdoc/installed_packages.rst

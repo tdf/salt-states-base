@@ -1,0 +1,5 @@
+{% set etckeeper = salt['grains.filter_by']({
+    'Debian': {
+        'etckeeper': 'etckeeper',
+    },
+}, merge=salt['pillar.get']('etckeeper:lookup')) %}
