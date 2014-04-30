@@ -30,7 +30,7 @@ apache2:
 apache-localized-error-pages:
   file.managed:
     - source: salt://apache/localized-error-pages
-    - name: {{ apache.conf-dir }}/localized-error-pages
+    - name: {{ apache.conf_dir }}/localized-error-pages
     - user: root
     - group: root
     - mode: 0644
