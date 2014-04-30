@@ -40,4 +40,4 @@ Updates the file :file:`/etc/apt/sources.list` with one of the following files:
 init
 ----
 
-The init.sls includes sources.
+The init.sls includes sources and debconf.
