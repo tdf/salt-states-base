@@ -1,3 +1,5 @@
+{% if grains['os_family'] == 'Debian' %}
+
 include:
   - requisites
 
@@ -24,3 +26,5 @@ installed-packages-apt-apticron:
       - apticron
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+
+{% endif %}

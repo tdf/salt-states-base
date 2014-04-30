@@ -1,3 +1,4 @@
+{% if grains['os_family'] == 'Debian' %}
 include:
   - requisites
 
@@ -14,3 +15,5 @@ installed-packages-apt-listchanges:
       - apt-listchanges
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
+
+{% endif %}
