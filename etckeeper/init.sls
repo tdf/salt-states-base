@@ -1,4 +1,4 @@
-{% from 'etckeeper/map.jinja' include etckeeper with context %}
+{% from 'etckeeper/map.jinja' import etckeeper with context %}
 
 include:
   - packages.git
