@@ -2,7 +2,8 @@
 
 libpq-dev:
   pkg:
-    - {{ postgres.dev }}
+    - installed
+    - name: {{ postgres.dev }}
 
 installed-packages-postgres-dev:
   file.accumulated:

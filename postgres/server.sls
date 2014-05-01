@@ -21,7 +21,7 @@ installed-packages-postgres-server:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-      - {{ postgresql.server }}
+      - {{ postgres.server }}
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
 
@@ -30,6 +30,6 @@ installed-services-postgres-server:
     - name: installed_services
     - filename: /root/saltdoc/installed_services.rst
     - text:
-      - {{ postgresql.service }}
+      - {{ postgres.service }}
     - require_in:
       - file: /root/saltdoc/installed_services.rst
