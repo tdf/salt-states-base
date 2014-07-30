@@ -8,6 +8,24 @@ virt-qemu-packages:
     - names:
       - qemu-kvm
       - libvirt-bin
+      - sysfsutils
+
+sysfs_ksm:
+  file:
+    - append
+    - name: /etc/sysfs.conf
+    - text: |
+        kernel/mm/ksm/run = 1
+        kernel/mm/ksm/pages_to_scan = 20000
+    - require:
+        - pkg: virt-qemu-packages
+  service:
+    - running
+    - enable: True
+    - watch:
+        - file: sysfs_ksm
+    - require:
+        - file: sysfs_ksm
 
 # enable ipv4 forwarding
 net.ipv4.ip_forward:
