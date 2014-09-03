@@ -18,6 +18,7 @@ qemu
 ----
 
 The qemu.sls installs qemu-dependent packages and sets some proc-variables.
+It also enables kernel samepage merging to enable memory deduplication.
 
 init
 ----
