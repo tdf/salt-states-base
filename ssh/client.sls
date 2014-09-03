@@ -1,8 +1,9 @@
+{% from "ssh/map.jinja" import ssh with context %}
 # installs openssh client
 openssh-client:
   pkg.installed:
     - names:
-{% for pkg in pillar.get('packages_ssh_client', []) %}
+{% for pkg in ssh.client %}
       - {{ pkg }}
 {% endfor %}
 
@@ -21,7 +22,7 @@ installed-packages-ssh-client:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-{% for pkg in pillar.get('packages_ssh_client', []) %}
+{% for pkg in ssh.client %}
       - {{ pkg }}
 {% endfor %}
     - require_in:

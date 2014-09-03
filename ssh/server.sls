@@ -1,16 +1,15 @@
+{% from "ssh/map.jinja" import ssh with context %}
 # installs openssh server and blacklist and defines service
 openssh-server:
   pkg.installed:
     - names:
-{% for pkg in pillar.get('packages_ssh_server', []) %}
+{% for pkg in ssh.server %}
       - {{ pkg }}
 {% endfor %}
 
 ssh:
   service.running:
-{% if grains['os_family'] == 'RedHat' %}
-    - name: sshd
-{% endif %}
+    - name: {{ ssh.server_service }}
     - enable: true
     - require:
       - pkg: openssh-server
@@ -35,7 +34,7 @@ installed-packages-ssh-server:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-{% for pkg in pillar.get('packages_ssh_server', []) %}
+{% for pkg in ssh.server %}
       - {{ pkg }}
 {% endfor %}
     - require_in:
