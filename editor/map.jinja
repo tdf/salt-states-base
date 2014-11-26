@@ -1,6 +1,6 @@
 {% set editor = salt['grains.filter_by']({
     'Debian': {
         'vim': 'vim',
-        'emacs_nox': 'emacs-nox',
+        'emacs_nox': 'emacs23-nox',
     },
 }, merge=salt['pillar.get']('editor:lookup')) %}
