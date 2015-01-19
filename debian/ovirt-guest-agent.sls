@@ -8,7 +8,7 @@
 ovirt-guest-agent-apt-key:
   cmd.run:
     - unless: apt-key list | grep 73A1A299
-    - name: wget -q -O- "http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key" | apt-key add -
+    - name: wget -q -O- "http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key" | apt-key add - && apt-get update
 {% endif %}
 
 ovirt-guest-agent:
