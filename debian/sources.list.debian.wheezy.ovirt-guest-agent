@@ -1,0 +1,3 @@
+# this file is managed via salt
+# http://www.ovirt.org/Feature/GuestAgentDebian
+deb http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/ ./
