@@ -2,6 +2,7 @@
 include:
   - users.profile
 
+{% if grains['os_family'] == "Debian" %}
 # change adduser not to create usergroups
 /etc/adduser.conf_usergroups:
   file.sed:
@@ -15,6 +16,8 @@ include:
     - name: /etc/adduser.conf
     - before: '^#*\s*DIR_MODE\s*=\s*.*$'
     - after: 'DIR_MODE=0711'
+
+{% endif %}
 
 # change useradd not to create usergroups
 /etc/login.defs:
