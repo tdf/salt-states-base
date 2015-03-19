@@ -12,10 +12,10 @@ delete=(test/)
 states=( "${states[@]/$delete}" )
 for state in "${states[@]}"
 do
-    ./run.sls state.show_sls ${state%/}
+    ./run.sh state.show_sls ${state%/}
 done
 
 for state in "${states[@]}"
 do
-    ./run.sls state.sls ${state%/}
+    ./run.sh state.sls ${state%/}
 done
