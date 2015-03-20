@@ -5,7 +5,9 @@ if [[ $EUID -ne 0 ]]; then
 fi
 ./build.sh
 shopt -s nullglob
+pushd ..
 states=([^_]*/)
+popd
 delete=(doc/)
 states=( "${states[@]/$delete}" )
 delete=(test/)
