@@ -2,6 +2,16 @@
 etckeeper
 =========
 
+.. image:: http://vm170.documentfoundation.org/badge/etckeeper/debian:7
+
+.. image:: http://vm170.documentfoundation.org/badge/etckeeper/ubuntu:12.04
+
+.. image:: http://vm170.documentfoundation.org/badge/etckeeper/ubuntu:14.04
+
+.. image:: http://vm170.documentfoundation.org/badge/etckeeper/centos:6
+
+.. image:: http://vm170.documentfoundation.org/badge/etckeeper/centos:7
+
 These states manage the installation and configuration of etckeeper with git as backend.
 
 init

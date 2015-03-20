@@ -2,6 +2,17 @@
 Apt
 ===
 
+.. image:: http://vm170.documentfoundation.org/badge/apt/debian:7
+
+.. image:: http://vm170.documentfoundation.org/badge/apt/ubuntu:12.04
+
+.. image:: http://vm170.documentfoundation.org/badge/apt/ubuntu:14.04
+
+.. image:: http://vm170.documentfoundation.org/badge/apt/centos:6
+
+.. image:: http://vm170.documentfoundation.org/badge/apt/centos:7
+
+
 These states configure apt, apt-listchanges and apticron.
 
 apt

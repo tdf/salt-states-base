@@ -2,6 +2,16 @@
 Debian
 ======
 
+.. image:: http://vm170.documentfoundation.org/badge/debian/debian:7
+
+.. image:: http://vm170.documentfoundation.org/badge/debian/ubuntu:12.04
+
+.. image:: http://vm170.documentfoundation.org/badge/debian/ubuntu:14.04
+
+.. image:: http://vm170.documentfoundation.org/badge/debian/centos:6
+
+.. image:: http://vm170.documentfoundation.org/badge/debian/centos:7
+
 These states manage debian-specific settings.
 
 backports

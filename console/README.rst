@@ -2,6 +2,16 @@
 Console
 =======
 
+.. image:: http://vm170.documentfoundation.org/badge/console/debian:7
+
+.. image:: http://vm170.documentfoundation.org/badge/console/ubuntu:12.04
+
+.. image:: http://vm170.documentfoundation.org/badge/console/ubuntu:14.04
+
+.. image:: http://vm170.documentfoundation.org/badge/console/centos:6
+
+.. image:: http://vm170.documentfoundation.org/badge/console/centos:7
+
 These states manage console-settings.
 
 init

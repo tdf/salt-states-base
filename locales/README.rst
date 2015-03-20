@@ -2,6 +2,16 @@
 Locales
 =======
 
+.. image:: http://vm170.documentfoundation.org/badge/locales/debian:7
+
+.. image:: http://vm170.documentfoundation.org/badge/locales/ubuntu:12.04
+
+.. image:: http://vm170.documentfoundation.org/badge/locales/ubuntu:14.04
+
+.. image:: http://vm170.documentfoundation.org/badge/locales/centos:6
+
+.. image:: http://vm170.documentfoundation.org/badge/locales/centos:7
+
 States to configure locales and keyboard settings
 
 init
