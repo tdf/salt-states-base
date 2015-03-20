@@ -1,5 +1,8 @@
 {% from "nginx/map.jinja" import nginx with context %}
 
+include:
+  - requisites
+
 # installs nginx server and configuring service for nginx
 nginx:
   service:
