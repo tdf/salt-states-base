@@ -1,0 +1,14 @@
+{% set snmpd = salt['grains.filter_by']({
+    'default': {
+        'packages': ['snmpd', ],
+        'service': 'snmpd',
+	'defaults_file': '/etc/default/snmpd',
+    },
+    'RedHat': {
+    	'packages': ['net-snmp', 'net-snmp-utils'],
+	'service': 'snmpd',
+	'defaults_file': '/etc/sysconfig/snmpd',
+	'defaults_template': 'sysconfig_snmpd',
+
+    },
+}, merge=salt['pillar.get']('snmpd:lookup')) %}

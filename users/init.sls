@@ -1,29 +1,7 @@
 # management of useraccounts
 include:
   - users.profile
-
-{% if grains['os_family'] == "Debian" %}
-# change adduser not to create usergroups
-/etc/adduser.conf_usergroups:
-  file.sed:
-    - name: /etc/adduser.conf
-    - before: '^#*\s*USERGROUPS\s*=\s*.*$'
-    - after: 'USERGROUPS=no'
-
-# change dirmode for adduser
-/etc/adduser.conf_dir_mode:
-  file.sed:
-    - name: /etc/adduser.conf
-    - before: '^#*\s*DIR_MODE\s*=\s*.*$'
-    - after: 'DIR_MODE=0711'
-
-{% endif %}
-
-# change useradd not to create usergroups
-/etc/login.defs:
-  file.sed:
-    - before: '^USERGROUPS_ENAB yes$' 
-    - after: 'USERGROUPS_ENAB no'
+  - users.defaults
 
 # read out pillar-data and create useraccounts
 {% for user, args in pillar.get('users', {}).iteritems() %}

@@ -1,0 +1,7 @@
+################################
+# This file is managed by salt #
+################################
+
+# snmpd command line options
+# '-f' is implicitly added by snmpd systemd unit file
+OPTIONS="-LS0-4d"
