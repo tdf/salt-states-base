@@ -4,28 +4,20 @@ include:
   - quagga.zebra
 
 # ebables rip on all interfaces
-/etc/quagga/debian.conf-rip:
-  file.sed:
-    - before: '-A 127.0.0.1'
-    - after: ''
-    - limit: 'ripd_options='
-    - name: /etc/quagga/debian.conf
-    - require:
-      - pkg: quagga
-    - watch_in:
-      - service: quagga
+quagga-enable-rip-all:
+  file.accumulated:
+    - filename: /etc/quagga/debian.conf
+    - text: 'ripd_options="--daemon"'
+    - require_in:
+      - file: /etc/quagga/debian.conf
 
 # enable rip daemon
-/etc/quagga/daemons-rip:
-  file.sed:
-    - before: 'no'
-    - after: 'yes'
-    - limit: '^ripd='
-    - name: /etc/quagga/daemons
-    - require:
-      - pkg: quagga
-    - watch_in:
-      - service: quagga
+quagga-enable-rip-daemon:
+  file.accumulated:
+    - filename: /etc/quagga/daemons
+    - text: "ripd=yes"
+    - require_in:
+      - file: /etc/quagga/daemons
 
 # create file ripd.conf
 /etc/quagga/ripd.conf:

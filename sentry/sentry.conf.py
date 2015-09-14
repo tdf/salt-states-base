@@ -15,7 +15,7 @@ DATABASES = {
 
         # If you change this, you'll also need to install the appropriate python
         # package: psycopg2 (Postgres) or mysql-python
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'sentry.db.postgres',
 
         'NAME': 'sentry',
         'USER': 'sentry',

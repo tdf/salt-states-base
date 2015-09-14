@@ -3,29 +3,22 @@ include:
   - quagga
   - quagga.zebra
 
-# ebables bgp on all interfaces
-/etc/quagga/debian.conf-bgp:
-  file.sed:
-    - before: '-A 127.0.0.1'
-    - after: ''
-    - limit: 'bgpd_options='
-    - name: /etc/quagga/debian.conf
-    - require:
-      - pkg: quagga
-    - watch_in:
-      - service: quagga
+# enables bgp on all interfaces
+
+quagga-enable-bgp-all:
+  file.accumulated:
+    - filename: /etc/quagga/debian.conf
+    - text: 'bgpd_options="--daemon"'
+    - require_in:
+      - file: /etc/quagga/debian.conf
 
 # enable bgp daemon
-/etc/quagga/daemons-bgp:
-  file.sed:
-    - before: 'no'
-    - after: 'yes'
-    - limit: '^bgpd='
-    - name: /etc/quagga/daemons
-    - require:
-      - pkg: quagga
-    - watch_in:
-      - service: quagga
+quagga-enable-bgp-daemon:
+  file.accumulated:
+    - filename: /etc/quagga/daemons
+    - text: "bgpd=yes"
+    - require_in:
+      - file: /etc/quagga/daemons
 
 # create file bgpd.conf
 /etc/quagga/bgpd.conf:

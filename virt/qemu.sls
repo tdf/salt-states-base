@@ -21,10 +21,9 @@ sysfs_ksm:
         - pkg: virt-qemu-packages
   service:
     - running
+    - name: sysfsutils
     - enable: True
     - watch:
-        - file: sysfs_ksm
-    - require:
         - file: sysfs_ksm
 
 # enable ipv4 forwarding

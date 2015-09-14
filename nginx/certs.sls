@@ -1,5 +1,6 @@
 {% from "nginx/map.jinja" import nginx with context %}
-
+include:
+  - nginx.server
 {% for cert, args in pillar.get('nginx:certs', {}).iteritems() %} #'
 nginx-include-cert-{{ cert }}:
   file:
@@ -15,5 +16,9 @@ nginx-include-cert-{{ cert }}:
         {% if args.get('ocsp', False) %}
         ocsp: {{ args['ocsp'] }}
         {% endif%}
+    - require:
+        - pkg: nginx
+    - watch_in:
+        - service: nginx
 
 {% endfor %}

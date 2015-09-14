@@ -3,4 +3,8 @@
         'vim': 'vim',
         'emacs_nox': 'emacs23-nox',
     },
+    'RedHat': {
+        'vim': 'vim-enhanced',
+        'emacs_nox': 'emacs23-nox',
+    },
 }, merge=salt['pillar.get']('editor:lookup')) %}

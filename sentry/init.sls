@@ -23,28 +23,36 @@ include:
     - require:
         - user: sentry
 
-sentry-psycopg2:
-  pip:
-    - installed
-    - name: psycopg2==2.5.1
-    - bin_env: /srv/sentry
+
+sentry-packages:
+  pkg.installed:
+    - names:
+      - libxml2-dev
+      - libxslt1-dev
+      - libffi-dev
     - require:
-        - virtualenv: /srv/sentry/
+      - pkg: python-dev
+
 
 installed-packages-sentry-virtualenv:
   file.accumulated:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-      - psycopg2 (PIP, Virtualenv /srv/sentry)
+      - libxml2-dev
+      - libxslt1-dev
+      - libffi-dev
       - sentry (PIP, Virtualenv /srv/sentry)
+      - sentry[postgres] (PIP, Virtuelenv /srv/sentry)
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
 
 sentry:
   pip:
     - installed
-    - name: sentry
+    - names:
+      - sentry[postgres]
+      - sentry
     - bin_env: /srv/sentry
     - require:
         - virtualenv: /srv/sentry/
@@ -52,7 +60,13 @@ sentry:
     - present
     - home: /srv/sentry/
     - uid: 989
+    - gid: 989
     - shell: /bin/bash
+    - require:
+      - group: sentry
+  group:
+    - present
+    - gid: 989
   postgres_user:
     - present
     - require:
@@ -76,6 +90,7 @@ sentry:
         from_email: sentry@{{ grains['fqdn'] }}
     - require:
         - file: /srv/sentry/
+        - pip: sentry
 
 sentry_upgrade:
   cmd.wait:

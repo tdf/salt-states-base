@@ -63,38 +63,26 @@ a2enmod {{mod}}:
 {% endfor %}
 # ####################################################
 
-# #####################################################
-# TOOD: Replace whole configuration file instead of sed
-# sets ServerTokens Prod in apache config
-/etc/apache2/conf.d/security_servertoken:
-  file.sed:
+/etc/apache2/conf.d/security:
+  file.managed:
     - name: /etc/apache2/conf.d/security
-    - before: '^ServerTokens OS$'
-    - after: 'ServerTokens Prod'
+    - source: salt://apache/security
     - watch_in:
       - service: apache2
 
-# sets ServerSignature Off in apache config
-/etc/apache2/conf.d/security_serversignature:
-  file.sed:
-    - name: /etc/apache2/conf.d/security
-    - before: '^ServerSignature On$'
-    - after: 'ServerSignature Off'
-    - watch_in:
-      - service: apache2
+
 # #####################################################
 
 
-# #####################################################
-# TODO: move to apache/mods/alias.sls, make configurable
+
 
 # Disabling Indexing
-/etc/apache2/mods-available/alias.conf:
-  file.sed:
-    - before: '^Options Indexes MultiViews$'
-    - after: 'Options -Indexes MultiViews'
-    - watch_in:
-      - service: apache2
+# /etc/apache2/mods-available/alias.conf:
+#   file.sed:
+#     - before: '^Options Indexes MultiViews$'
+#     - after: 'Options -Indexes MultiViews'
+#     - watch_in:
+#       - service: apache2
 # #####################################################
 
 

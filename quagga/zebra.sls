@@ -2,29 +2,21 @@
 include:
   - quagga
 
-# ebables zebra on all interfaces
-/etc/quagga/debian.conf-zebra:
-  file.sed:
-    - before: '-A 127.0.0.1'
-    - after: ''
-    - limit: 'zebra_options='
-    - name: /etc/quagga/debian.conf
-    - require:
-      - pkg: quagga
-    - watch_in:
-      - service: quagga
+# enables zebra on all interfaces
+quagga-enable-zebra-all:
+  file.accumulated:
+    - filename: /etc/quagga/debian.conf
+    - text: 'zebra_options="--daemon"'
+    - require_in:
+      - file: /etc/quagga/debian.conf
 
 # enable zebra daemon
-/etc/quagga/daemons-zebra:
-  file.sed:
-    - before: 'no'
-    - after: yes
-    - limit: '^zebra='
-    - name: /etc/quagga/daemons
-    - require:
-      - pkg: quagga
-    - watch_in:
-      - service: quagga
+quagga-enable-zebra-daemon:
+  file.accumulated:
+    - filename: /etc/quagga/daemons
+    - text: "zebra=yes"
+    - require_in:
+      - file: /etc/quagga/daemons
 
 # Create file zebra.conf
 /etc/quagga/zebra.conf:

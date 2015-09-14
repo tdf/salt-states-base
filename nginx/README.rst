@@ -43,6 +43,12 @@ Starting with nginx 1.3.7+, OCSP-stapling is available. To enable it, you have t
     URL=$(openssl x509 -in $SERVER_CER -text | grep "OCSP - URI:" | cut -d: -f2,3)
     openssl ocsp -noverify -no_nonce -respout ocsp.resp -issuer $ISSUER_CER -cert $SERVER_CER -url $URL
 
+
+dhparams
+^^^^^^^^
+
+Adds the `ssl_dhparam` parameter to the :file:`includes/ssl`
+
 hash_size
 ^^^^^^^^^
 

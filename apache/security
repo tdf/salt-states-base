@@ -1,0 +1,7 @@
+################################
+# THIS FILE IS MANAGED BY SALT #
+################################
+
+ServerTokens Prod
+ServerSignature Off
+TraceEnable Off

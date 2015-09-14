@@ -14,6 +14,7 @@ nginx:
       - pkg: nginx
     - watch:
       - pkg: nginx
+      - file: nginx-include-dir
   pkg:
     - installed
     - name: {{ nginx.server }}
@@ -24,9 +25,17 @@ nginx-include-dir:
     - recurse
     - name: {{ nginx.include_dir }}
     - source: salt://nginx/includes
+    - template: jinja
     - require:
       - pkg: nginx
 
+nginx-ssl-include:
+  file:
+    - accumulated
+    - filename: {{nginx.include_dir}}/ssl
+    - text: ''
+    - require_in:
+      - file: nginx-include-dir
 
 {% set alias = salt['pillar.get']('nginx:alias', 'root') %} # '
 {% if alias %}

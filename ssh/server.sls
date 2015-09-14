@@ -10,7 +10,7 @@ openssh-server:
 ssh:
   service.running:
     - name: {{ ssh.server_service }}
-    - enable: true
+    - enable: True
     - require:
       - pkg: openssh-server
     - watch:

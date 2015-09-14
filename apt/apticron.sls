@@ -10,9 +10,8 @@ apticron:
 
 # configuring apticron
 /etc/apticron/apticron.conf:
-  file.sed:
-    - before: '^#*\s*LISTCHANGES_PROFILE\s*=\s*.*$'
-    - after: 'LISTCHANGES_PROFILE="apticron"'
+  file.managed:
+    - source: salt://apt/apticron.conf
     - require:
       - pkg: apticron
       - pkg: debconf-utils

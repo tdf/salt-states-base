@@ -12,6 +12,9 @@ vim:
 # change vimrc (vim-configguration) to most common settings
 /etc/vim/vimrc:
   file.managed:
+    {% if grains['os'] == 'CentOS'%}
+    - name: /etc/vimrc
+    {% endif %}
     - source: salt://editor/vimrc
     - user: root
     - group: root

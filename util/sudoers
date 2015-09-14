@@ -33,6 +33,9 @@ root	ALL=(ALL:ALL) ALL
 # Debian admin group
 %admin	ALL=(ALL:ALL) ALL
 
+# RedHat/CentOS admin group
+%wheel	ALL=(ALL:ALL) ALL
+
 # See sudoers(5) for more information on "#include" directives:
 
 #includedir /etc/sudoers.d

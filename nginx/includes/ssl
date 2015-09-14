@@ -7,3 +7,6 @@ ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 # no anon ciphers, no weak ones, no RC4, prefer ones that provide forward-secrecy
 ssl_ciphers ECDHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:DHE-RSA-AES128-SHA:MEDIUM:EXP:HIGH:!aNULL:!EXPORT56:!EXPORT40:!RC4;
 ssl_prefer_server_ciphers on;
+{% for line in accumulator['nginx-ssl-include'] %}
+{{ line }}
+{% endfor %}
