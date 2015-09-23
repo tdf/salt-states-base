@@ -7,8 +7,8 @@ Most of the different states are interdependent, it was therefore decided to hos
 
 
 
-Getting started
----------------
+Using salt-states-base on your infrastructure
+---------------------------------------------
 
 - Install and configure your salt-master (see http://docs.saltstack.com) for details.
 - Clone this repository::

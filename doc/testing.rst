@@ -9,9 +9,6 @@ Preparation
 - On Debian Wheezy, you need to install the kernel from backports to be able to use docker.
 - On Windows and MacOS, follow the Vagrant installation path and run the test from withing `vagrant ssh`.
 - The directory structure must look like this::
-
-    salt-pillar-base
-    └── packages
     salt-states-base
     ├── ...
     └── test
@@ -27,11 +24,11 @@ Usage
 
     sudo ./build.sh
 
-  This will download Debian 6, Debian 7, CentOS 6 and Ubuntu 12.04 containers and install and configure a masterless salt in them.
+  This will download Debian 7, Debian 8, CentOS 7 and Ubuntu 12.04 as well as 14.04 containers and install and configure a masterless salt in them.
 
 - Run the test suite::
 
-    sudo ./run.sh
+    sudo ./test.sh
 
   This runs a local highstate with all states enabled in each of the containers. The output can be found in the directory :file:`test/log`.
 
