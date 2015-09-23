@@ -8,8 +8,8 @@ fail2ban
 
 .. image:: http://vm170.documentfoundation.org/badge/fail2ban/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/fail2ban/centos:6
-
+.. image:: http://vm170.documentfoundation.org/badge/fail2ban/debian:8
+		      
 .. image:: http://vm170.documentfoundation.org/badge/fail2ban/centos:7
 
 These states install an configure fail2ban.

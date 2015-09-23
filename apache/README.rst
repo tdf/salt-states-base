@@ -8,7 +8,7 @@ Apache
 
 .. image:: http://vm170.documentfoundation.org/badge/apache/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/apache/centos:6
+.. image:: http://vm170.documentfoundation.org/badge/apache/debian:8
 
 .. image:: http://vm170.documentfoundation.org/badge/apache/centos:7
 

@@ -8,7 +8,7 @@ Nginx
 
 .. image:: http://vm170.documentfoundation.org/badge/nginx/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/nginx/centos:6
+.. image:: http://vm170.documentfoundation.org/badge/nginx/debian:8
 
 .. image:: http://vm170.documentfoundation.org/badge/nginx/centos:7
 

@@ -8,7 +8,7 @@ Apt
 
 .. image:: http://vm170.documentfoundation.org/badge/apt/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/apt/centos:6
+.. image:: http://vm170.documentfoundation.org/badge/apt/debian:8
 
 .. image:: http://vm170.documentfoundation.org/badge/apt/centos:7
 

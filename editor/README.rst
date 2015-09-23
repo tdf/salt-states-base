@@ -8,7 +8,7 @@ Editor
 
 .. image:: http://vm170.documentfoundation.org/badge/editor/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/editor/centos:6
+.. image:: http://vm170.documentfoundation.org/badge/editor/debian:8
 
 .. image:: http://vm170.documentfoundation.org/badge/editor/centos:7
 

@@ -8,7 +8,7 @@ Debian
 
 .. image:: http://vm170.documentfoundation.org/badge/debian/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/debian/centos:6
+.. image:: http://vm170.documentfoundation.org/badge/debian/debian:8
 
 .. image:: http://vm170.documentfoundation.org/badge/debian/centos:7
 

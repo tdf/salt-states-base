@@ -25,30 +25,13 @@ Getting started
         - /srv/salt/my-states
         - /srv/salt/salt-states-base
 
-- Clone the needed `salt-pillar-base` repository::
-
-    cd /srv/pillar
-    git clone git@github.com:tdf/salt-pillar-base.git salt-pillar-base
-
-- Add this location to your `pillar_roots`, e.g. in :file:`/etc/salt/master.d/paths.conf`:
-
-  .. code-block:: yaml
-
-    pillar_roots:
-      base:
-        - /srv/pillar/my-pillar
-        - /srv/pillar/salt-pillar-base
-
-
 TODO
 ----
 
 - automated testing on github push
-- supported Platforms: x64, debian wheezy, ubuntu 12.04 lts, ubuntu 14.04 lts, centos 6/7
-- api stability once basics are implemented
+- supported Platforms: Debian 7/8, Ubuntu 12.04/14.04, CentOS 7
 - create howto to write new modules
 - best practices
-- don't require pillar data, use something like http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html
 
 
 Reference

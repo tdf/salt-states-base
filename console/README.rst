@@ -8,7 +8,7 @@ Console
 
 .. image:: http://vm170.documentfoundation.org/badge/console/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/console/centos:6
+.. image:: http://vm170.documentfoundation.org/badge/console/debian:8
 
 .. image:: http://vm170.documentfoundation.org/badge/console/centos:7
 

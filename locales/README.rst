@@ -8,7 +8,7 @@ Locales
 
 .. image:: http://vm170.documentfoundation.org/badge/locales/ubuntu:14.04
 
-.. image:: http://vm170.documentfoundation.org/badge/locales/centos:6
+.. image:: http://vm170.documentfoundation.org/badge/locales/debian:8
 
 .. image:: http://vm170.documentfoundation.org/badge/locales/centos:7
 
