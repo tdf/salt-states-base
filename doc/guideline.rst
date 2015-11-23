@@ -49,4 +49,15 @@ Building
 * To build latex/PDF, exchange ``html`` for ``latex``/``latexpdf``
 * To build plaintext, exchange ``html`` for ``text``
 
+Contributing
+^^^^^^^^^^^^
+
+* Fork the repository `tdf/salt-states-base`_.
+* Clone the repository
+* Do your changes to the documentation or states
+* Test that the changes don't break anything, run ``make html``
+* If you have changed salt-states, refer to :doc:`Testing </doc/states/testing>`
+* Create a pull request
+
+.. _tdf/salt-states-base: https://github.com/tdf/salt-states-base
 
