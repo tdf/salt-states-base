@@ -1,8 +1,10 @@
-================
-salt-states-base
-================
+=================
+TDF-Documentation
+=================
 
-This is a collection of salt states for basic system configuration.
+This is the public documentation for the infrastructure of The Document Foundation.
+
+It also servers as a collection of salt states for basic system configuration.
 Most of the different states are interdependent, it was therefore decided to host them in one repository.
 
 
@@ -40,7 +42,7 @@ Reference
 :doc:`Full table of contents </doc/contents>`
     Complete table of contents
 
-:doc:`Developer guide </doc/development>`
+:doc:`Developer guide </doc/states/development>`
     Start here if you are interested in contributing to this repository
 
 License

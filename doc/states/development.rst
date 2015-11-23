@@ -2,13 +2,13 @@
 Development resources
 =====================
 
-:doc:`Writing new states </doc/new_states>`
+:doc:`Writing new states </doc/states/new_states>`
     Detailed HowTo on new states
 
-:doc:`Best practices </doc/best_practices>`
+:doc:`Best practices </doc/states/best_practices>`
     Concise reference on how to write good states
 
-:doc:`Testing </doc/testing>`
+:doc:`Testing </doc/states/testing>`
     How to test the States on all supported platforms
 
 
