@@ -9,6 +9,7 @@ Preparation
 - On Debian Wheezy, you need to install the kernel from backports to be able to use docker.
 - On Windows and MacOS, follow the Vagrant installation path and run the test from withing `vagrant ssh`.
 - The directory structure must look like this::
+
     salt-states-base
     ├── ...
     └── test
