@@ -151,6 +151,7 @@ postfix_cdb:
     - group: postfix
     - mode: 0644
     - source: salt://mail/conf/postfix/valid_senders
+    - template: jinja
     - require:
       - pkg: postfix
     - context:
