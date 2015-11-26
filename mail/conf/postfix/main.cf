@@ -40,10 +40,10 @@ smtp_sasl_tls_security_options = noanonymous
 # needs postfix-cdb
 # relaydomains* are chmod 640, root:postfix
 # transport_maps* are chmod 640, root:postfix
-relay_domains = cdb:$config_directory/relaydomains
+relay_domains = cdb:$config_directory/transports
 transport_maps = cdb:$config_directory/transports
-
-# dovecot-imapd dovecot-lmtpd
+relay_recipient_maps = cdb:$config_directory/recipients
+virtual_alias_maps = cdb:$config_directory/recipients
 {% endif %}
 
 

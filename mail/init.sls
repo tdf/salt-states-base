@@ -3,6 +3,7 @@
 {% set authorized_submit_users = salt['pillar.get']('mail:authorized_submit_users', 'root') %}
 {% set mydomains = salt['pillar.get']('mail:mydomains', [grains['fqdn'],]) %}
 {% set relayhost = salt['pillar.get']('mail:relayhost', False) %}
+{% set users = salt['pillar.get']('mail:users', {'root@'+grains['fqdn']: {}} %}
 
 include:
   - requisites
@@ -44,7 +45,7 @@ postfix_cdb:
     - managed
     - user: root
     - group: postfix
-    - chmod: 640
+    - chmod: 644
     - source: salt://mail/conf/postfix/transports
     - template: jinja
     - context:
@@ -55,21 +56,21 @@ postfix_cdb:
     - watch:
       - file: /etc/postfix/transports
 
-/etc/postfix/relaydomains:
+/etc/postfix/recipients:
   file:
     - managed
     - user: root
     - group: postfix
-    - chmod: 640
-    - source: salt://mail/conf/postfix/relaydomains
+    - chmod: 644
+    - source: salt://mail/conf/postfix/recipients
     - template: jinja
     - context:
-      mydomains: {{ mydomains }}
+      users: {{ users }}
   cmd:
     - wait
-    - name: postmap /etc/postfix/relaydomains
+    - name: postmap /etc/postfix/recipients
     - watch:
-      - file: /etc/postfix/relaydomains
+      - file: /etc/postfix/recipients
 
 dovecot:
   pkg:
@@ -89,4 +90,20 @@ dovecot:
     - source: salt://mail/conf/dovecot/10-master.conf
     - watch_in:
       - service: dovecot
+
+vmail:
+  user:
+    - present
+    - fullname: Virtual Mail User
+    - shell: /bin/bash
+    - home: /srv/mail
+    - uid: 2000
+    - gid: 2000
+    - system: True
+    - require:
+      - group: vmail
+  group:
+    - present
+    - gid: 2000
+    - system: True
 {% endif %}

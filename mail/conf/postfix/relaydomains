@@ -1,3 +1,0 @@
-{% for domain in mydomains %}
-{{ domain }}			OK
-{% endfor %}
