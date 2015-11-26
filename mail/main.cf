@@ -1,0 +1,54 @@
+########################
+# FILE MANAGED BY SALT #
+########################
+# removed NIS from alias_maps
+alias_maps = hash:/etc/aliases
+default_database_type = cdb
+
+{% if nullmailer %}
+#####################################################
+# nullmailer: no arriving mails, only local senders #
+#####################################################
+inet_interfaces = loopback-only
+# What nets are we trusting?
+mynetworks = 127.0.0.1,[::1]
+# Disable smtpd at all
+master_service_disable = inet
+{% endif %}
+
+# Only these users are allowed to use the sendmail-command
+authorized_submit_users = root
+
+{% if relayhost %}
+# Who routes the mail to the destination?
+relayhost = {{ relayhost }}
+# activate SMTP AUTH in the client
+smtp_sals_auth_enable = yes
+# authentication ways
+smtp_sals_password_maps = $config_directory/sasl_passwd
+smtp_sasl_security_options = noplaintext,noanonymous
+smtp_sasl_tls_security_options = noanonymous
+{% endif %}
+
+{% if not nullmailer %}
+###
+# Mailserver (SMTP/IMAP)
+
+# remove authorized_submit_users and master_service_disable as well as relayhost
+# relaydomain über lmtp an dovecot
+# for which domains do we accept mails and route them further
+# needs postfix-cdb
+# relaydomains* are chmod 640, root:postfix
+# transport_maps* are chmod 640, root:postfix
+relay_domains = cdb:$config_directory/relaydomains
+transport_maps = cdb:$config_directory/transports
+
+# dovecot-imapd dovecot-lmtpd
+{% endif %}
+
+
+
+{% if accumulator|default(False) %}{% for line in accumulator %}
+{{ line }}{% endfor %}
+{% endif %}
+

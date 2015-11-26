@@ -1,0 +1,7 @@
+{% set mail = salt['grains.filter_by']({
+    'Debian': {
+        'postfix_package': 'postfix',
+        'postfix_service': 'postfix',
+        'postfix_cdb_package': 'postfix-cdb',
+    },
+}, merge=salt['pillar.get']('mail:lookup')) %}

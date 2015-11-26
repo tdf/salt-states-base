@@ -3,3 +3,4 @@
 doc/build
 *.pyc
 test/log/*
+.DS_Store
