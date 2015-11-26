@@ -4,6 +4,8 @@
         'postfix_service': 'postfix',
         'postfix_cdb_package': 'postfix-cdb',
         'dovecot_packages': ['dovecot-imapd', 'dovecot-lmtpd'],
-        'dovecot_service': 'dovecot'
+        'dovecot_service': 'dovecot',
+        'amavis_packages': ['amavisd-milter', 'amavisd-new', 'clamav-daemon', 'clamav-testfiles', 'spamassasin'],
+        'amavis_service': 'amavisd-milter'
     },
 }, merge=salt['pillar.get']('mail:lookup')) %}

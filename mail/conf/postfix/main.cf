@@ -205,6 +205,12 @@ mua_recipient_restrictions =
     permit_sasl_authenticated
     reject
 
+####################
+## Content Filter
+
+smtpd_milters =
+        unix:amavis/amavis.sock
+
 {% endif %}
 {% if accumulator|default(False) %}{% for line in accumulator %}
 {{ line }}{% endfor %}

@@ -249,4 +249,18 @@ vmail:
     - present
     - gid: 2000
     - system: True
+
+amavis:
+  pkg:
+    - installed
+    - names: {{ mail.amavis_packages }}
+  service:
+    - running
+    - enable: True
+    - name: {{ mail.amavis_service }}
+
+/etc/default/amavisd-miltr:
+  file:
+    - managed
+    - source: salt://mail/conf/amavis/amavisd-milter
 {% endif %}

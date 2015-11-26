@@ -1,0 +1,39 @@
+# Defaults for amavisd-milter initscript
+# sourced by /etc/init.d/amavisd-milter
+# installed at /etc/default/amavisd-milter by the maintainer scripts
+# 2011-01-26 Harald Jenny
+
+# The user should be the one amavisd-new is running as
+#SYSTEMUSER=amavis
+
+# Pidfile is placed in run-directory from amavisd-new
+#PIDFILE=/var/run/amavis/amavisd-milter.pid
+
+# This is the default location of the milter socket
+#MILTERSOCKET=/var/lib/amavis/amavisd-milter.sock
+# If you want the milter daemon to listen on tcp please
+# use something like the next line:
+#MILTERSOCKET=inet:60001@127.0.0.1
+# When using postfix and you want the smtpd to run
+# chrooted you may need a socket inside the chroot.
+# You will probably also need the options at the end of
+# this file!
+MILTERSOCKET=/var/spool/postfix/amavis/amavis.sock
+
+# The default location of the amavisd-new socket
+#AMAVISSOCKET=/var/lib/amavis/amavisd.sock
+
+# Here amavisd-milter stores the mails which should get
+# checked (needs to be changed when amavisd-new TEMPBASE
+# variable is modified!). 
+#WORKINGDIR=/var/lib/amavis/tmp
+
+# The parameters listed here will be passed directly to
+# amavisd-milter directly, please take a look at the
+# programs manpage for detailed infomation.
+#EXTRAPARAMS=""
+
+# Set these two options if you want the socket to have
+# special permissions (usefull mainly for postfix).
+MILTERSOCKETOWNER="postfix:postfix"
+MILTERSOCKETMODE="0660"
