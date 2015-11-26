@@ -47,6 +47,8 @@ postfix_cdb:
     - chmod: 640
     - source: salt://mail/conf/postfix/transports
     - template: jinja
+    - context:
+      mydomains: {{ mydomains }}
   cmd:
     - wait
     - name: postmap /etc/postfix/transports
@@ -61,6 +63,8 @@ postfix_cdb:
     - chmod: 640
     - source: salt://mail/conf/postfix/relaydomains
     - template: jinja
+    - context:
+      mydomains: {{ mydomains }}
   cmd:
     - wait
     - name: postmap /etc/postfix/relaydomains
