@@ -1,6 +1,3 @@
-########################
-# FILE MANAGED BY SALT #
-########################
 # ==========================================================================
 # service type  private unpriv  chroot  wakeup  maxproc command + args
 #               (yes)   (yes)   (yes)   (never) (100)
@@ -13,13 +10,15 @@ tlsproxy  unix  -       -       n       -       0       tlsproxy
 submission inet n       -       n       -       -       smtpd
   -o syslog_name=postfix/submission
   # -o smtpd_tls_security_level=encrypt
-  # -o smtpd_sasl_auth_enable=yes
+  -o smtpd_sasl_auth_enable=yes
   -o smtpd_delay_reject=yes
   -o smtpd_client_restrictions=$mua_client_restrictions
   -o smtpd_helo_restrictions=$mua_helo_restrictions
   -o smtpd_sender_restrictions=$mua_sender_restrictions
   -o smtpd_recipient_restrictions=$mua_recipient_restrictions
   -o milter_macro_daemon_name=ORIGINATING
+#  -o smtpd_milters=
+#  -o content_filter=smtp:[::1]:10024
 #smtps     inet  n       -       n       -       -       smtpd
 #  -o syslog_name=postfix/smtps
 #  -o smtpd_tls_wrappermode=yes
@@ -111,3 +110,23 @@ scalemail-backend unix	-	n	n	-	2	pipe
 mailman   unix  -       n       n       -       -       pipe
   flags=FR user=list argv=/usr/lib/mailman/bin/postfix-to-mailman.py
   ${nexthop} ${user}
+
+127.0.0.1:10025 inet n  -       n       -       -       smtpd
+    -o content_filter=
+    -o local_recipient_maps=
+    -o relay_recipient_maps=
+    -o smtpd_delay_reject=no
+    -o smtpd_restriction_classes=
+    -o smtpd_client_restrictions=
+    -o smtpd_helo_restrictions=
+    -o smtpd_sender_restrictions=
+    -o smtpd_recipient_restrictions=permit_mynetworks,reject
+    -o smtpd_data_restrictions=reject_unauth_pipelining
+    -o smtpd_end_of_data_restrictions=
+    -o mynetworks=127.0.0.0/8
+    -o smtpd_error_sleep_time=0
+    -o smtpd_soft_error_limit=1001
+    -o smtpd_hard_error_limit=1000
+    -o smtpd_client_connection_count_limit=0
+    -o smtpd_client_connection_rate_limit=0
+    -o receive_override_options=no_header_body_checks,no_unknown_recipient_checks,no_milters

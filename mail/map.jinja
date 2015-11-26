@@ -3,9 +3,10 @@
         'postfix_package': 'postfix',
         'postfix_service': 'postfix',
         'postfix_cdb_package': 'postfix-cdb',
+        'postfix_pcre_package': 'postfix-pcre',
         'dovecot_packages': ['dovecot-imapd', 'dovecot-lmtpd'],
         'dovecot_service': 'dovecot',
         'amavis_packages': ['amavisd-milter', 'amavisd-new', 'clamav-daemon', 'clamav-testfiles', 'spamassassin'],
-        'amavis_service': 'amavisd-milter'
+        'amavis_service': 'amavis'
     },
 }, merge=salt['pillar.get']('mail:lookup')) %}

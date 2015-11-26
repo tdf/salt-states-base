@@ -43,6 +43,11 @@ postfix_cdb:
     - installed
     - name: {{ mail.postfix_cdb_package }}
 
+postfix_pcre:
+  pkg:
+    - installed
+    - name: {{ mail.postfix_pcre_package }}
+
 /etc/postfix/transports:
   file:
     - managed
@@ -111,6 +116,16 @@ postfix_cdb:
     - group: postfix
     - mode: 0644
     - source: salt://mail/conf/postfix/identity_abuse
+    - require:
+      - pkg: postfix
+
+/etc/postfix/postscreen_access:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - source: salt://mail/conf/postfix/postscreen_access
     - require:
       - pkg: postfix
 
@@ -221,9 +236,12 @@ dovecot:
     - managed
     - source: salt://mail/scripts/mkdrop
     - mode: 0755
-  cmd.wait:
-    - watch:
+  cmd:
+    - run
+    - creates: /etc/postfix/drop
+    - require:
       - file: /usr/local/sbin/mkdrop
+  # todo: mkdrop as cronjob
 
 /etc/postfix/master.cf:
   file:
@@ -259,8 +277,23 @@ amavis:
     - enable: True
     - name: {{ mail.amavis_service }}
 
-/etc/default/amavisd-miltr:
+clamav:
+  group:
+    - present
+    - addusers:
+      - amavis
+    - require:
+      - pkg: amavis
+
+/etc/default/amavisd-milter:
   file:
     - managed
     - source: salt://mail/conf/amavis/amavisd-milter
+    - require:
+      - pkg: amavis
+
+/etc/clamav/clamd.conf:
+  file:
+    - managed
+    - source: salt://mail/conf/clamv/clamd.conf
 {% endif %}

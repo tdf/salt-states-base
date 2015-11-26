@@ -1,0 +1,552 @@
+use strict;
+
+#############################################################################
+## BASICS
+#
+
+# Identity
+$myhostname = 'mail.documentfoundation.org';
+$mydomain = 'documentfoundation.org';
+
+# Internal Book Keeping
+$enable_db = 1;
+$enable_zmq = 0;
+$enable_global_cache = 1;
+$nanny_details_level = 2;
+
+# Logging
+$DO_SYSLOG = 1;
+$log_level = 1;
+
+$log_templ = '
+[?%#D||Passed #
+[? [:ccat|major] |#
+OTHER|CLEAN|MTA-BLOCKED|OVERSIZED|BAD-HEADER-[:ccat|minor]|SPAMMY|SPAM|\
+UNCHECKED|BANNED (%F)|INFECTED (%V)] {[:actions_performed]}#
+, [? %p ||%p ][?%a||[?%l||LOCAL ][:client_addr_port] ][?%e||\[%e\] ]%s -> [%D|,]#
+[? %q ||, quarantine: %q]#
+[? %Q ||, Queue-ID: %Q]#
+[? %m ||, Message-ID: %m]#
+[? %r ||, Resent-Message-ID: %r]#
+[? %i ||, mail_id: %i]#
+, Hits: [:SCORE]#
+, size: %z#
+[? [:partition_tag] ||, pt: [:partition_tag]]#
+[? %#T ||, Tests: \[[%T|,]\]]#
+, %y ms#
+]
+[?%#O|#|Blocked #
+[? [:ccat|major|blocking] |#
+OTHER|CLEAN|MTA-BLOCKED|OVERSIZED|BAD-HEADER-[:ccat|minor]|SPAMMY|SPAM|\
+UNCHECKED|BANNED (%F)|INFECTED (%V)] {[:actions_performed]}#
+, [? %p ||%p ][?%a||[?%l||LOCAL ][:client_addr_port] ][?%e||\[%e\] ]%s -> [%O|,]#
+[? %q ||, quarantine: %q]#
+[? %Q ||, Queue-ID: %Q]#
+[? %m ||, Message-ID: %m]#
+[? %r ||, Resent-Message-ID: %r]#
+[? %i ||, mail_id: %i]#
+, Hits: [:SCORE]#
+, size: %z#
+[? [:partition_tag] ||, pt: [:partition_tag]]#
+[? %#T ||, Tests: \[[%T|,]\]]#
+, %y ms#
+]';
+
+
+#############################################################################
+## SERVER
+#
+
+# Wieviel Instanzen soll amavis starten?
+$max_servers = 2;
+
+# Auf welchen Sockets sollen die Instanzen auf eingehende Verbindungen
+# lauschen?
+@listen_sockets = ( 
+    # Release
+    '[::1]:9998', 
+    # Post-Queue, Submission
+    '[::1]:10024', 
+    # Pre-Queue, MTA zu MTA
+    "$MYHOME/amavisd.sock" 
+    );
+
+
+#############################################################################
+## POLICY MAPPING
+#
+
+# Hier mappen wir eingehende Verbindungen Policy Banks zu. Eine eingehende
+# Verbindung können wir anhand verschiedener Eigenschaften erkennen:
+#
+# - TCP/UNIX-Socket einer eingehenden Verbindung
+# - IP-Adresse/IP-Range einer eingehenden Verbindung
+# - DKIM-authentifizierter Sender/Senderdomain
+
+# In welche Policy routen wir die @listen_sockets?
+$interface_policy{'10024'}  = 'SUBMISSION';
+$interface_policy{'SOCK'}   = 'AM.PDP-SOCK';
+$interface_policy{'9998'}   = 'AM.PDP-INET';
+
+# In welche Policy routen wir bestimmte IPs/Netzwerke?
+@client_ipaddr_policy = (
+    [qw( 0.0.0.0/8 127.0.0.1/32 [::] [::1] )] => 'LOCALHOST',
+    [qw( !172.16.1.0/24 172.16.0.0/12 192.168.0.0/16 )] => 'PRIVATENETS',
+    [qw( 192.0.2.0/25 192.0.2.129 192.0.2.130 )] => 'PARTNER',
+    [qw( 212.7.160.0/19 )] => 'SUBMISSION',
+    \@mynetworks => 'MYNETS'
+);
+
+# In welche Policy routen wir DKIM-verifizierte Sender/Senderdomains?
+@author_to_policy_bank_maps = ( {
+    'state-of-mind.de'          => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
+    'charite.de'                => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
+    'schetterer.org'            => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
+    'roessner-network-solutions.com'        => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
+    '.paypal.de'                => 'WHITELIST',
+    'amazon.de'                 => 'WHITELIST',
+} );
+
+
+# amavisd-milter
+# $protocol = "AM.PDP";
+$inet_socket_port = undef;
+# $unix_socketname = "$MYHOME/amavisd.sock";
+
+# @inet_acl = qw( 
+# 	127.0.0.1
+# 	::1
+# 	193.0.186.164
+# 	);
+
+
+#############################################################################
+## VERKEHRSRICHTUNGEN
+#
+
+# Domains für die wir Mail annehmen. Alles andere ist im Umkehrschluss eine
+# remote destination.
+@local_domains_maps = ( 
+    ".$mydomain",
+    read_hash('/etc/postfix/transports')
+);
+
+# Wenn amavis einen Recipient in LDAP findet, gilt er automatisch als local
+# destination. Das ist als ob man die Domain des Empfängers in
+# @local_domains_maps listen würde.
+# LDAP backend (mail preferences)
+$enable_ldap = 0;
+# $default_ldap = {
+#     hostname       => 'ldap://ldap.sys4.de',
+#     port           => 389,
+#     version        => 3,
+#     timeout        => 120,
+#     tls            => 0,
+#     base           => '',
+#     scope          => 'sub',
+#     query_filter   => '(&(objectClass=amavisAccount)(|(mail=%m))(mailAlias=%m))',
+#     bind_dn        => '',
+#     bind_password  => '',
+#     cafile         => '/etc/ssl/certs/ca-certificates.crt',
+#     verify         => 'require',
+# };
+
+# IPs, die wir in die Policy Bank "MYNETS" aufnehmen. Wir erweitern das Ganez
+# noch einmal in client_ipaddr_policy.
+@mynetworks = qw( 
+    127.0.0.0/8
+);
+
+@keep_decoded_original_maps = (new_RE(
+    qr'^MAIL$',
+    qr'^MAIL-UNDECIPHERABLE$',
+    qr'^(ASCII(?! cpio)|text|uuencoded|xxencoded|binhex)'i,
+# qr'^Zip archive data',     # don't trust Archive::Zip
+));
+
+
+# Header
+$allowed_added_header_fields{lc('Received')} = 0;
+$remove_existing_x_scanned_headers = 1;
+$remove_existing_spam_headers = 1;
+
+# Wir machen TMP. Nichts aufheben!
+# $allow_preserving_evidence = 0;
+$quarantine_subdir_levels = 0;
+
+# Allow subadressing
+$recipient_delimiter = '+';
+
+#############################################################################
+## IP REPUTATION
+#
+
+# @storage_redis_dsn = (
+#     { server => '127.0.0.1:6379', db_id => 1, password => '' },
+# );
+
+# TODO: list your MX and MSA mailer IP addresses or networks here:
+# @ip_repu_ignore_networks = qw( 192.0.2.44 2001:db8::/64 );
+
+
+#############################################################################
+## NOTIFICATIONS
+#
+
+# Notifications
+$warn_offsite = 0;
+
+# envelope sender
+$mailfrom_notify_admin  = "postmaster\@$mydomain";
+$mailfrom_notify_recip  = "postmaster\@$mydomain";
+$mailfrom_notify_sender = "postmaster\@$mydomain";
+$dsn_bcc = "postmaster+dsn\@$mydomain";
+
+# From: header
+$hdrfrom_notify_sender  = "Postmaster <postmaster\@$mydomain>";
+$hdrfrom_notify_recip   = "Postmaster <postmaster\@$mydomain>";
+$hdrfrom_notify_release = "Postmaster <postmaster\@$mydomain>";
+
+
+
+
+#############################################################################
+## SCANNER
+#
+
+
+@av_scanners = (
+    ['ClamAV-clamd',
+      \&ask_daemon, ["CONTSCAN {}\n", "/var/run/clamav/clamd.ctl"],
+      qr/\bOK$/m, qr/\bFOUND$/m,
+      qr/^.*?: (?!Infected Archive)(.*) FOUND$/m ],
+#    ['Avira SAVAPI',
+#      \&ask_daemon, ["*", 'savapi:/var/tmp/.savapi3', ''],
+#      qr/^(200|210)/m,  qr/^(310|420|319)/m,
+#      qr/^(?:310|420)[,\s]*(?:.* <<< )?(.+?)(?: ; |$)/m ],
+);
+
+
+# Backup Scanner deaktiviert, weil die Kisten sonst so lahm wird, dass man sich
+# nicht mehr einloggen kann...
+
+@av_scanners_backup = ();
+
+# @av_scanners_backup = (
+#     ['ClamAV-clamdscan', 'clamdscan',
+#       "--stdout --no-summary --config-file=/etc/clamd-client.conf {}",
+#       [0], qr/:.*\sFOUND$/m, qr/^.*?: (?!Infected Archive)(.*) FOUND$/m ]
+# );
+
+
+
+#############################################################################
+## VIRUS POLICY
+#
+@bypass_virus_checks_maps = (
+   \%bypass_virus_checks, \@bypass_virus_checks_acl, \$bypass_virus_checks_re);
+
+# Reject message
+$final_virus_destiny = D_REJECT;
+
+# Send virus to quarantine
+$virus_quarantine_method = undef;
+
+# Notify postmaster when virus was found
+$newvirus_admin = "postmaster\@$mydomain";
+$virus_admin = "postmaster\@$mydomain";
+
+# Notify virus recipient
+$warnvirusrecip = 1;
+
+# Add subaddress to envelope recipient
+# @addr_extension_virus_maps  = ('virus');
+@addr_extension_virus_maps  = undef;
+
+
+$release_format = 'attach';
+$attachment_email_name = 'msg-%m.eml';
+$attachment_outer_name = 'msg-%m.zip';
+$attachment_password = '';
+$defang_virus  = 'attach';
+# $defang_virus  = 1;  # MIME-wrap passed infected mail
+
+$notify_release_templ = 'From: %f
+Date: %d
+Subject: \[QUARANTAENE FREIGABE\] %j
+To: [? %#T |undisclosed-recipients:;|[%T|, ]]
+[? %#C |#|Cc: [%C|, ]]
+Message-ID: <QRA%i@%h>
+
+Im Anhang an diese Nachricht finden Sie eine Nachricht, die in Quarantaene
+eingelagert gewesen war.
+#
+[? [:attachment_password] |#|
+Zu Ihrem Schutz und auch damit die Nachricht bei der Zustellung an Sie nicht
+von weiteren Virenscannern aufgehalten werden kann, haben wir diese in ein
+kennwortgeschuetztes ZIP-Archiv gepackt.
+
+Ihr Kennwort zum Oeffnen des ZIP-Archivs lautet:
+
+                        [:attachment_password]
+
+]#
+
+Falls Sie Fragen zu dieser Nachricht haben, nennen Sie uns bitte folgende,
+interne Referenznummer: %n/%i';
+
+
+#############################################################################
+## SPAM POLICY
+#
+@bypass_spam_checks_maps = (
+   \%bypass_spam_checks, \@bypass_spam_checks_acl, \$bypass_spam_checks_re);
+
+# Only scan messages up to this size
+$sa_mail_body_size_limit = 400*1024; 
+
+# Deliver spam in client session
+$final_spam_destiny = D_PASS;
+
+# Don't quarantine spam
+$spam_quarantine_method = undef;
+
+# Don't notify admin of new spam
+$spam_admin = undef;
+
+# Spamassassin settings
+# Do network based tests
+$sa_local_tests_only = 0;
+
+# SPAM info ab diesem Level hinzufügen
+$sa_tag_level_deflt  = "-1000";
+
+# Nachricht als SPAM markieren
+$sa_tag2_level_deflt = 6.31;
+
+# Kein DSN mehr für SPAM senden
+$sa_dsn_cutoff_level = 10;
+
+# Kein DSN mehr für SPAM mit gültigem FROM:-header senden
+$sa_crediblefrom_dsn_cutoff_level = 18;
+
+# SPAM nicht mehr in Quarantäne lagern (wenn überhaupt ...)
+# $sa_quarantine_cutoff_level = 25;
+
+# We throw everything beyond that level away
+$sa_kill_level_deflt = $sa_tag2_level_deflt;
+
+# Add a header to spam
+$allowed_added_header_fields{lc('X-Spam-Status')} = 1;
+$sa_spam_subject_tag = undef;
+
+# Use '*' to indicate spam level
+$sa_spam_level_char = '*';
+
+# Add spam report header to messages
+$allowed_added_header_fields{lc('X-Spam-Report')} = 1;
+
+# tagging
+# @addr_extension_spam_maps = ('spam');
+@addr_extension_spam_maps = undef;
+
+#############################################################################
+## BANNED POLICY
+#
+#@bypass_banned_checks_maps = (
+#    \%bypass_banned_checks, \@bypass_banned_checks_acl, \$bypass_banned_checks_re);
+#
+# We do not check for banned files
+@bypass_banned_checks_maps = (1);
+
+
+#%banned_rules = (
+#  'NO-MS-EXEC'=> new_RE( qr'^\.(exe-ms)$' ),
+#  'PASSALL'   => new_RE( [qr'^' => 0] ),
+#  'ALLOW_EXE' => new_RE( qr'.\.(vbs|pif|scr|bat)$'i, [qr'^\.exe$' => 0] ),
+#  'ALLOW_VBS' => new_RE( [qr'.\.vbs$' => 0] ),
+#  'NO-VIDEO'  => new_RE( qr'^\.movie$', qr'.\.(asf|asx|mpg|mpe|mpeg|avi|mp3|wav|wma|wmf|wmv|mov|vob)$'i, ),
+#  'NO-MOVIES' => new_RE( qr'^\.movie$', qr'.\.(mpg|avi|mov)$'i, ),
+#  'MYNETS-DEFAULT' => new_RE( [ qr'^\.(rpm|cpio|tar)$' => 0 ], qr'.\.(vbs|pif|scr)$'i, ),
+#  'DEFAULT' => $banned_filename_re,
+#);
+
+
+# Default set of banned files
+#$banned_filename_re = new_RE(
+#    qr'^\.(exe-ms|dll)$',                   # banned file(1) types, rudimentary
+#    [ qr'^\.(rpm|cpio|tar)$'       => 0 ],  # allow any in Unix-type archives
+#    qr'.\.(pif|scr)$'i,                     # banned extensions - rudimentary
+#    qr'^application/x-msdownload$'i,        # block these MIME types
+#    qr'^application/x-msdos-program$'i,
+#    qr'^application/hta$'i,
+#    # block certain double extensions in filenames
+#    qr'\.[^./]*[A-Za-z][^./]*\.\s*(exe|vbs|pif|scr|bat|cmd|com|cpl|dll)[.\s]*$'i,
+#    qr'.\.(exe|vbs|pif|scr|cpl|bat|cmd|com)$'i, # banned extension - basic+cmd
+#);
+
+# Reject message in client session
+$final_banned_destiny = D_BOUNCE;
+
+# Send message to quarantine
+$banned_files_quarantine_method = undef;
+
+# Extend localpart of recipient address if message contains banned file
+# @addr_extension_banned_maps = ('banned');
+@addr_extension_banned_maps = undef;
+
+# Notify postmaster when banned was found
+$banned_admin = "postmaster\@$mydomain";
+
+# Send notification to sender
+$warnbannedsender = 1;
+
+# Send notification to recipient
+$warnbannedrecip = 1;
+
+# MIME-wrap passed mail containing banned name
+$defang_banned = 1;
+
+
+#############################################################################
+## BAD HEADER POLICY
+#
+@bypass_header_checks_maps = (
+    \%bypass_header_checks, \@bypass_header_checks_acl, \$bypass_header_checks_re);
+
+# Accept message and deliver
+$final_bad_header_destiny = D_PASS;
+
+# Don't send message to quarantine
+$bad_header_quarantine_method = undef;
+
+# Extend localpart of recipient address if message contains bad header
+# @addr_extension_bad_header_maps = ('badh');
+@addr_extension_bad_header_maps = undef;
+
+# Send notification to sender
+$warnbadhsender = 0;
+
+# Don't send notification to recipient
+# $warnbadhrecip = 0;
+
+# for defanging bad headers only turn on certain minor contents categories:
+$defang_by_ccat{+CC_BADH.",3"} = 1;  # NUL or CR character in header
+$defang_by_ccat{+CC_BADH.",5"} = 1;  # header line longer than 998 characters
+$defang_by_ccat{+CC_BADH.",6"} = 1;  # header field syntax error
+
+
+
+#############################################################################
+## UNDECIPHERABLE POLICY
+#
+$undecipherable_subject_tag = undef;
+
+# Keine Notification bei PGP encrypted mail
+$admin_maps_by_ccat{+CC_UNCHECKED.',1'} = undef;
+
+# PGP encrypted Mail durchlassen
+$final_destiny_by_ccat{+CC_UNCHECKED.',1'} = D_PASS;
+
+
+#############################################################################
+## DKIM
+#
+# DKIM disabled, denn DKIM macht openDKIM für uns!
+#
+$enable_dkim_verification = 1;
+$enable_dkim_signing = 0;
+#        signing domain      selector      private key                              options
+#        -------------       --------      ----------------------                   ----------
+#dkim_key('frickel-server.de', 'mail20140704', '/var/amavis/db/frickel-server.de.key');
+
+#@dkim_signature_options_bysender_maps = (
+#    { '.' =>
+#        {
+#                ttl => 21*24*3600,
+#                c => 'relaxed/simple'
+#        }
+#    }
+#);
+
+#############################################################################
+## POLICY BANKS: WHITELIST
+#
+
+$policy_bank{'WHITELIST'} = {
+    bypass_spam_checks_maps => [1],
+    spam_lovers_maps => [1],
+};
+
+#############################################################################
+## POLICY BANKS: NOVIRUSCHECK
+#
+
+$policy_bank{'NOVIRUSCHECK'} = {
+    bypass_decode_parts => 1,
+    bypass_virus_checks_maps => [1],
+    virus_lovers_maps => [1],
+};
+
+#############################################################################
+## POLICY BANKS: NOBANNEDCHECK
+#
+
+$policy_bank{'NOBANNEDCHECK'} = {
+    bypass_banned_checks_maps => [1],
+    banned_files_lovers_maps  => [1],
+};
+
+
+#############################################################################
+## POLICY BANKS: SUBMISSION
+#
+
+$policy_bank{'SUBMISSION'} = {
+    originating => 1,
+    bypass_spam_checks_maps => [1],
+    final_virus_destiny => D_BOUNCE,
+    final_banned_destiny=> D_PASS,
+    final_bad_header_destiny => D_PASS,
+    banned_filename_maps => ['MYNETS-DEFAULT'],
+    warnbadhsender => 0,
+    forward_method => 'smtp:127.0.0.1:10025',
+    notify_method => 'smtp:127.0.0.1:10025',
+    undecipherable_subject_tag => undef,
+};
+
+
+#############################################################################
+## POLICY BANKS: MYNETS
+#
+$policy_bank{'MYNETS'} = {
+    originating => 1,
+    bypass_spam_checks_maps   => [1],
+    final_virus_destiny => D_REJECT,
+    final_banned_destiny=> D_PASS,
+    final_bad_header_destiny => D_PASS,
+    banned_filename_maps => ['MYNETS-DEFAULT'],
+    warnbadhsender => 0,
+    forward_method => 'smtp:*:*',
+    notify_method => 'smtp:*:*',
+    undecipherable_subject_tag => undef,
+};
+
+#############################################################################
+## POLICY BANKS: AM.PDP
+#
+
+$policy_bank{'AM.PDP-INET'} = {
+    protocol => 'AM.PDP',
+    inet_acl => [qw( 127.0.0.1 )],
+    auth_required_release => 0,
+};
+
+$policy_bank{'AM.PDP-SOCK'} = {
+    protocol => 'AM.PDP',
+    notify_method => 'smtp:127.0.0.1:10025',
+    auth_required_release => 0,
+};
+
+1;
+# vim: syntax=perl sw=4 bg=light:
