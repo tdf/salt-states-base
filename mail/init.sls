@@ -28,6 +28,8 @@ postfix:
     - managed
     - source: salt://mail/conf/postfix/main.cf
     - template: jinja
+    - require:
+      - pkg: postfix
     - watch_in:
       - service: postfix
     - context:
@@ -50,6 +52,8 @@ postfix_cdb:
     - template: jinja
     - context:
       mydomains: {{ mydomains }}
+    - require:
+      - pkg: postfix
   cmd:
     - wait
     - name: postmap /etc/postfix/transports
@@ -66,6 +70,8 @@ postfix_cdb:
     - template: jinja
     - context:
       users: {{ users }}
+    - require:
+      - pkg: postfix
   cmd:
     - wait
     - name: postmap /etc/postfix/recipients
@@ -79,6 +85,8 @@ postfix_cdb:
     - group: postfix
     - mode: 0644
     - source: salt://mail/conf/postfix/client_access
+    - require:
+      - pkg: postfix
   cmd:
     - wait
     - name: postmap /etc/postfix/client_access
@@ -92,6 +100,8 @@ postfix_cdb:
     - group: postfix
     - mode: 0644
     - source: salt://mail/conf/postfix/helo_access
+    - require:
+      - pkg: postfix
 
 /etc/postfix/identity_abuse:
   file:
@@ -100,6 +110,8 @@ postfix_cdb:
     - group: postfix
     - mode: 0644
     - source: salt://mail/conf/postfix/identity_abuse
+    - require:
+      - pkg: postfix
 
 /etc/postfix/roles:
   file:
@@ -108,6 +120,8 @@ postfix_cdb:
     - group: postfix
     - mode: 0644
     - source: salt://mail/conf/postfix/roles
+    - require:
+      - pkg: postfix
   cmd:
     - wait
     - name: postmap /etc/postfix/roles
@@ -121,6 +135,8 @@ postfix_cdb:
     - group: postfix
     - mode: 0644
     - source: salt://mail/conf/postfix/rbl_exceptions
+    - require:
+      - pkg: postfix
   cmd:
     - wait
     - name: postmap /etc/postfix/rbl_exceptions
@@ -147,6 +163,8 @@ dovecot:
     - source: salt://mail/conf/dovecot/10-master.conf
     - watch_in:
       - service: dovecot
+    - require:
+      - pkg: dovecot
 
 /etc/dovecot/conf.d/10-auth.conf:
   file:
@@ -154,6 +172,8 @@ dovecot:
     - source: salt://mail/conf/dovecot/10-auth.conf
     - watch_in:
       - service: dovecot
+    - require:
+      - pkg: dovecot
 
 /etc/dovecot/conf.d/10-mail.conf:
   file:
@@ -161,6 +181,8 @@ dovecot:
     - source: salt://mail/conf/dovecot/10-mail.conf
     - watch_in:
       - service: dovecot
+    - require:
+      - pkg: dovecot
 
 /etc/dovecot/users:
   file:
@@ -171,6 +193,8 @@ dovecot:
       users: {{ users }}
     - watch_in:
       - service: dovecot
+    - require:
+      - pkg: dovecot
 
 /usr/local/sbin/mkdrop:
   file:
@@ -185,6 +209,8 @@ dovecot:
   file:
     - managed
     - source: salt://mail/conf/postfix/master.cf
+    - require:
+      - pkg: postfix
     - watch_in:
       - service: postfix
 
