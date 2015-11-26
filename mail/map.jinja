@@ -3,5 +3,7 @@
         'postfix_package': 'postfix',
         'postfix_service': 'postfix',
         'postfix_cdb_package': 'postfix-cdb',
+        'dovecot_packages': ['dovecot-imapd', 'dovecot-lmtpd'],
+        'dovecot_service': 'dovecot'
     },
 }, merge=salt['pillar.get']('mail:lookup')) %}
