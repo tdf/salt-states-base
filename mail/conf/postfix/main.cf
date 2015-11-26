@@ -31,15 +31,25 @@ smtp_sasl_tls_security_options = noanonymous
 {% endif %}
 
 {% if not nullmailer %}
+
+##############################################################
+##  Server settings
+#
+
+##############################################################
+##  ESMTP Capabilities
+#
+
+## SASL server
+smtpd_sasl_auth_enable = no
+
+smtpd_sasl_type = dovecot
+
+smtpd_sasl_path = private/auth
+
 ###
 # Mailserver (SMTP/IMAP)
 
-# remove authorized_submit_users and master_service_disable as well as relayhost
-# relaydomain über lmtp an dovecot
-# for which domains do we accept mails and route them further
-# needs postfix-cdb
-# relaydomains* are chmod 640, root:postfix
-# transport_maps* are chmod 640, root:postfix
 # Für welche Domains nehmen wir E-Mail an und relayen sie gleich weiter?
 relay_domains = cdb:$config_directory/transports
 # Wohin routen wir Nachrichten aus Relay Domains?
@@ -177,7 +187,23 @@ smtpd_recipient_restrictions =
     reject_rbl_client      ix.dnsbl.manitu.net
     permit
 
+smtpd_sender_login_maps = cdb:$config_directory/valid_senders
 
+# Filter policies for mail via submission service
+mua_client_restrictions =
+
+mua_helo_restrictions =
+
+mua_sender_restrictions =
+
+mua_recipient_restrictions =
+    reject_non_fqdn_sender
+    reject_non_fqdn_recipient
+    reject_unknown_sender_domain
+    reject_unknown_recipient_domain
+    reject_sender_login_mismatch
+    permit_sasl_authenticated
+    reject
 
 {% endif %}
 {% if accumulator|default(False) %}{% for line in accumulator %}

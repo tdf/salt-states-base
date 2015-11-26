@@ -4,6 +4,7 @@
 {% set mydomains = salt['pillar.get']('mail:mydomains', [grains['fqdn'],]) %}
 {% set relayhost = salt['pillar.get']('mail:relayhost', False) %}
 {% set users = salt['pillar.get']('mail:users', {'root@'+grains['fqdn']: {'name': 'root'}}) %}
+{% set valid_senders = salt['pillar.get']('mail:valid_senders', {})}
 
 include:
   - requisites
@@ -142,6 +143,24 @@ postfix_cdb:
     - name: postmap /etc/postfix/rbl_exceptions
     - watch:
       - file: /etc/postfix/rbl_exceptions
+
+/etc/postfix/valid_senders:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - source: salt://mail/conf/postfix/valid_senders
+    - require:
+      - pkg: postfix
+    - context:
+      users: {{ users }}
+      valid_senders: {{ valid_senders }}
+  cmd:
+    - wait
+    - name: postmap /etc/postfix/valid_senders
+    - watch:
+      - file: /etc/postfix/valid_senders
 
 dovecot:
   pkg:

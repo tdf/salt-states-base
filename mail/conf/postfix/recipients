@@ -4,6 +4,6 @@
 {% for user, data in users.iteritems() %}
 {{ user }}			{{ user }}
 {% for alias in data.get('aliases', []) %}
-{{ alias }}			{{ user}}
+{{ alias }}			{{ user }}
 {% endfor %}
 {% endfor %}
