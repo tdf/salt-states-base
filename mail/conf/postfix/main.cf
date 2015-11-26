@@ -48,6 +48,89 @@ transport_maps = cdb:$config_directory/transports
 relay_recipient_maps = cdb:$config_directory/recipients
 # Welche Aliase (=Rerouting) gibt es in unseren Relay Domains?
 virtual_alias_maps = cdb:$config_directory/recipients
+
+###################################################################
+## FILTER
+#
+
+## connection filter
+
+# Who may pass postscreen tests?
+postscreen_access_list =
+    permit_mynetworks,
+    cidr:$config_directory/drop
+    cidr:$config_directory/postscreen_access
+
+# Which DNSBLs should postscreen check?
+postscreen_dnsbl_sites =
+    bl.mailspike.net
+    zen.spamhaus.org*2
+    swl.spamhaus.org*-2
+
+# At which score should postscreen take action?
+postscreen_dnsbl_threshold = 2
+
+# What would be the action postscreen should take?
+postscreen_dnsbl_action = enforce
+
+# What to do if client is blacklisted on $postscreen_access_list?
+postscreen_blacklist_action = drop
+
+# Kick early-talkers?
+# DO NOT "enforce" or SMTP AUTH will not be possible on port 25
+postscreen_greet_action = drop
+
+# IMPORTANT: Enabling the following postscreen-tests will send the clients
+# 4.2.1 away on first attempt
+
+# Should postscreen test forbidden PIPELINING attempts?
+postscreen_pipelining_enable = no
+# What would be the action postscreen should take?
+postscreen_pipelining_action = drop
+
+# Should postscreen test for non-SMTP commands?
+postscreen_non_smtp_command_enable = yes
+postscreen_non_smtp_command_action = drop
+
+# Should postscreen test for bare newlines?
+postscreen_bare_newline_enable = yes
+# What would be the action postscreen should take?
+postscreen_bare_newline_action = drop
+
+
+####################
+## SMTP Session Policies
+
+## Rate limits to prevent ressource abuse
+
+# How many connection should Postfix accept from the same IP at one time?
+smtpd_client_connection_rate_limit = 8
+
+# How many STARTTLS requests may a client send within one session?
+smtpd_client_new_tls_session_rate_limit = 5
+
+# How many messages may one client send within one session?
+smtpd_client_message_rate_limit = 20
+
+# How many recipients may a client specifiy in one message?
+smtpd_client_recipient_rate_limit = 0
+
+# Who's exempt from these rate limits?
+smtpd_client_event_limit_exceptions =
+    $mynetworks
+
+# Do we expect clients to introduce themselves?
+smtpd_helo_required = yes
+
+# Should we allow address VRFYcation?
+disable_vrfy_command = yes
+
+# Should we allow sloppy address notation?
+strict_rfc821_envelopes = yes
+
+# Should the SMTP server wait if it wants to reject?
+smtpd_delay_reject = no
+
 {% endif %}
 
 

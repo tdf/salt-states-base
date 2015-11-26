@@ -79,6 +79,8 @@ dovecot:
       {% for package in mail.dovecot_packages %}
       - {{ package }}
       {% endfor %}
+    - require:
+      - user: vmail
   service:
     - running
     - name: {{ mail.dovecot_service }}
@@ -114,6 +116,17 @@ dovecot:
       users: {{ users }}
     - watch_in:
       - service: dovecot
+
+/usr/local/sbin/mkdrop:
+  file:
+    - managed
+    - source: salt://mail/scripts/mkdrop
+    - chmod: 0755
+  cmd.wait:
+    - watch:
+      - file: /usr/local/sbin/mkdrop
+
+
 
 vmail:
   user:
