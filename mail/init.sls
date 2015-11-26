@@ -295,5 +295,5 @@ clamav:
 /etc/clamav/clamd.conf:
   file:
     - managed
-    - source: salt://mail/conf/clamv/clamd.conf
+    - source: salt://mail/conf/clamav/clamd.conf
 {% endif %}
