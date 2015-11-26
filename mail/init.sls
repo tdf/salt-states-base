@@ -28,6 +28,8 @@ postfix:
     - template: jinja
     - watch_in:
       - service: postfix
+    - context:
+      nullmailer: {{ nullmailer }}
 {% if not nullmailer %}
 postfix_cdb:
   pkg:
@@ -48,7 +50,7 @@ postfix_cdb:
     - watch:
       - file: /etc/postfix/transports
 
-  /etc/postfix/relaydomains:
+/etc/postfix/relaydomains:
   file:
     - managed
     - user: root
