@@ -45,7 +45,7 @@ postfix_cdb:
     - managed
     - user: root
     - group: postfix
-    - chmod: 644
+    - mode: 0644
     - source: salt://mail/conf/postfix/transports
     - template: jinja
     - context:
@@ -61,7 +61,7 @@ postfix_cdb:
     - managed
     - user: root
     - group: postfix
-    - chmod: 644
+    - mode: 0644
     - source: salt://mail/conf/postfix/recipients
     - template: jinja
     - context:
@@ -121,12 +121,15 @@ dovecot:
   file:
     - managed
     - source: salt://mail/scripts/mkdrop
-    - chmod: 0755
+    - mode: 0755
   cmd.wait:
     - watch:
       - file: /usr/local/sbin/mkdrop
 
-
+/etc/postfix/master.cf:
+  file:
+    - managed
+    - source: salt://mail/conf/postfix/master.cf
 
 vmail:
   user:
