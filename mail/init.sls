@@ -3,7 +3,7 @@
 {% set authorized_submit_users = salt['pillar.get']('mail:authorized_submit_users', 'root') %}
 {% set mydomains = salt['pillar.get']('mail:mydomains', [grains['fqdn'],]) %}
 {% set relayhost = salt['pillar.get']('mail:relayhost', False) %}
-{% set users = salt['pillar.get']('mail:users', {'root@'+grains['fqdn']: {'name': 'root'}} %}
+{% set users = salt['pillar.get']('mail:users', {'root@'+grains['fqdn']: {'name': 'root'}}) %}
 
 include:
   - requisites
