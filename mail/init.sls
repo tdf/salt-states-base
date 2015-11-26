@@ -98,6 +98,13 @@ dovecot:
     - watch_in:
       - service: dovecot
 
+/etc/dovecot/conf.d/10-mail.conf:
+  file:
+    - managed
+    - source: salt://mail/conf/dovecot/10-mail.conf
+    - watch_in:
+      - service: dovecot
+
 /etc/dovecot/users:
   file:
     - managed
