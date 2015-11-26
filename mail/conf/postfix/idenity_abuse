@@ -1,0 +1,7 @@
+########################
+# FILE MANAGED BY SALT #
+########################
+# Identität                     Aktion
+/^(89\.238\.68\.159)$/          REJECT Hostname abuse: $1
+/^(\[89\.238\.68\.159\])$/      REJECT Hostname abuse: $1
+/^(vm159\.documentfoundation\.org)$/     REJECT Hostname abuse: $1

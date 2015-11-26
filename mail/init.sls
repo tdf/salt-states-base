@@ -72,6 +72,61 @@ postfix_cdb:
     - watch:
       - file: /etc/postfix/recipients
 
+/etc/postfix/client_access:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - source: salt://mail/conf/postfix/client_access
+  cmd:
+    - wait
+    - name: postmap /etc/postfix/client_access
+    - watch:
+      - file: /etc/postfix/client_access
+
+/etc/postfix/helo_access:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - source: salt://mail/conf/postfix/helo_access
+
+/etc/postfix/identity_abuse:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - source: salt://mail/conf/postfix/identity_abuse
+
+/etc/postfix/roles:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - source: salt://mail/conf/postfix/roles
+  cmd:
+    - wait
+    - name: postmap /etc/postfix/roles
+    - watch:
+      - file: /etc/postfix/roles
+
+/etc/postfix/rbl_exceptions:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - source: salt://mail/conf/postfix/rbl_exceptions
+  cmd:
+    - wait
+    - name: postmap /etc/postfix/rbl_exceptions
+    - watch:
+      - file: /etc/postfix/rbl_exceptions
+
 dovecot:
   pkg:
     - installed
@@ -130,6 +185,8 @@ dovecot:
   file:
     - managed
     - source: salt://mail/conf/postfix/master.cf
+    - watch_in:
+      - service: postfix
 
 vmail:
   user:

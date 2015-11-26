@@ -131,10 +131,55 @@ strict_rfc821_envelopes = yes
 # Should the SMTP server wait if it wants to reject?
 smtpd_delay_reject = no
 
+# Filters run when client connects to SMTP server
+smtpd_client_restrictions =
+    reject_unauth_pipelining
+    check_client_access cdb:$config_directory/client_access
+
+
+# Filters run when client sends HELO/EHLO name
+smtpd_helo_restrictions =
+    check_client_access cidr:$config_directory/helo_access
+    check_helo_access pcre:$config_directory/identity_abuse
+    permit_mynetworks
+    reject_non_fqdn_helo_hostname
+    reject_invalid_helo_hostname
+    # check_helo_ns_access cidr:$config_directory/bogus_mx-or-ns
+    # check_helo_mx_access cidr:$config_directory/bogus_mx-or-ns
+
+
+# Filters run at MAIL FROM stage
+smtpd_sender_restrictions =
+    reject_non_fqdn_sender
+    reject_unknown_sender_domain
+    # check_sender_access cdb:$config_directory/sender_blacklist
+    reject_unlisted_sender
+    # check_sender_ns_access cidr:$config_directory/bogus_mx-or-ns
+    # check_sender_mx_access cidr:$config_directory/bogus_mx-or-ns
+
+
+# Filters run at RCPT TO stage
+smtpd_recipient_restrictions =
+    reject_non_fqdn_recipient
+    reject_unknown_recipient_domain
+    permit_mynetworks
+    # reject_sender_login_mismatch
+    permit_sasl_authenticated
+    reject_unauth_destination
+    reject_unverified_recipient
+    reject_unlisted_recipient
+    check_client_access    cidr:$config_directory/drop
+    check_sender_mx_access cidr:$config_directory/drop
+    check_sender_ns_access cidr:$config_directory/drop
+    check_recipient_access cdb:$config_directory/roles
+    reject_invalid_hostname
+    check_client_access    cdb:$config_directory/rbl_exceptions
+    reject_rbl_client      ix.dnsbl.manitu.net
+    permit
+
+
+
 {% endif %}
-
-
-
 {% if accumulator|default(False) %}{% for line in accumulator %}
 {{ line }}{% endfor %}
 {% endif %}
