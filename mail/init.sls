@@ -2,6 +2,7 @@
 {% set nullmailer = salt['pillar.get']('mail:nullmailer', True) %}
 {% set authorized_submit_users = salt['pillar.get']('mail:authorized_submit_users', 'root') %}
 {% set mydomains = salt['pillar.get']('mail:mydomains', [grains['fqdn'],]) %}
+{% set relayhost = salt['pillar.get']('mail:relayhost', False) %}
 
 include:
   - requisites
@@ -30,6 +31,7 @@ postfix:
       - service: postfix
     - context:
       nullmailer: {{ nullmailer }}
+      relayhost: {{ relayhost }}
 {% if not nullmailer %}
 postfix_cdb:
   pkg:
