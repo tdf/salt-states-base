@@ -2,8 +2,8 @@
 # FILE MANAGED BY SALT #
 ########################
 {% for user, data in users.iteritems() %}
-{{ user }}			{{ user }}{% if user in valid_senders %-},{{valid_senders[user].join(',')}}{% endif %-}
+{{ user }}			{{ user }}{% if user in valid_senders %-},{{valid_senders[user].join(',')}}{% endif %}
 {% for alias in data.get('aliases', []) %}
-{{ alias }}			{{ user }}{% if alias in valid_senders %-},{{valid_senders[alias].join(',')}}{% endif %-}
+{{ alias }}			{{ user }}{% if alias in valid_senders %-},{{valid_senders[alias].join(',')}}{% endif %}
 {% endfor %}
 {% endfor %}
