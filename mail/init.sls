@@ -3,7 +3,7 @@
 {% set authorized_submit_users = salt['pillar.get']('mail:authorized_submit_users', 'root') %}
 {% set mydomains = salt['pillar.get']('mail:mydomains', [grains['fqdn'],]) %}
 {% set relayhost = salt['pillar.get']('mail:relayhost', False) %}
-{% set users = salt['pillar.get']('mail:users', {'root@'+grains['fqdn']: {}} %}
+{% set users = salt['pillar.get']('mail:users', {'root@'+grains['fqdn']: {'name': 'root'}} %}
 
 include:
   - requisites
@@ -88,6 +88,23 @@ dovecot:
   file:
     - managed
     - source: salt://mail/conf/dovecot/10-master.conf
+    - watch_in:
+      - service: dovecot
+
+/etc/dovecot/conf.d/10-auth.conf:
+  file:
+    - managed
+    - source: salt://mail/conf/dovecot/10-auth.conf
+    - watch_in:
+      - service: dovecot
+
+/etc/dovecot/users:
+  file:
+    - managed
+    - source: salt://mail/conf/dovecot/users
+    - template: jinja
+    - context:
+      users: {{ users }}
     - watch_in:
       - service: dovecot
 
