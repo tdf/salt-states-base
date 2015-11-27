@@ -418,7 +418,7 @@ clamav:
     - append_if_not_found: True
     - source: salt://mail/conf/amavis/amavisd-milter
     - require:
-      - file: /etc/default/amavisd-milter
+      - file: /etc/default/amavisd-milter_mode
     - watch_in:
       - service: amavisd-milter
       - service: amavis
