@@ -156,9 +156,6 @@ postfix_pcre:
   file:
     - blockreplace
     - append_if_not_found: True
-    - user: root
-    - group: postfix
-    - mode: 0644
     - source: salt://mail/conf/postfix/rbl_exceptions
     - require:
       - pkg: postfix
@@ -168,25 +165,37 @@ postfix_pcre:
     - watch:
       - file: /etc/postfix/rbl_exceptions
 
+/etc/postfix/rbl_exceptions_mode:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+
+        
 /etc/postfix/valid_senders:
   file:
     - blockreplace
     - append_if_not_found: True
-    - user: root
-    - group: postfix
-    - mode: 0644
     - source: salt://mail/conf/postfix/valid_senders
     - template: jinja
     - require:
       - pkg: postfix
     - context:
-      users: {{ users }}
-      valid_senders: {{ valid_senders }}
+        users: {{ users }}
+        valid_senders: {{ valid_senders }}
   cmd:
     - wait
     - name: postmap /etc/postfix/valid_senders
     - watch:
       - file: /etc/postfix/valid_senders
+/etc/postfix/valid_senders_mode:
+  file:
+    - managed
+    - name: /etc/postfix/valid/senders
+    - user: root
+    - group: postfix
+    - mode: 0644
 
 dovecot:
   pkg:
@@ -236,7 +245,7 @@ dovecot:
     - source: salt://mail/conf/dovecot/users
     - template: jinja
     - context:
-      users: {{ users }}
+        users: {{ users }}
     - watch_in:
       - service: dovecot
     - require:
