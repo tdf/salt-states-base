@@ -14,5 +14,6 @@
 '/etc/clamav/clamd.conf' ] %}
 {{ file }}:
   file:
-    - absent
+    - managed
+    - content: ''
 {% endfor %}
