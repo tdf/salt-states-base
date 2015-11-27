@@ -335,7 +335,7 @@ dovecot:
 
 /etc/dovecot/users_mode:
   file:
-    - mode
+    - managed
     - name: /etc/dovecot/users
     - require:
       - pkg: dovecot
