@@ -23,6 +23,16 @@ postfix:
     - installed
     - name: {{ mail.postfix_package }}
 
+cleanup_defaults:
+  cmd:
+    - run
+    - name: rm -rf /etc/postfix/* /etc/default/amavisd-milter /etc/clamav/clamd.conf /etc/dovecot/users; touch /etc/postfix/.cleaned
+    - unless: test -f /etc/postfix/.cleaned
+    - require:
+      - pkg: postfix
+      {% if not nullmailer %}
+      - pkg: amavis
+      {% endif %}
 
 /etc/postfix/main.cf:
   file:
@@ -31,12 +41,20 @@ postfix:
     - source: salt://mail/conf/postfix/main.cf
     - template: jinja
     - require:
-      - pkg: postfix
+      - file: /etc/postfix/main.cf_mode
     - watch_in:
       - service: postfix
     - context:
         nullmailer: {{ nullmailer }}
         relayhost: {{ relayhost }}
+
+/etc/postfix/main.cf_mode:
+  file:
+    - managed
+    - name: /etc/postfix/main.cf
+    - require: 
+      - pkg: postfix
+      - cmd: cleanup_defaults
 
 {% if not nullmailer %}
 postfix_cdb:
@@ -74,6 +92,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 /etc/postfix/recipients:
   file:
@@ -100,6 +119,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 /etc/postfix/client_access:
   file:
@@ -123,6 +143,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 /etc/postfix/helo_access:
   file:
@@ -142,6 +163,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 /etc/postfix/identity_abuse:
   file:
@@ -160,6 +182,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 /etc/postfix/postscreen_access:
   file:
@@ -178,6 +201,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 /etc/postfix/roles:
   file:
@@ -201,6 +225,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 /etc/postfix/rbl_exceptions:
   file:
@@ -224,6 +249,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
         
 /etc/postfix/valid_senders:
   file:
@@ -251,6 +277,7 @@ postfix_pcre:
     - mode: 0644
     - require:
       - pkg: postfix
+      - cmd: cleanup_defaults
 
 dovecot:
   pkg:
@@ -324,9 +351,17 @@ dovecot:
     - append_if_not_found: True
     - source: salt://mail/conf/postfix/master.cf
     - require:
-      - pkg: postfix
+      - file: /etc/postfix/master.cf_mode
     - watch_in:
       - service: postfix
+
+/etc/postfix/master.cf_mode:
+  file:
+    - managed
+    - name: /etc/postfix/master.cf
+    - require:
+      - pkg: postfix
+      - cmd: cleanup_defaults
 
 vmail:
   user:
@@ -383,10 +418,18 @@ clamav:
     - append_if_not_found: True
     - source: salt://mail/conf/amavis/amavisd-milter
     - require:
-      - pkg: amavis
+      - file: /etc/default/amavisd-milter
     - watch_in:
       - service: amavisd-milter
       - service: amavis
+
+/etc/default/amavisd-milter_mode:
+  file:
+    - managed
+    - name: /etc/default/amavisd-milter
+    - require:
+      - pkg: amavis
+      - cmd: cleanup_defaults
 
 /etc/amavis/conf.d/60-local:
   file:
@@ -405,6 +448,16 @@ clamav:
     - blockreplace
     - append_if_not_found: True
     - source: salt://mail/conf/clamav/clamd.conf
+    - require: 
+      - file: /etc/clamav/clamd.conf_mode
     - watch_in:
       - service: clamav
+
+/etc/clamav/clamd.conf_mode:
+  file:
+    - managed
+    - name: /etc/clamav/clamd.conf
+    - require:
+      - pkg: amavis
+      - cmd: cleanup_defaults
 {% endif %}
