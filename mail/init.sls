@@ -61,12 +61,21 @@ postfix_pcre:
     - context:
       mydomains: {{ mydomains }}
     - require:
-      - pkg: postfix
+      - file: /etc/postfix/transports_mode
   cmd:
     - wait
     - name: postmap /etc/postfix/transports
     - watch:
       - file: /etc/postfix/transports
+
+/etc/postfix/transports_mode:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - require:
+      - pkg: postfix
 
 /etc/postfix/recipients:
   file:
@@ -80,12 +89,21 @@ postfix_pcre:
     - context:
       users: {{ users }}
     - require:
-      - pkg: postfix
+      - file: /etc/postfix/recipients_mode
   cmd:
     - wait
     - name: postmap /etc/postfix/recipients
     - watch:
       - file: /etc/postfix/recipients
+
+/etc/postfix/recipients_mode:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - require:
+      - pkg: postfix
 
 /etc/postfix/client_access:
   file:
@@ -96,21 +114,37 @@ postfix_pcre:
     - mode: 0644
     - source: salt://mail/conf/postfix/client_access
     - require:
-      - pkg: postfix
+      - file: /etc/postfix/client_access_mode
   cmd:
     - wait
     - name: postmap /etc/postfix/client_access
     - watch:
       - file: /etc/postfix/client_access
 
+/etc/postfix/client_access_mode:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - require:
+      - pkg: postfix
+
 /etc/postfix/helo_access:
   file:
     - blockreplace
     - append_if_not_found: True
+    - source: salt://mail/conf/postfix/helo_access
+    - require:
+      - file: /etc/postfix/helo_access_mode
+
+
+/etc/postfix/helo_access_mode:
+  file:
+    - managed
     - user: root
     - group: postfix
     - mode: 0644
-    - source: salt://mail/conf/postfix/helo_access
     - require:
       - pkg: postfix
 
@@ -118,10 +152,16 @@ postfix_pcre:
   file:
     - blockreplace
     - append_if_not_found: True
+    - source: salt://mail/conf/postfix/identity_abuse
+    - require:
+      - file: /etc/postfix/identity_abuse_mode
+
+/etc/postfix/identity_abuse_mode:
+  file:
+    - managed
     - user: root
     - group: postfix
     - mode: 0644
-    - source: salt://mail/conf/postfix/identity_abuse
     - require:
       - pkg: postfix
 
@@ -129,10 +169,16 @@ postfix_pcre:
   file:
     - blockreplace
     - append_if_not_found: True
+    - source: salt://mail/conf/postfix/postscreen_access
+    - require:
+      - file: /etc/postfix/postscreen_access_mode
+
+/etc/postfix/postscreen_access_mode:
+  file:
+    - managed
     - user: root
     - group: postfix
     - mode: 0644
-    - source: salt://mail/conf/postfix/postscreen_access
     - require:
       - pkg: postfix
 
@@ -140,17 +186,23 @@ postfix_pcre:
   file:
     - blockreplace
     - append_if_not_found: True
-    - user: root
-    - group: postfix
-    - mode: 0644
     - source: salt://mail/conf/postfix/roles
     - require:
-      - pkg: postfix
+      file: /etc/postfix/roles_mode
   cmd:
     - wait
     - name: postmap /etc/postfix/roles
     - watch:
       - file: /etc/postfix/roles
+
+/etc/postfix/roles_mode:
+  file:
+    - managed
+    - user: root
+    - group: postfix
+    - mode: 0644
+    - require:
+      - pkg: postfix
 
 /etc/postfix/rbl_exceptions:
   file:
@@ -158,7 +210,7 @@ postfix_pcre:
     - append_if_not_found: True
     - source: salt://mail/conf/postfix/rbl_exceptions
     - require:
-      - pkg: postfix
+      - file: /etc/postfix/rbl_exceptions_mode
   cmd:
     - wait
     - name: postmap /etc/postfix/rbl_exceptions
@@ -171,7 +223,8 @@ postfix_pcre:
     - user: root
     - group: postfix
     - mode: 0644
-
+    - require:
+      - pkg: postfix
         
 /etc/postfix/valid_senders:
   file:
@@ -180,7 +233,7 @@ postfix_pcre:
     - source: salt://mail/conf/postfix/valid_senders
     - template: jinja
     - require:
-      - pkg: postfix
+      - file: /etc/postfix/valid_senders_mode
     - context:
         users: {{ users }}
         valid_senders: {{ valid_senders }}
@@ -189,6 +242,7 @@ postfix_pcre:
     - name: postmap /etc/postfix/valid_senders
     - watch:
       - file: /etc/postfix/valid_senders
+
 /etc/postfix/valid_senders_mode:
   file:
     - managed
@@ -196,6 +250,8 @@ postfix_pcre:
     - user: root
     - group: postfix
     - mode: 0644
+    - require:
+      - pkg: postfix
 
 dovecot:
   pkg:
