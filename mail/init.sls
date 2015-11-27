@@ -295,7 +295,7 @@ amavisd-milter:
   service:
     - running
     - enable: True
-    - name: {{ mail.amavid_milter_servie }}
+    - name: {{ mail.amavis_milter_service }}
     - require:
       - pkg: amavis
 
