@@ -35,8 +35,8 @@ postfix:
     - watch_in:
       - service: postfix
     - context:
-      nullmailer: {{ nullmailer }}
-      relayhost: {{ relayhost }}
+        nullmailer: {{ nullmailer }}
+        relayhost: {{ relayhost }}
 
 {% if not nullmailer %}
 postfix_cdb:
@@ -59,7 +59,7 @@ postfix_pcre:
     - source: salt://mail/conf/postfix/transports
     - template: jinja
     - context:
-      mydomains: {{ mydomains }}
+        mydomains: {{ mydomains }}
     - require:
       - file: /etc/postfix/transports_mode
   cmd:
@@ -87,7 +87,7 @@ postfix_pcre:
     - source: salt://mail/conf/postfix/recipients
     - template: jinja
     - context:
-      users: {{ users }}
+        users: {{ users }}
     - require:
       - file: /etc/postfix/recipients_mode
   cmd:
@@ -188,7 +188,7 @@ postfix_pcre:
     - append_if_not_found: True
     - source: salt://mail/conf/postfix/roles
     - require:
-      file: /etc/postfix/roles_mode
+      - file: /etc/postfix/roles_mode
   cmd:
     - wait
     - name: postmap /etc/postfix/roles
@@ -395,8 +395,8 @@ clamav:
     - source: salt://mail/conf/amavis/60-local
     - template: jinja
     - context:
-      fqdn: {{ grains['fqdn']}}
-      domain: {{ grains['domain'] }}
+        fqdn: {{ grains['fqdn']}}
+        domain: {{ grains['domain'] }}
     - watch_in:
       - service: amavis
       - service: amavisd-milter
