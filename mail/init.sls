@@ -291,6 +291,8 @@ clamav:
     - source: salt://mail/conf/amavis/amavisd-milter
     - require:
       - pkg: amavis
+    - watch_in:
+      - service: amavis
 
 /etc/amavis/conf.d/60-local:
   file:
