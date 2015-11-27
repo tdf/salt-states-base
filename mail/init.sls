@@ -26,7 +26,7 @@ postfix:
 cleanup_defaults:
   cmd:
     - run
-    - name: rm -rf /etc/postfix/* /etc/default/amavisd-milter /etc/clamav/clamd.conf /etc/dovecot/users; touch /etc/postfix/.cleaned
+    - name: rm -rf /etc/postfix/(main.cf|master.cf) /etc/default/amavisd-milter /etc/clamav/clamd.conf ; touch /etc/postfix/.cleaned
     - unless: test -f /etc/postfix/.cleaned
     - require:
       - pkg: postfix
@@ -331,7 +331,15 @@ dovecot:
     - watch_in:
       - service: dovecot
     - require:
+      - file: /etc/dovecot/users_mode
+
+/etc/dovecot/users_mode:
+  file:
+    - mode
+    - name: /etc/dovecot/users
+    - require:
       - pkg: dovecot
+      - cmd: cleanup_defaults
 
 /usr/local/sbin/mkdrop:
   file:
