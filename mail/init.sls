@@ -94,7 +94,7 @@ postfix_pcre:
 /etc/postfix/recipients_mode:
   file:
     - managed
-    - name: /etc/postfix/recipients_mode
+    - name: /etc/postfix/recipients
     - user: root
     - group: postfix
     - mode: 0644
