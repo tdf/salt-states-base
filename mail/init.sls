@@ -246,7 +246,7 @@ postfix_pcre:
 /etc/postfix/valid_senders_mode:
   file:
     - managed
-    - name: /etc/postfix/valid/senders
+    - name: /etc/postfix/valid_senders
     - user: root
     - group: postfix
     - mode: 0644
