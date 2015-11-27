@@ -68,6 +68,7 @@ postfix_pcre:
 /etc/postfix/transports_mode:
   file:
     - managed
+    - name: /etc/postfix/transports
     - user: root
     - group: postfix
     - mode: 0644
@@ -93,6 +94,7 @@ postfix_pcre:
 /etc/postfix/recipients_mode:
   file:
     - managed
+    - name: /etc/postfix/recipients_mode
     - user: root
     - group: postfix
     - mode: 0644
@@ -115,6 +117,7 @@ postfix_pcre:
 /etc/postfix/client_access_mode:
   file:
     - managed
+    - name: /etc/postfix/client_access
     - user: root
     - group: postfix
     - mode: 0644
@@ -133,6 +136,7 @@ postfix_pcre:
 /etc/postfix/helo_access_mode:
   file:
     - managed
+    - name: /etc/postfix/helo_access
     - user: root
     - group: postfix
     - mode: 0644
@@ -150,6 +154,7 @@ postfix_pcre:
 /etc/postfix/identity_abuse_mode:
   file:
     - managed
+    - name: /etc/postfix/identity_abuse
     - user: root
     - group: postfix
     - mode: 0644
@@ -167,6 +172,7 @@ postfix_pcre:
 /etc/postfix/postscreen_access_mode:
   file:
     - managed
+    - name: /etc/postfix/postscreen_access
     - user: root
     - group: postfix
     - mode: 0644
@@ -189,6 +195,7 @@ postfix_pcre:
 /etc/postfix/roles_mode:
   file:
     - managed
+    - name: /etc/postfix/roles
     - user: root
     - group: postfix
     - mode: 0644
@@ -211,6 +218,7 @@ postfix_pcre:
 /etc/postfix/rbl_exceptions_mode:
   file:
     - managed
+    - name: /etc/postfix/rbl_exceptions
     - user: root
     - group: postfix
     - mode: 0644
