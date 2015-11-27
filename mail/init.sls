@@ -292,6 +292,17 @@ clamav:
     - require:
       - pkg: amavis
 
+/etc/amavis/conf.d/60-local:
+  file:
+    - managed
+    - source: salt://mail/conf/amavis/60-local
+    - template: jinja
+    - context:
+      fqdn: {{ grains['fqdn']}}
+      domain: {{ grains['domain'] }}
+    - watch_in:
+      - service: amavis
+
 /etc/clamav/clamd.conf:
   file:
     - managed

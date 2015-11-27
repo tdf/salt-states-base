@@ -5,8 +5,8 @@ use strict;
 #
 
 # Identity
-$myhostname = 'mail.documentfoundation.org';
-$mydomain = 'documentfoundation.org';
+$myhostname = '{{ fqdn }}';
+$mydomain = '{{ domain }}';
 
 # Internal Book Keeping
 $enable_db = 1;
@@ -91,20 +91,13 @@ $interface_policy{'9998'}   = 'AM.PDP-INET';
 # In welche Policy routen wir bestimmte IPs/Netzwerke?
 @client_ipaddr_policy = (
     [qw( 0.0.0.0/8 127.0.0.1/32 [::] [::1] )] => 'LOCALHOST',
-    [qw( !172.16.1.0/24 172.16.0.0/12 192.168.0.0/16 )] => 'PRIVATENETS',
-    [qw( 192.0.2.0/25 192.0.2.129 192.0.2.130 )] => 'PARTNER',
-    [qw( 212.7.160.0/19 )] => 'SUBMISSION',
+    [qw( 10.0.0.0/8 )] => 'PRIVATENETS',
     \@mynetworks => 'MYNETS'
 );
 
 # In welche Policy routen wir DKIM-verifizierte Sender/Senderdomains?
 @author_to_policy_bank_maps = ( {
-    'state-of-mind.de'          => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
-    'charite.de'                => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
-    'schetterer.org'            => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
-    'roessner-network-solutions.com'        => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
-    '.paypal.de'                => 'WHITELIST',
-    'amazon.de'                 => 'WHITELIST',
+    'documentfoundation.org'          => 'WHITELIST,NOBANNEDCHECK,NOVIRUSCHECK',
 } );
 
 
@@ -273,27 +266,27 @@ $defang_virus  = 'attach';
 
 $notify_release_templ = 'From: %f
 Date: %d
-Subject: \[QUARANTAENE FREIGABE\] %j
+Subject: \[QUARANTINE RELEASE\] %j
 To: [? %#T |undisclosed-recipients:;|[%T|, ]]
 [? %#C |#|Cc: [%C|, ]]
 Message-ID: <QRA%i@%h>
 
 Im Anhang an diese Nachricht finden Sie eine Nachricht, die in Quarantaene
 eingelagert gewesen war.
+As an attachment to this mail you can find a mail that was quarantined.
 #
 [? [:attachment_password] |#|
+To protect you and also to avoid other virus scanners to stop the mail it was
+compressed in a password protected ZIP-archive.
 Zu Ihrem Schutz und auch damit die Nachricht bei der Zustellung an Sie nicht
-von weiteren Virenscannern aufgehalten werden kann, haben wir diese in ein
-kennwortgeschuetztes ZIP-Archiv gepackt.
 
-Ihr Kennwort zum Oeffnen des ZIP-Archivs lautet:
+Your password to open the archive is:
 
                         [:attachment_password]
 
 ]#
 
-Falls Sie Fragen zu dieser Nachricht haben, nennen Sie uns bitte folgende,
-interne Referenznummer: %n/%i';
+If you have any questions regarding this mail, please cite this reference: %n/%i';
 
 
 #############################################################################
