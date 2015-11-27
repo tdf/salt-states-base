@@ -53,9 +53,6 @@ postfix_pcre:
   file:
     - blockreplace
     - append_if_not_found: True
-    - user: root
-    - group: postfix
-    - mode: 0644
     - source: salt://mail/conf/postfix/transports
     - template: jinja
     - context:
@@ -81,9 +78,6 @@ postfix_pcre:
   file:
     - blockreplace
     - append_if_not_found: True
-    - user: root
-    - group: postfix
-    - mode: 0644
     - source: salt://mail/conf/postfix/recipients
     - template: jinja
     - context:
@@ -109,9 +103,6 @@ postfix_pcre:
   file:
     - blockreplace
     - append_if_not_found: True
-    - user: root
-    - group: postfix
-    - mode: 0644
     - source: salt://mail/conf/postfix/client_access
     - require:
       - file: /etc/postfix/client_access_mode
