@@ -1,6 +1,7 @@
-########################
-# FILE MANAGED BY SALT #
-########################
+#########################################################################
+# FILE MANAGED BY SALT                                                  #
+# for local changes, add them outside the managed zone                  #
+#########################################################################
 # removed NIS from alias_maps
 alias_maps = hash:/etc/aliases
 default_database_type = cdb
@@ -215,4 +216,3 @@ smtpd_milters =
 {% if accumulator|default(False) %}{% for line in accumulator %}
 {{ line }}{% endfor %}
 {% endif %}
-

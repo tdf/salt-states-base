@@ -1,3 +1,7 @@
+#########################################################################
+# FILE MANAGED BY SALT                                                  #
+# for local changes, add them outside the managed zone                  #
+#########################################################################
 # ==========================================================================
 # service type  private unpriv  chroot  wakeup  maxproc command + args
 #               (yes)   (yes)   (yes)   (never) (100)

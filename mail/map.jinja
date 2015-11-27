@@ -7,6 +7,8 @@
         'dovecot_packages': ['dovecot-imapd', 'dovecot-lmtpd'],
         'dovecot_service': 'dovecot',
         'amavis_packages': ['amavisd-milter', 'amavisd-new', 'clamav-daemon', 'clamav-testfiles', 'spamassassin'],
-        'amavis_service': 'amavisd-milter'
+        'amavis_service': 'amavis',
+        'amavis_milter_service': 'amavisd-milter',
+        'clamav_service': 'clamav-daemon'
     },
 }, merge=salt['pillar.get']('mail:lookup')) %}

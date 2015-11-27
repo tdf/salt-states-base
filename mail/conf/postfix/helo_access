@@ -1,4 +1,5 @@
-########################
-# FILE MANAGED BY SALT #
-########################
-# Heloname                      Aktion
+#########################################################################
+# FILE MANAGED BY SALT                                                  #
+# for local changes, add them outside the managed zone                  #
+#########################################################################
+# Heloname                      Action

@@ -1,7 +1,8 @@
-########################
-# FILE MANAGED BY SALT #
-########################
-# Identität                     Aktion
+#########################################################################
+# FILE MANAGED BY SALT                                                  #
+# for local changes, add them outside the managed zone                  #
+#########################################################################
+# Identity                      Action
 /^(89\.238\.68\.159)$/          REJECT Hostname abuse: $1
 /^(\[89\.238\.68\.159\])$/      REJECT Hostname abuse: $1
 /^(vm159\.documentfoundation\.org)$/     REJECT Hostname abuse: $1

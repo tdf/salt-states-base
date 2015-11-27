@@ -1,6 +1,7 @@
-########################
-# FILE MANAGED BY SALT #
-########################
+#########################################################################
+# FILE MANAGED BY SALT                                                  #
+# for local changes, add them outside the managed zone                  #
+#########################################################################
 # user:password:uid:gid:(gecos):home:(shell):extra_fields
 {% for user, data in users.iteritems() %}
 {{ user }}:{{ data.get('password', '')}}:2000:2000:{{ data.get('name', '')}}:/srv/mail/{{ user }}:

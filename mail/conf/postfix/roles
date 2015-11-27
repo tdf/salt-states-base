@@ -1,6 +1,7 @@
-########################
-# FILE MANAGED BY SALT #
-########################
+#########################################################################
+# FILE MANAGED BY SALT                                                  #
+# for local changes, add them outside the managed zone                  #
+#########################################################################
 postmaster@			OK
 abuse@				OK
 hostmaster@			OK

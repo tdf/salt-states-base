@@ -26,7 +26,8 @@ postfix:
 
 /etc/postfix/main.cf:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - source: salt://mail/conf/postfix/main.cf
     - template: jinja
     - require:
@@ -50,7 +51,8 @@ postfix_pcre:
 
 /etc/postfix/transports:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -68,7 +70,8 @@ postfix_pcre:
 
 /etc/postfix/recipients:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -86,7 +89,8 @@ postfix_pcre:
 
 /etc/postfix/client_access:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -101,7 +105,8 @@ postfix_pcre:
 
 /etc/postfix/helo_access:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -111,7 +116,8 @@ postfix_pcre:
 
 /etc/postfix/identity_abuse:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -121,7 +127,8 @@ postfix_pcre:
 
 /etc/postfix/postscreen_access:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -131,7 +138,8 @@ postfix_pcre:
 
 /etc/postfix/roles:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -146,7 +154,8 @@ postfix_pcre:
 
 /etc/postfix/rbl_exceptions:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -161,7 +170,8 @@ postfix_pcre:
 
 /etc/postfix/valid_senders:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - user: root
     - group: postfix
     - mode: 0644
@@ -221,7 +231,8 @@ dovecot:
 
 /etc/dovecot/users:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - source: salt://mail/conf/dovecot/users
     - template: jinja
     - context:
@@ -245,7 +256,8 @@ dovecot:
 
 /etc/postfix/master.cf:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - source: salt://mail/conf/postfix/master.cf
     - require:
       - pkg: postfix
@@ -276,6 +288,16 @@ amavis:
     - running
     - enable: True
     - name: {{ mail.amavis_service }}
+    - require:
+      - pkg: amavis
+
+amavisd-milter:
+  service:
+    - running
+    - enable: True
+    - name: {{ mail.amavid_milter_servie }}
+    - require:
+      - pkg: amavis
 
 clamav:
   group:
@@ -284,14 +306,22 @@ clamav:
       - amavis
     - require:
       - pkg: amavis
+  service:
+    - running
+    - enable: True
+    - name: {{ mail.clamav_service }}
+    - require:
+      - pkg: amavis
 
 /etc/default/amavisd-milter:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - source: salt://mail/conf/amavis/amavisd-milter
     - require:
       - pkg: amavis
     - watch_in:
+      - service: amavisd-milter
       - service: amavis
 
 /etc/amavis/conf.d/60-local:
@@ -304,9 +334,13 @@ clamav:
       domain: {{ grains['domain'] }}
     - watch_in:
       - service: amavis
+      - service: amavisd-milter
 
 /etc/clamav/clamd.conf:
   file:
-    - managed
+    - blockreplace
+    - append_if_not_found: True
     - source: salt://mail/conf/clamav/clamd.conf
+    - watch_in:
+      - service: clamav
 {% endif %}

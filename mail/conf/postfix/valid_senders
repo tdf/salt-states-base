@@ -1,6 +1,7 @@
-########################
-# FILE MANAGED BY SALT #
-########################
+#########################################################################
+# FILE MANAGED BY SALT                                                  #
+# for local changes, add them outside the managed zone                  #
+#########################################################################
 {% for user, data in users.iteritems() %}
 {{ user }}			{{ user }}{% if user in valid_senders %},{{valid_senders[user].join(',')}}{% endif %}
 {% for alias in data.get('aliases', []) %}
