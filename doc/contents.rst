@@ -11,7 +11,15 @@ Documentation
 
    *
    states/*
-   services/*
+
+Documented Services
+-------------------
+
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    services/*
 
 
 Available states
