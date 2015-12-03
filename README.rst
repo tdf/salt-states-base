@@ -2,6 +2,9 @@
 TDF-Documentation
 =================
 
+.. image:: https://travis-ci.org/tdf/salt-states-base.svg?branch=master
+    :target: https://travis-ci.org/tdf/salt-states-base
+
 This is the public documentation for the infrastructure of The Document Foundation.
 
 It also servers as a collection of salt states for basic system configuration.
