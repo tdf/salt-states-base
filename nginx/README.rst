@@ -2,16 +2,6 @@
 Nginx
 =====
 
-.. image:: http://vm170.documentfoundation.org/badge/nginx/debian:7
-
-.. image:: http://vm170.documentfoundation.org/badge/nginx/ubuntu:12.04
-
-.. image:: http://vm170.documentfoundation.org/badge/nginx/ubuntu:14.04
-
-.. image:: http://vm170.documentfoundation.org/badge/nginx/debian:8
-
-.. image:: http://vm170.documentfoundation.org/badge/nginx/centos:7
-
 States to install and configure the fast and light webserver Nginx.
 
 
