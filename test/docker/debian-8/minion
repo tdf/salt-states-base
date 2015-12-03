@@ -1,6 +1,6 @@
 state_verbose: False
 state_tabular: True
-state_output: terse
+state_output: mixed
 file_client: local
 file_roots:
   base:
