@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - sudo ./test/build.sh
+  - cd test; sudo ./test/build.sh
 
 script:
-  - sudo ./test/test.sh
+  - cd test; sudo ./test/test.sh
