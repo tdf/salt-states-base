@@ -1,0 +1,17 @@
+#!/bin/bash
+# Send mails first (unset of local env vars later, this meens other scripts first)
+./hooks/post-receive.mail "$@"
+
+# Check the live-path setting:
+LIVE=$(git config --get hooks.live-path)
+CMD=$(git config --get hooks.live-cmd)
+[ -z "$LIVE" ] && exit 0
+
+unset $(git rev-parse --local-env-vars)
+cd $LIVE
+git reset --hard
+git pull
+
+
+[ -z "$CMD" ] && exit 0
+$CMD
