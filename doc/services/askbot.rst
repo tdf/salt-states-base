@@ -1,6 +1,8 @@
 .. index:: pair: service; askbot
 .. index:: url; ask.libreoffice.org
 
+.. _askbot_service:
+
 Askbot
 ======
 

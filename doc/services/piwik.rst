@@ -1,3 +1,6 @@
+
+.. _piwik_service:
+
 Piwik
 =====
 

@@ -3,6 +3,8 @@
 .. index:: url; redmine.documentfoundation.org
 .. index:: Project Management
 
+.. _redmine_service:
+
 Redmine
 =======
 

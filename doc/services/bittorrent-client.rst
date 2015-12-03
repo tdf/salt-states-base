@@ -1,3 +1,5 @@
+.. _rtorrent_service:
+
 Bittorrent seed (rtorrent)
 ==========================
 

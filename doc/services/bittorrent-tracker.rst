@@ -1,3 +1,5 @@
+.. _bnbt_service:
+
 Bittorrent tracker (bnbt)
 =========================
 

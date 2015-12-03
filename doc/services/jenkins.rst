@@ -3,6 +3,8 @@
 .. index:: url; ci.libreoffice.org
 .. index:: Countinuous Integration
 
+:: _jenkins_service:
+
 Jenkins
 =======
 

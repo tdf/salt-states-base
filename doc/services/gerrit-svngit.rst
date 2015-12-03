@@ -1,3 +1,5 @@
+.. _gerrit_svngit_service:
+
 AOO SVN -> git import tool
 ==========================
 

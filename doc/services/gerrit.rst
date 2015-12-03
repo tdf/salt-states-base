@@ -2,6 +2,7 @@
 .. index:: url; gerrit.libreoffice.org
 .. index:: Code Review
 
+.. _gerrit_service:
 
 Gerrit
 ======

@@ -1,4 +1,4 @@
-.. _gerritbot:
+.. _gerritbot_service:
 
 Gerritbot
 =========

@@ -1,3 +1,5 @@
+.. _gitolite_service:
+
 Gitolite
 ================
 

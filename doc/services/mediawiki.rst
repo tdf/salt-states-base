@@ -2,6 +2,8 @@
 .. index:: url; wiki.documentfoundation.org
 
 
+.. _mediawiki_service:
+
 MediaWiki
 =========
 

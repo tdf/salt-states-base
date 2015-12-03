@@ -1,3 +1,5 @@
+.. _silverstripe_service:
+
 SilverStripe
 ============
 

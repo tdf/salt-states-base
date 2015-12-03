@@ -1,6 +1,8 @@
 
 .. index:: pair: service; irked
 
+.. _irkerd_service:
+
 irkerd
 ======
 

@@ -1,6 +1,8 @@
 .. index:: pair: service; salt
 .. index:: url; floyd.libreoffice.org
 
+.. _salt_service:
+
 Salt
 ====
 

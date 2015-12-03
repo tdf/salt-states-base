@@ -1,5 +1,6 @@
 .. index:: pair: service; cgit
 
+.. _cgit_service:
 
 CGit
 ====

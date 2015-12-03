@@ -1,5 +1,7 @@
 .. index:: pair: service; shorewall
 
+.. _shorewall_service:
+
 Shorewall
 ================
 

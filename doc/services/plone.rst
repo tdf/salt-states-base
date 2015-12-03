@@ -1,5 +1,7 @@
 .. index:: pair: service; plone
 
+.. _plone_service:
+
 Plone
 ================
 

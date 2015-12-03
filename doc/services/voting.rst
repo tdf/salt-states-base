@@ -1,6 +1,8 @@
 
 .. index:: pair: service; voting
 
+.. _voting_service:
+
 Voting
 ======
 

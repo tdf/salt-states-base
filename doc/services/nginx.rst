@@ -2,6 +2,8 @@
 .. index:: pair: service; webserver
 
 
+.. _nginx_service:
+
 Nginx
 =====
 

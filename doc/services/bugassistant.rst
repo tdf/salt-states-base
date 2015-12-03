@@ -1,3 +1,5 @@
+.. _bugassistant_service:
+
 Bugassistant (frontend to bugzilla)
 ===================================
 
