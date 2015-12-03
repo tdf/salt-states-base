@@ -59,7 +59,6 @@ TDFWIKI
  * ConfirmEdit (recaptcha extension for registation and first edits)
  * SpamBlacklist (prevent spammers, see [[MediaWiki:Spam-blacklist]])
  * TitleBlacklist (prevent spamers, see [[MediaWiki:Titleblacklist]])
- * TorBlock (blocking Tor requests - active)
  * CodeMirror (syntaxhighlight in text field)
  * Bugzilla (used at [[EasyHacks]], at the moment fork by colonelqubit)
  * Gadgets (needed for G+ Calendar)
@@ -188,13 +187,6 @@ Additional speciality notes about extensions can be found here:
 * Syntaxhighligh_GeShi has to be on branch REL1_23 instead of REL1_24 as REL1_24 throughs errors (at least at Special:Version)
 * Bugzilla-Integration, Math, CodeMirror and WikiEditor have hardcoded paths for .../core/extensions/.../images and thus are symlinked
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   mediawiki/extensions/*
-
-
 Start/Stop/Enable/Disable
 -------------------------
 
@@ -207,5 +199,3 @@ Responsible
 -----------
 
 Dennis Roczek <dennisroczek@gmail.com>
-
-
