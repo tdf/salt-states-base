@@ -15,11 +15,6 @@ states=( "${states[@]/$delete}" )
 RETCODE=0
 for state in "${states[@]}"
 do
-    ./run.sh state.show_sls ${state%/} || RETCODE=1
-done
-
-for state in "${states[@]}"
-do
     ./run.sh state.sls ${state%/} || RETCODE=1
 done
 exit $RETCODE
