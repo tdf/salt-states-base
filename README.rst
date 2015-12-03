@@ -30,10 +30,8 @@ Using salt-states-base on your infrastructure
 TODO
 ----
 
-- automated testing on github push
-- supported Platforms: Debian 7/8, Ubuntu 12.04/14.04, CentOS 7
-- create howto to write new modules
-- best practices
+- Use travis and docker to test the states per commit
+- Primary target platform: Debian 8
 
 
 Reference
