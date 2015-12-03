@@ -2,16 +2,6 @@
 Apache
 ======
 
-.. image:: http://vm170.documentfoundation.org/badge/apache/debian:7
-	   
-.. image:: http://vm170.documentfoundation.org/badge/apache/ubuntu:12.04
-
-.. image:: http://vm170.documentfoundation.org/badge/apache/ubuntu:14.04
-
-.. image:: http://vm170.documentfoundation.org/badge/apache/debian:8
-
-.. image:: http://vm170.documentfoundation.org/badge/apache/centos:7
-
 These states install and configure the webserver of the Apache project.
 
 macro
