@@ -1,0 +1,12 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+before_install:
+  - ./test/build.sh
+
+script:
+  - ./test/test.sh
