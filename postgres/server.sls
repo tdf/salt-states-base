@@ -12,8 +12,6 @@ postgresql:
     - reload: true
     - require:
       - pkg: postgresql
-    - watch:
-      - pkg: postgresql
   pkg:
     - installed
     - name: {{ postgres.server }}
