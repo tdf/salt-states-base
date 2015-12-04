@@ -8,17 +8,12 @@ STATEPATH=$(readlink -e ..)
 COMMAND=${*:-state.highstate}
 LOGCOMMAND=${COMMAND// /_}
 DISTROS=(debian:7 debian:8 centos:7 ubuntu:12.04 ubuntu:14.04)
-PID=$$
-rm -f /tmp/$PID.fail
+RETCODE=0
 for DISTRO in ${DISTROS[*]}; do
-    (
     echo "Running $COMMAND on $DISTRO"
-    docker run --rm=true -v $STATEPATH:/srv/salt:ro salt_states_base/$DISTRO salt-call $COMMAND --local --retcode-passthrough -l warning --force-color || touch /tmp/$PID.fail
-    ) &
+    docker run --rm=true -v $STATEPATH:/srv/salt:ro salt_states_base/$DISTRO salt-call $COMMAND --local --retcode-passthrough -l warning --force-color
+    if [ $? -ne 0 ]; then
+        RETCODE=1
+    fi
 done
-wait
-if [ -f /tmp/$PID.fail ]; then
-    rm -f /tmp/$PID.fail
-    exit 1
-fi
-exit 0
+exit $RETCODE
