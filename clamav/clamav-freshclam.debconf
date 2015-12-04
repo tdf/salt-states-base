@@ -1,0 +1,5 @@
+clamav-freshclam clamav-freshclam/autoupdate_freshclam select daemon
+clamav-freshclam clamav-freshclam/local_mirror select  db.local.clamav.net
+clamav-freshclam clamav-freshclam/http_proxy string
+clamav-freshclam clamav-freshclam/update_interval string 24
+clamav-freshclam clamav-freshclam/NotifyClamd boolean true

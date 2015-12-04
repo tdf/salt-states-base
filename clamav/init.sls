@@ -2,7 +2,7 @@
 # Installing ClamAV
 ###################
 
-freshclam:
+freshclam &:
   cmd.wait:
     - watch:
         - pkg: clamav-daemon
@@ -18,9 +18,7 @@ clamav-daemon:
   service:
     - running
     - enable: True
-    - watch:
-        - cmd: amavis_genrsa
   pkg:
     - installed
-    - debconf: salt://debconf/clamav-freshclam
+    - debconf: salt://clamav/clamav-freshclam.debconf
 

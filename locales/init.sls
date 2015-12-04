@@ -18,11 +18,19 @@ locales:
     - require:
       - pkg: locales
 
+/etc/locale.gen:
+  file:
+    - managed
+    - source: salt://locales/locale.gen
+    - require:
+      - pkg: locales
+
 # runs locale-gen if de-locale changes
 locale-gen:
   cmd.wait:
     - watch:
       - pkg: {{ shortlang }}-locale
+      - file: /etc/locale.gen
     - require:
       - pkg: debconf-utils
       - pkg: locales

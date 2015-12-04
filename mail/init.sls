@@ -26,7 +26,11 @@ postfix:
 cleanup_defaults:
   cmd:
     - run
+    {% if not nullmailer %}
     - name: rm -rf /etc/postfix/main.cf /etc/postfix/master.cf /etc/default/amavisd-milter /etc/clamav/clamd.conf ; touch /etc/postfix/.cleaned
+    {% else %}
+    - name: rm -rf /etc/postfix/main.cf ; touch /etc/postfix/.cleaned
+    {% endif %}
     - unless: test -f /etc/postfix/.cleaned
     - require:
       - pkg: postfix

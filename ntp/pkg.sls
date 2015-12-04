@@ -1,4 +1,6 @@
-# installs and manage service for ntp
+include:
+  - requisites
+
 ntp:
   service:
     - running
