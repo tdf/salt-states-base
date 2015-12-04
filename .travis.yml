@@ -5,8 +5,42 @@ language: python
 services:
   - docker
 
+env:
+  - TEST_STATE=apache
+  - TEST_STATE=apt
+  - TEST_STATE=clamav
+  - TEST_STATE=console
+  - TEST_STATE=debian
+  - TEST_STATE=editor
+  - TEST_STATE=etckeeper
+  - TEST_STATE=fail2ban
+  - TEST_STATE=locales
+  - TEST_STATE=mail
+  - TEST_STATE=nginx
+  - TEST_STATE=ntp
+  - TEST_STATE=packages
+  - TEST_STATE=php5
+  - TEST_STATE=postgres
+  - TEST_STATE=python
+  - TEST_STATE=quagga
+  - TEST_STATE=radius
+  - TEST_STATE=requisites
+  - TEST_STATE=rsyslog
+  - TEST_STATE=salt
+  - TEST_STATE=sentry
+  - TEST_STATE=shorewall
+  - TEST_STATE=snmpd
+  - TEST_STATE=squid
+  - TEST_STATE=ssh
+  - TEST_STATE=supervisor
+  - TEST_STATE=timezone
+  - TEST_STATE=users
+  - TEST_STATE=util
+  - TEST_STATE=uwsgi
+  - TEST_STATE=virt
+
 before_install:
   - cd test; sudo ./build.sh
 
 script:
-  - cd test; sudo ./test.sh
+  - cd test; sudo ./run.sh state.sls $TEST_STATE
