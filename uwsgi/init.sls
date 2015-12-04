@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 uwsgi:
   pkg:
     - installed

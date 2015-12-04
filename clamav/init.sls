@@ -21,4 +21,3 @@ clamav-daemon:
   pkg:
     - installed
     - debconf: salt://clamav/clamav-freshclam.debconf
-

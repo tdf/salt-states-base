@@ -5,6 +5,7 @@ include:
   - python.dev
   - supervisor
   - nginx
+  - requisites
 
 /srv/sentry/:
   virtualenv.managed:

@@ -1,5 +1,8 @@
 {% from 'packages/map.jinja' import packages with context %}
 
+include:
+  - requisites
+
 {% if packages.zsh %}
 # Install zsh-Packages provided by pillar.sls
 zsh-packages:

@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 python-dev:
   pkg:
     - installed

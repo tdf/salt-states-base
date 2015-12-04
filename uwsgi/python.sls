@@ -1,5 +1,6 @@
 include:
   - uwsgi
+  - requisites
 
 uwsgi-plugin-python:
   pkg.installed:

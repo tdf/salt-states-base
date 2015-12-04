@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # installs freeradius and defines service for managing radius
 freeradius:
   service.running:

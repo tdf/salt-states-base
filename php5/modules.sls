@@ -1,4 +1,8 @@
 # defines php5 modules to be installed
+
+include:
+  - requisites
+
 php5-pkg:
   pkg:
     - installed

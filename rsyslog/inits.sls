@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 rsyslog:
   service:
     - running

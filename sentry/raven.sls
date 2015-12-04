@@ -1,5 +1,6 @@
 include:
   - python
+  - requisites
 
 raven:
   pip:
@@ -10,6 +11,6 @@ installed-packages-sentry-raven:
     - name: installed_packages
     - filename: /root/saltdoc/installed_packages.rst
     - text:
-      - raven
+      - raven (PIP)
     - require_in:
       - file: /root/saltdoc/installed_packages.rst

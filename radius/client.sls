@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # installs the freeradius-utils
 radius-client:
   pkg.installed:

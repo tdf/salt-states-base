@@ -1,4 +1,6 @@
 {% from "postgres/map.jinja" import postgres with context %}
+include:
+  - requisites
 
 libpq-dev:
   pkg:

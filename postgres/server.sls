@@ -1,5 +1,7 @@
 {% from "postgres/map.jinja" import postgres with context %}
 
+include:
+  - requisites
 
 # define postgresql service and installs needed postgresql pakages
 postgresql:

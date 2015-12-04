@@ -4,6 +4,7 @@
 include:
   - apache.server
   - php5.modules
+  - requisites
 
 # installs apache2 php5-module
 libapache2-mod-php5:

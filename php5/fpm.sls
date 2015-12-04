@@ -3,6 +3,7 @@
 # includes php5.modules
 include:
   - php5.modules
+  - requisites
 
 # installs php5-fpm and manages service for php5-fpm
 php5-fpm:

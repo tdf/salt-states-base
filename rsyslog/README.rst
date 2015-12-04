@@ -4,10 +4,10 @@ Rsyslog
 
 These states install and configure rsyslog to enable remote logging.
 
-rsyslog
+init
 -------
 
-The rsyslog.sls installs rsyslog and manages rsyslog service
+The init.sls installs rsyslog and manages rsyslog service
 
 tcp-client
 ----------

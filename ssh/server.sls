@@ -1,4 +1,7 @@
 {% from "ssh/map.jinja" import ssh with context %}
+include:
+  - requisites
+
 # installs openssh server and blacklist and defines service
 openssh-server:
   pkg.installed:

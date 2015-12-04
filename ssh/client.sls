@@ -1,4 +1,7 @@
 {% from "ssh/map.jinja" import ssh with context %}
+include:
+  - requisites
+
 # installs openssh client
 openssh-client:
   pkg.installed:

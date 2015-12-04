@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # installs squid3 and defines service
 squid3:
   service:

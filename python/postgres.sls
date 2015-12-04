@@ -1,5 +1,6 @@
 include:
   - python
+  - requisites
 
 psycopg2:
   pkg:

@@ -1,3 +1,6 @@
+include:
+  - requisites
+
 # installs screen
 screen:
   pkg.installed
