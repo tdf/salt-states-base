@@ -6,46 +6,171 @@ services:
   - docker
 
 env:
-  - TEST_STATE=apache
-  - TEST_STATE=apt
-  - TEST_STATE=clamav
-  - TEST_STATE=console
-  - TEST_STATE=debian
-  - TEST_STATE=editor
-  - TEST_STATE=etckeeper
-  - TEST_STATE=fail2ban
-  - TEST_STATE=locales
-  - TEST_STATE=mail
-  - TEST_STATE=nginx
-  - TEST_STATE=ntp
-  - TEST_STATE=packages
-  - TEST_STATE=php5
-  - TEST_STATE=postgres
-  - TEST_STATE=python
-  - TEST_STATE=quagga
-  - TEST_STATE=radius
-  - TEST_STATE=requisites
-  - TEST_STATE=rsyslog
-  - TEST_STATE=salt
-  - TEST_STATE=sentry
-  - TEST_STATE=shorewall
-  - TEST_STATE=snmpd
-  - TEST_STATE=squid
-  - TEST_STATE=ssh
-  - TEST_STATE=supervisor
-  - TEST_STATE=timezone
-  - TEST_STATE=users
-  - TEST_STATE=util
-  - TEST_STATE=uwsgi
-  - TEST_STATE=virt
-  - TEST_DISTRO=debian:7
-  - TEST_DISTRO=debian:8
-  - TEST_DISTRO=centos:7
-  - TEST_DISTRO=ubuntu:12.04
-  - TEST_DISTRO=ubuntu:14.04
+  - DISTRO=debian:7 STATE=apache
+  - DISTRO=debian:7 STATE=apt
+  - DISTRO=debian:7 STATE=clamav
+  - DISTRO=debian:7 STATE=console
+  - DISTRO=debian:7 STATE=debian
+  - DISTRO=debian:7 STATE=editor
+  - DISTRO=debian:7 STATE=etckeeper
+  - DISTRO=debian:7 STATE=fail2ban
+  - DISTRO=debian:7 STATE=locales
+  - DISTRO=debian:7 STATE=mail
+  - DISTRO=debian:7 STATE=nginx
+  - DISTRO=debian:7 STATE=ntp
+  - DISTRO=debian:7 STATE=packages
+  - DISTRO=debian:7 STATE=php5
+  - DISTRO=debian:7 STATE=postgres
+  - DISTRO=debian:7 STATE=python
+  - DISTRO=debian:7 STATE=quagga
+  - DISTRO=debian:7 STATE=radius
+  - DISTRO=debian:7 STATE=requisites
+  - DISTRO=debian:7 STATE=rsyslog
+  - DISTRO=debian:7 STATE=salt
+  - DISTRO=debian:7 STATE=sentry
+  - DISTRO=debian:7 STATE=shorewall
+  - DISTRO=debian:7 STATE=snmpd
+  - DISTRO=debian:7 STATE=squid
+  - DISTRO=debian:7 STATE=ssh
+  - DISTRO=debian:7 STATE=supervisor
+  - DISTRO=debian:7 STATE=timezone
+  - DISTRO=debian:7 STATE=users
+  - DISTRO=debian:7 STATE=util
+  - DISTRO=debian:7 STATE=uwsgi
+  - DISTRO=debian:7 STATE=virt
+#
+  - DISTRO=debian:8 STATE=apache
+  - DISTRO=debian:8 STATE=apt
+  - DISTRO=debian:8 STATE=clamav
+  - DISTRO=debian:8 STATE=console
+  - DISTRO=debian:8 STATE=debian
+  - DISTRO=debian:8 STATE=editor
+  - DISTRO=debian:8 STATE=etckeeper
+  - DISTRO=debian:8 STATE=fail2ban
+  - DISTRO=debian:8 STATE=locales
+  - DISTRO=debian:8 STATE=mail
+  - DISTRO=debian:8 STATE=nginx
+  - DISTRO=debian:8 STATE=ntp
+  - DISTRO=debian:8 STATE=packages
+  - DISTRO=debian:8 STATE=php5
+  - DISTRO=debian:8 STATE=postgres
+  - DISTRO=debian:8 STATE=python
+  - DISTRO=debian:8 STATE=quagga
+  - DISTRO=debian:8 STATE=radius
+  - DISTRO=debian:8 STATE=requisites
+  - DISTRO=debian:8 STATE=rsyslog
+  - DISTRO=debian:8 STATE=salt
+  - DISTRO=debian:8 STATE=sentry
+  - DISTRO=debian:8 STATE=shorewall
+  - DISTRO=debian:8 STATE=snmpd
+  - DISTRO=debian:8 STATE=squid
+  - DISTRO=debian:8 STATE=ssh
+  - DISTRO=debian:8 STATE=supervisor
+  - DISTRO=debian:8 STATE=timezone
+  - DISTRO=debian:8 STATE=users
+  - DISTRO=debian:8 STATE=util
+  - DISTRO=debian:8 STATE=uwsgi
+  - DISTRO=debian:8 STATE=virt
+#
+  - DISTRO=centos:7 STATE=apache
+  - DISTRO=centos:7 STATE=apt
+  - DISTRO=centos:7 STATE=clamav
+  - DISTRO=centos:7 STATE=console
+  - DISTRO=centos:7 STATE=debian
+  - DISTRO=centos:7 STATE=editor
+  - DISTRO=centos:7 STATE=etckeeper
+  - DISTRO=centos:7 STATE=fail2ban
+  - DISTRO=centos:7 STATE=locales
+  - DISTRO=centos:7 STATE=mail
+  - DISTRO=centos:7 STATE=nginx
+  - DISTRO=centos:7 STATE=ntp
+  - DISTRO=centos:7 STATE=packages
+  - DISTRO=centos:7 STATE=php5
+  - DISTRO=centos:7 STATE=postgres
+  - DISTRO=centos:7 STATE=python
+  - DISTRO=centos:7 STATE=quagga
+  - DISTRO=centos:7 STATE=radius
+  - DISTRO=centos:7 STATE=requisites
+  - DISTRO=centos:7 STATE=rsyslog
+  - DISTRO=centos:7 STATE=salt
+  - DISTRO=centos:7 STATE=sentry
+  - DISTRO=centos:7 STATE=shorewall
+  - DISTRO=centos:7 STATE=snmpd
+  - DISTRO=centos:7 STATE=squid
+  - DISTRO=centos:7 STATE=ssh
+  - DISTRO=centos:7 STATE=supervisor
+  - DISTRO=centos:7 STATE=timezone
+  - DISTRO=centos:7 STATE=users
+  - DISTRO=centos:7 STATE=util
+  - DISTRO=centos:7 STATE=uwsgi
+  - DISTRO=centos:7 STATE=virt
+#
+  - DISTRO=ubuntu:12.04 STATE=apache
+  - DISTRO=ubuntu:12.04 STATE=apt
+  - DISTRO=ubuntu:12.04 STATE=clamav
+  - DISTRO=ubuntu:12.04 STATE=console
+  - DISTRO=ubuntu:12.04 STATE=debian
+  - DISTRO=ubuntu:12.04 STATE=editor
+  - DISTRO=ubuntu:12.04 STATE=etckeeper
+  - DISTRO=ubuntu:12.04 STATE=fail2ban
+  - DISTRO=ubuntu:12.04 STATE=locales
+  - DISTRO=ubuntu:12.04 STATE=mail
+  - DISTRO=ubuntu:12.04 STATE=nginx
+  - DISTRO=ubuntu:12.04 STATE=ntp
+  - DISTRO=ubuntu:12.04 STATE=packages
+  - DISTRO=ubuntu:12.04 STATE=php5
+  - DISTRO=ubuntu:12.04 STATE=postgres
+  - DISTRO=ubuntu:12.04 STATE=python
+  - DISTRO=ubuntu:12.04 STATE=quagga
+  - DISTRO=ubuntu:12.04 STATE=radius
+  - DISTRO=ubuntu:12.04 STATE=requisites
+  - DISTRO=ubuntu:12.04 STATE=rsyslog
+  - DISTRO=ubuntu:12.04 STATE=salt
+  - DISTRO=ubuntu:12.04 STATE=sentry
+  - DISTRO=ubuntu:12.04 STATE=shorewall
+  - DISTRO=ubuntu:12.04 STATE=snmpd
+  - DISTRO=ubuntu:12.04 STATE=squid
+  - DISTRO=ubuntu:12.04 STATE=ssh
+  - DISTRO=ubuntu:12.04 STATE=supervisor
+  - DISTRO=ubuntu:12.04 STATE=timezone
+  - DISTRO=ubuntu:12.04 STATE=users
+  - DISTRO=ubuntu:12.04 STATE=util
+  - DISTRO=ubuntu:12.04 STATE=uwsgi
+  - DISTRO=ubuntu:12.04 STATE=virt
+#
+  - DISTRO=ubuntu:14.04 STATE=apache
+  - DISTRO=ubuntu:14.04 STATE=apt
+  - DISTRO=ubuntu:14.04 STATE=clamav
+  - DISTRO=ubuntu:14.04 STATE=console
+  - DISTRO=ubuntu:14.04 STATE=debian
+  - DISTRO=ubuntu:14.04 STATE=editor
+  - DISTRO=ubuntu:14.04 STATE=etckeeper
+  - DISTRO=ubuntu:14.04 STATE=fail2ban
+  - DISTRO=ubuntu:14.04 STATE=locales
+  - DISTRO=ubuntu:14.04 STATE=mail
+  - DISTRO=ubuntu:14.04 STATE=nginx
+  - DISTRO=ubuntu:14.04 STATE=ntp
+  - DISTRO=ubuntu:14.04 STATE=packages
+  - DISTRO=ubuntu:14.04 STATE=php5
+  - DISTRO=ubuntu:14.04 STATE=postgres
+  - DISTRO=ubuntu:14.04 STATE=python
+  - DISTRO=ubuntu:14.04 STATE=quagga
+  - DISTRO=ubuntu:14.04 STATE=radius
+  - DISTRO=ubuntu:14.04 STATE=requisites
+  - DISTRO=ubuntu:14.04 STATE=rsyslog
+  - DISTRO=ubuntu:14.04 STATE=salt
+  - DISTRO=ubuntu:14.04 STATE=sentry
+  - DISTRO=ubuntu:14.04 STATE=shorewall
+  - DISTRO=ubuntu:14.04 STATE=snmpd
+  - DISTRO=ubuntu:14.04 STATE=squid
+  - DISTRO=ubuntu:14.04 STATE=ssh
+  - DISTRO=ubuntu:14.04 STATE=supervisor
+  - DISTRO=ubuntu:14.04 STATE=timezone
+  - DISTRO=ubuntu:14.04 STATE=users
+  - DISTRO=ubuntu:14.04 STATE=util
+  - DISTRO=ubuntu:14.04 STATE=uwsgi
+  - DISTRO=ubuntu:14.04 STATE=virt
 
-before_install:
-  - cd test; sudo ./build.sh
 
 script:
-  - cd test; sudo ./run.sh $TEST_DISTRO state.sls $TEST_STATE
+  - cd test; sudo ./run.sh $DISTRO state.sls $STATE
