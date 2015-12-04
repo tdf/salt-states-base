@@ -38,9 +38,14 @@ env:
   - TEST_STATE=util
   - TEST_STATE=uwsgi
   - TEST_STATE=virt
+  - TEST_DISTRO=debian:7
+  - TEST_DISTRO=debian:8
+  - TEST_DISTRO=centos:7
+  - TEST_DISTRO=ubuntu:12.04
+  - TEST_DISTRO=ubuntu:14.04
 
 before_install:
   - cd test; sudo ./build.sh
 
 script:
-  - cd test; sudo ./run.sh state.sls $TEST_STATE
+  - cd test; sudo ./run.sh $TEST_DISTRO state.sls $TEST_STATE

@@ -5,15 +5,10 @@ if [[ $EUID -ne 0 ]]; then
 fi
 set +e
 STATEPATH=$(readlink -e ..)
+DISTRO=$1
+shift
 COMMAND=${*:-state.highstate}
-LOGCOMMAND=${COMMAND// /_}
-DISTROS=(debian:7 debian:8 centos:7 ubuntu:12.04 ubuntu:14.04)
-RETCODE=0
-for DISTRO in ${DISTROS[*]}; do
-    echo "Running $COMMAND on $DISTRO"
-    docker run --rm=true -v $STATEPATH:/srv/salt:ro salt_states_base/$DISTRO salt-call $COMMAND --local --retcode-passthrough -l warning --force-color
-    if [ $? -ne 0 ]; then
-        RETCODE=1
-    fi
-done
-exit $RETCODE
+docker build -q -t "salt_states_base/$DISTRO" docker/$DISTRO
+echo "Running $COMMAND on $DISTRO"
+docker run --rm=true -v $STATEPATH:/srv/salt:ro salt_states_base/$DISTRO salt-call $COMMAND --local --retcode-passthrough -l warning --force-color
+exit $?
