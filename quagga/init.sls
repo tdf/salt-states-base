@@ -5,7 +5,6 @@ quagga:
   service:
     - running
     - enable: true
-    - sig: quagga
     - require:
       - pkg: quagga
     - watch:
