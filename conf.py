@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.abspath('_returners'))
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.autodoc']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.autodoc', 'sphinx.ext.graphviz']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['doc/_templates']
@@ -283,3 +283,4 @@ epub_copyright = u'2013, Robert Einsle, Alexander Werner'
 
 # Allow duplicate toc entries.
 #epub_tocdup = True
+graphviz_dot = "neato"

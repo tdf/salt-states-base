@@ -11,6 +11,7 @@ Documentation
 
    *
    states/*
+   servers/index
 
 Documented Services
 -------------------
