@@ -11,6 +11,7 @@ env:
   - DISTRO=debian:7 STATE=clamav
   - DISTRO=debian:7 STATE=console
   - DISTRO=debian:7 STATE=debian
+  - DISTRO=debian:7 STATE=docker
   - DISTRO=debian:7 STATE=editor
   - DISTRO=debian:7 STATE=etckeeper
   - DISTRO=debian:7 STATE=fail2ban
@@ -44,6 +45,7 @@ env:
   - DISTRO=debian:8 STATE=clamav
   - DISTRO=debian:8 STATE=console
   - DISTRO=debian:8 STATE=debian
+  - DISTRO=debian:8 STATE=docker
   - DISTRO=debian:8 STATE=editor
   - DISTRO=debian:8 STATE=etckeeper
   - DISTRO=debian:8 STATE=fail2ban
@@ -77,6 +79,7 @@ env:
   - DISTRO=centos:7 STATE=clamav
   - DISTRO=centos:7 STATE=console
   - DISTRO=centos:7 STATE=debian
+  - DISTRO=centos:7 STATE=docker
   - DISTRO=centos:7 STATE=editor
   - DISTRO=centos:7 STATE=etckeeper
   - DISTRO=centos:7 STATE=fail2ban
@@ -110,6 +113,7 @@ env:
   - DISTRO=ubuntu:12.04 STATE=clamav
   - DISTRO=ubuntu:12.04 STATE=console
   - DISTRO=ubuntu:12.04 STATE=debian
+  - DISTRO=ubuntu:12.04 STATE=docker
   - DISTRO=ubuntu:12.04 STATE=editor
   - DISTRO=ubuntu:12.04 STATE=etckeeper
   - DISTRO=ubuntu:12.04 STATE=fail2ban
@@ -143,6 +147,7 @@ env:
   - DISTRO=ubuntu:14.04 STATE=clamav
   - DISTRO=ubuntu:14.04 STATE=console
   - DISTRO=ubuntu:14.04 STATE=debian
+  - DISTRO=ubuntu:14.04 STATE=docker
   - DISTRO=ubuntu:14.04 STATE=editor
   - DISTRO=ubuntu:14.04 STATE=etckeeper
   - DISTRO=ubuntu:14.04 STATE=fail2ban
