@@ -27,12 +27,14 @@ through all the files first, before starting any install.
 How to set up an instance of Bugzilla like ours for testing/development
 -----------------------------------------------------------------------
 
-**NOTE:** The TDF/LibreOffice installation of Bugzilla is slightly
-different from the stock install: Instead of Apache + MySQL, we use
-Nginx + Postgres. It’s very likely that you can work on patches in an
-environment using a different web server and db engine, but if you
-intend to provide patches for deployment with our installation, please
-make sure the changes are thoroughly reviewed on our bugzilla-test VM
+.. note::
+
+   The TDF/LibreOffice installation of Bugzilla is slightly
+   different from the stock install: Instead of Apache + MySQL, we use
+   Nginx + Postgres. It’s very likely that you can work on patches in an
+   environment using a different web server and db engine, but if you
+   intend to provide patches for deployment with our installation, please
+   make sure the changes are thoroughly reviewed on our bugzilla-test VM
 
 .. todo::
   *[will link to page for The Bz-Test VM here]*.
@@ -42,7 +44,9 @@ How to configure the base machine and OS
 
 Our base machine is currently running Debian 7.9
 
-* (A modern version of Ubuntu such as 14.04 should work very similarly)
+.. note::
+
+   A modern version of Ubuntu such as 14.04 should work very similarly
 
 To simplify the install process, here are some pre-defined values *(as specified in the salt config)*:
 
@@ -73,14 +77,6 @@ The following packages should be installed via the package manager (apt):
     # For getting the graphing capabilities working
     sudo apt-get install \
     graphviz \
-
-    # Extras
-    # (OPTIONAL) Nice editors and virtual terminals can be very handy,
-    # esp. with remote systems.
-    sudo apt-get install \
-    byobu \
-    vim \
-    emacs23-nox
 
     # Many perl libraries for Bugzilla itself
     sudo apt-get install \

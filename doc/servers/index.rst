@@ -18,7 +18,7 @@ Overview of TDF's server layout
       "TDF" -> "HETZNER"
       "TDF" -> "FILOO"
       "FILOO" -> "monitoring"
-   	  "MANITU" -> "dauntless"
+   	"MANITU" -> "dauntless"
       "MANITU" -> "falco"
       "MANITU" -> "excelsior"
       "MANITU" -> "gustl"
