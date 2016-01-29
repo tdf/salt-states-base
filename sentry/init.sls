@@ -7,10 +7,10 @@ include:
   - nginx
   - requisites
 
-/srv/sentry/:
+/srv/sentry/venv:
   virtualenv.managed:
     - system_site_packages: False
-    - runas: sentry
+    - user: sentry
     - require:
         - pkg: virtualenv
         - user: sentry
@@ -43,8 +43,9 @@ installed-packages-sentry-virtualenv:
       - libxml2-dev
       - libxslt1-dev
       - libffi-dev
-      - sentry (PIP, Virtualenv /srv/sentry)
-      - sentry[postgres] (PIP, Virtuelenv /srv/sentry)
+      - sentry (PIP, Virtualenv /srv/sentry/venv)
+      - sentry[postgres] (PIP, Virtuelenv /srv/sentry/venv)
+      - psycopg2 (PIP, Virtualenv /srv/sentry/venv)
     - require_in:
       - file: /root/saltdoc/installed_packages.rst
 
@@ -54,9 +55,10 @@ sentry:
     - names:
       - sentry[postgres]
       - sentry
-    - bin_env: /srv/sentry
+      - psycopg2
+    - bin_env: /srv/sentry/venv
     - require:
-        - virtualenv: /srv/sentry/
+        - virtualenv: /srv/sentry/venv
   user:
     - present
     - home: /srv/sentry/
@@ -87,23 +89,42 @@ sentry:
     - source: salt://sentry/sentry.conf.py
     - template: jinja
     - context:
-        uri: http://sentry.{{ grains['domain'] }}
+        uri: http://{{ grains['fqdn'] }}
         from_email: sentry@{{ grains['fqdn'] }}
     - require:
-        - file: /srv/sentry/
+        - user: sentry
         - pip: sentry
 
 sentry_upgrade:
   cmd.wait:
-    - name: /srv/sentry/bin/sentry --config=/srv/sentry/sentry.conf.py upgrade --noinput
+    - name: /srv/sentry/venv/bin/sentry upgrade --noinput
     - user: sentry
     - group: sentry
+    - env:
+        - SENTRY_CONF: '/srv/sentry/sentry.conf.py'
     - watch:
         - pip: sentry
         - file: /srv/sentry/sentry.conf.py
     - require:
         - postgres_database: sentry
 
+sentry_createuser:
+  cmd.wait:
+    - name: /srv/sentry/venv/bin/sentry createuser --email=sentry@{{ grains['fqdn'] }} --password=sentry --no-input --superuser
+    - user: sentry
+    - group: sentry
+    - env:
+        - SENTRY_CONF: '/srv/sentry/sentry.conf.py'
+    - watch:
+        - cmd: sentry_upgrade
+
+sentry_cleanup:
+  cron.present:
+    - user: root
+    - name: SENTRY_CONF='/srv/sentry/sentry.conf.py' /srv/sentry/venv/bin/sentry cleanup --days=30
+    - minute: 0
+    - hour: 3
+          
 /etc/supervisor/conf.d/sentry.conf:
   file:
     - managed
@@ -119,7 +140,7 @@ sentry_upgrade:
     - source: salt://sentry/sentry_nginx.conf
     - template: jinja
     - context:
-        domain: sentry.{{ grains['domain'] }}
+        domain: {{ grains['fqdn'] }}
     - require:
         - pkg: nginx
     - watch_in:
