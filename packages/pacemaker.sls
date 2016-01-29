@@ -1,5 +1,8 @@
 {% from 'packages/map.jinja' import packages with context %}
 
+include:
+  - requisites
+
 {% if packages.pacemaker %}
 # Install pacemaker-Packages provided by pillar.sls
 pacemaker-packages:

@@ -1,4 +1,8 @@
 # installs and configures unattended-upgrades
+
+include:
+  - requisites
+
 unattended-upgrades:
   pkg.installed:
     - debconf: salt://packages/upgrades.debconf

@@ -1,6 +1,7 @@
 {% from "postgres/map.jinja" import postgres with context %}
 include:
   - requisites
+
 # installs postgresql client
 postgresql-client:
   pkg.installed:

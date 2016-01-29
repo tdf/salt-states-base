@@ -1,5 +1,8 @@
 {% from 'packages/map.jinja' import packages with context %}
 
+include:
+  - requisites
+
 {% if packages.git %}
 # Install git-Packages provided by pillar.sls
 git-packages:

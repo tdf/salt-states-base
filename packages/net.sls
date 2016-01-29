@@ -1,5 +1,8 @@
 {% from 'packages/map.jinja' import packages with context %}
 
+include:
+  - requisites
+
 {% if packages.net %}
 # Install net-Packages provided by pillar.sls
 net-packages:

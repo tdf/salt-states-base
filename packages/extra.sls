@@ -1,5 +1,8 @@
 {% from 'packages/map.jinja' import packages with context %}
 
+include:
+  - requisites
+
 {% if packages.extra %}
 extra-packages:
   pkg.installed:

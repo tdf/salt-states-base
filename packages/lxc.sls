@@ -1,5 +1,8 @@
 {% from 'packages/map.jinja' import packages with context %}
 
+include:
+  - requisites
+
 {% if packages.lxc %}
 # Install lxc-Packages provided by pillar.sls
 lxc-packages:
