@@ -17,6 +17,6 @@ gitlab-ce:
   pkg:
     - installed
     - require:
-      - pkgrepo: gitlab
+      - pkgrepo: gitlab-ce
     - update: True
 {% endif %}
