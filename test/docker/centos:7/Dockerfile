@@ -9,5 +9,4 @@ RUN yum update -y
 # Install Salt Dependencies
 RUN yum -y install --enablerepo=epel salt-minion
 
-ADD minion /etc/salt/minion
-VOLUME ["/srv/salt", "/srv/pillar"]
+VOLUME ["/srv/salt", "/srv/pillar", "/etc/salt/minion.d"]
