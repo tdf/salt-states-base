@@ -5,8 +5,12 @@ shorewall:
       - shorewall
       - shorewall6
   service:
+{% if not grains['docker'] %}
     - running
     - enable: True
+{% else %}
+    - dead
+{% endif %}
     - require:
         - pkg: shorewall
     - watch:
