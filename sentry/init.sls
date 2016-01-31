@@ -124,7 +124,7 @@ sentry_cleanup:
     - name: SENTRY_CONF='/srv/sentry/sentry.conf.py' /srv/sentry/venv/bin/sentry cleanup --days=30
     - minute: 0
     - hour: 3
-          
+
 /etc/supervisor/conf.d/sentry.conf:
   file:
     - managed

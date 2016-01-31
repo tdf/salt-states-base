@@ -33,6 +33,7 @@ Overview of TDF's server layout
       "HETZNER" -> "pumbaa"
       "HETZNER" -> "intrepid"
       "HETZNER" -> "saber"
+      "dauntless" -> "win2k12r2"
       "dauntless" -> "vm165"
       "dauntless" -> "vm138"
       "dauntless" -> "vm152"
