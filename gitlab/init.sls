@@ -19,4 +19,9 @@ gitlab-ce:
     - require:
       - pkgrepo: gitlab-ce
     - update: True
+  cmd:
+    - wait
+    - name: gitlab-ctl reconfigure
+    - watch:
+      - pkg: gitlab-ce
 {% endif %}
