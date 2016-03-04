@@ -3,14 +3,18 @@ Documenting TDFs Infrastructure
 
 This document servers as the central guideline for documenting all publicly accessible services made available by The Document Foundation.
 
+Services that are subject to the guidelines of this document are either running on a TDF owned IP, running on a TDF owned hostname and/or provide productive services for the TDF community.
+
 It is our goal to make as much of our infrastructure setup public as possible, with the only exclusion being security considerations.
 As of now, for a service going to be productive, it must at least fullfill the following requirements:
 
-* At least two members of TDF must know how to setup, configure and maintain a service
-* The setup, configuration and regular maintenance tasks must be documented, with the not security related configuration being available in this repository
+* At least two responsible parties must know how to setup, configure and maintain a service. At least two independent ways of communication to these parties must exist.
+* The setup, configuration and regular maintenance tasks must be documented, with the not security related configuration being available in this repository.
 * The documentation of the service must be kept up-to-date. If the documentation becomes out-of-date, the service may be regarded as no longer in production use.
+* A backup plan for the service must be present.
+* The necessary ports, IPs and other interdependencies must be documented.
+* A desaster recovery plan must be created for the service.
 * An optional requirement is to implement the setup, configuration and possibly maintenance as salt-states.
-
 
 
 About this documentation
