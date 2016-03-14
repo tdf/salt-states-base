@@ -17,8 +17,8 @@ php5-fpm:
 /etc/php5/fpm/php.ini:
   file.blockreplace:
     - name: /etc/php5/fpm/php.ini
-    - marker_start: "### START SALT MANAGED ZONE ###"
-    - marker_end: "### END SALT MANAGED ZONE ###"
+    - marker_start: ";;; START SALT MANAGED ZONE ;;;"
+    - marker_end: ";;; END SALT MANAGED ZONE ;;;"
     - content: |
         expose_php = Off
         allow_url_fopen = Off
