@@ -59,9 +59,9 @@ As soon as the service policy is put into place, the following actions will be p
 * If the service still fails to adapt the policy after that time, depending on the priority of the service, the following actions might be taken, whereby actions for higher priorities also hold true for lower priority services:
   - Services of the priority *testing* might be taken offline without further notice if security or other  considerations justify the measure.
   - Services of the priorities *low* and *middle* will be moved to an environment with the following restrictions:
-    > Available traffic and network speed might be limited
-    > The usage of domains will be restricted to ones containing "-test" in the subdomain or domain, existing domains will be forwarded to the "-test" domain
-    > The priority for the *availability* of the service is moved to *testing*
+    * Available traffic and network speed might be limited
+    * The usage of domains will be restricted to ones containing "-test" in the subdomain or domain, existing domains will be forwarded to the "-test" domain
+    * The priority for the *availability* of the service is moved to *testing*
   - Services of the priorities *high* and *mission-critical* face no restriction regarding the environment. The situation is escalated to the Board of Directors to ensure that appropriate actions are taken. The Infrastructure Team might be unable to restore the service in case of errors.
 
 
