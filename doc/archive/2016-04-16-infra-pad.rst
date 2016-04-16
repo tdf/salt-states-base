@@ -1,0 +1,1259 @@
+#####################################
+Archive of infra pad up to 2016-04-16
+#####################################
+
+
+Devops Hackfest
+===============
+
+Interested in participating
+---------------------------
+
+1. Alexander Werner
+2. David Ostrovsky3. Jan Iversen (pending staff discussion)
+3. Arun Kumar
+
+Suggestions for the Agenda
+--------------------------
+
+Duration: 2 days?
+
+Gerrit: Install and configure gerrit-oauth-plugin -> done
+
+CI: Set up and configure Tinderbox with MSVC 2015 (master seems to be
+broken on this toolchain) Docs: Actualize docs, and make the look more
+"whole" Escalation feature for Redmine: Some issues seems to linger
+forever, escalation or at least reaction would be nice Single user login
+for all infra services.
+
+Suggestions for locations
+-------------------------
+
+Malaga is cheap to fly to :-)
+
+Infra call April 20
+===================
+
+Dial-in details
+---------------
+
+Number:
+:raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+Room: 53 71 38 PIN: none required 1800 UTC ##Participants
+
+Agenda
+------
+
+TBD
+
+Infra Meeting April 10
+======================
+
+Wasn't held due to lack of participation
+
+Infra call March 16
+===================
+
+Dial-in details
+---------------
+
+Number:
+:raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+Room: 53 71 38 PIN: none required 1800 UTC ##Participants
+
+1.  Alexander Werner
+2.  Norbert Thiebaud
+3.  Christian Lohmaier
+4.  Dennis Roczek (totally to late and earlier leaving)# ##Agenda
+
+5.  DevOps Hackfest Date and Place -> Decision via Mail
+6.  Infra Meeting in Essen Date -> Decision via Mail
+7.  TDF domain aliases #1773 -> Ask via Mail
+8.  SSO #1585 -> Ask Patrick, UCS?
+9.  Service Policy #1158
+    :raw-latex:`\url{https://redmine.documentfoundation.org/issues/1158}`
+    :raw-latex:`\url{http://salt-states-base.readthedocs.org/en/latest/doc/guideline.html}`
+    1. mail to website and tdf-admin with 2 weeks to discuss
+
+    1. escalation for already producive services
+
+10. Wiki Spam Attack -> Disable user registration
+11. CDN Offer #1846
+    :raw-latex:`\url{https://redmine.documentfoundation.org/issues/1846}`
+12. Askbot
+13. Manitu Schedule #Infra call February 17 ##Dial-in details # Number:
+    :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+    Room: 53 71 38 PIN: none required 1800 UTC ##Participants
+
+14. Robert Einsle
+15. Alexander Werner
+16. Michael Mogk
+17. Christian Lohmaier# ##Agenda
+
+18. Restructuring of the internal salt states:
+
+    1. :raw-latex:`\url{https://infratools.documentfoundation.org/infra/salt}`
+    2. salt 'target\*' state.apply statename saltenv=develop
+
+19. Ordered new infra machines from Thomas Krenn
+
+    1. Plan on shipping next week
+
+20. Infra Meeting in Munich
+
+    1. Planned: 10.4., will check date with Cafe Netzwerk -> Not
+       possible from Cafe Netzwerk, will have to reschedule
+
+21. Gerrit upgrade
+
+    1. New setup on Debian 8 base
+    2. Migration planned for first March week
+
+22. Infra budget proposals
+
+    1. :raw-latex:`\url{**http://www.mail-archive.com/projects@global.libreoffice.org/msg01900.html**}`\*\*
+       \*\*→ proposals 'til March 2nd
+
+23. Next call: 16 March #Infra call Januar 20 ##Dial-in details Number:
+    :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+    Room: 53 71 38 PIN: none required 1800 UTC ##Participants
+
+24. Werner, Alexander
+25. Lohmaier, Christian
+26. Roczek, Dennis##Agenda
+
+27. Update: Backup Stand-in Host
+28. Status: Infra for Switzerland
+29. Devops Hackfest at FOSDEM
+
+    1. HELPWIKI / Extensions? <-- Live-Editing
+    2. SSO
+    3. Salt
+    4. Sentry/Exception Logging
+
+30. Infra Meeting in Spring in Munich - April/May
+
+    1. 9/10.4
+    2. 16.4
+    3. 30.4/1.5
+
+31. Community onboarding ideas
+32. Next call Wednesday 17 February #Infra call December 16 ##Dial-in
+    details Number:
+    :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+    Room: 53 71 38 PIN: none required 1800 UTC ##Participants
+
+33. Werner, Alexander
+34. Roczek, Dennis
+35. Norbert Thiebaud
+36. jan i
+37. Christian Lohmaier##Agenda
+
+38. Backup-stand-in host
+39. salt-states-base continuous integration -
+    :raw-latex:`\url{https://travis-ci.org/tdf/salt-states-base/builds}`
+
+    1. :raw-latex:`\url{https://travis-ci.org/tdf/salt-states-base/builds/97241353}`
+    2. :raw-latex:`\url{http://salt-states-base.readthedocs.org/en/latest/doc/guideline.html}`
+
+40. Devops Hackfestfriday before FOSDEM in brussels
+41. .. rubric:: Infra call November 18
+       :name: infra-call-november-18
+
+    .. rubric:: Dial-in details
+       :name: dial-in-details-2
+
+    Number:
+    :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+    Room: 53 71 38 PIN: none required 1800 UTC ##Participants
+
+42. Werner, Alexander
+43. Roczek, Dennis
+44. Lohmaier, Christian##Agenda
+
+45. Order of parts for Swiss Housing offer
+46. Manitu Intranet restructuring (10G ethernet, additional Switch,
+    expansion of current hosts)
+47. New Backup solution at Manitu
+
+    1. xz for compressing database dumps - quite taxing on the cpu/takes
+       long time → use gz or other for faster backup/less
+       outage-potential? 1. problem: disk-space requirement and network
+       requirement
+
+       1. maybe save as text-dump → only differences
+
+48. Postfix workshop on Friday
+
+    1. bouncehandler for wiki (see also redmine-ticket)
+       :raw-latex:`\url{https://redmine.documentfoundation.org/issues/142}`
+
+49. TKmon monitoring bot :raw-latex:`\url{https://github.com/tdf/tmb}`
+50. Infra Docs guidelines
+51. Infra Hackfest/Devops
+
+    1. Jan: kindof bad re final 5.1 preps and Fosdem end of Jan/begin of
+       Feb. → mid-February
+
+52. Turn off Wiki edit counter?
+
+    1. It's slow by design --> wikis already in piwik --> turn off
+
+53. Infra call schedule
+
+    1. Monthly, 3rd Wed at 18:00 UTC #Infra call September 30 ##Dial-in
+       details Number:
+       :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+       Room: 53 71 38 PIN: none required 1700 UTC
+
+Participants
+------------
+
+1. Werner, Alexander
+2. Roczek, Dennis
+3. Lohmaier, Christian
+4. Effenberger, Florian## ##Agenda
+
+5. E-mail workshop in Munich -> 20.11.
+6. Debian 8 migration
+7. Resume and action items from admin weekend (Alex)
+8. Using TkMon for Monitoring - Integration with Thomas Krenn exclusive
+   service packages for more and more servers
+9. Proposal: Self-hosted DNS for DNSSEC, DANE and TLSA (Florian) ->
+   together with e-mail working group ##New admins from LibOCon
+
+-  hanthana
+-  thangam\_arun #Infra call August 26 ##Dial-in details Number:
+   :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo#Dial-in\_Numbers}`
+   Room: 53 71 38 PIN: none required ##Participants
+
+1. Werner, Alexander
+2. Effenberger, Florian -> Seems most people are on vacation, only Alex
+   and me showing up -> call will be postponed/adjourned to next month
+
+Agenda
+------
+
+1.  Resume and action items from admin weekend (Alex)
+
+    1. New volunteers
+    2. Single sign-on with Samba 4 as Directory Server - Project for
+       Aleksandar
+
+2.  Using TkMon for Monitoring - Integration with Thomas Krenn exclusive
+    service packages for more and more servers
+3.  Proposal: Self-hosted DNS for DNSSEC, DANE and TLSA (Florian) ->
+    together with e-mail working group #Admin Weekend 21-23 August 2015
+    ##Participants - registration closed
+
+4.  Werner, Alexander
+5.  Effenberger, Florian
+6.  Lohmaier, Christian
+7.  Einsle, Robert
+8.  soutErich Christiansout
+9.  Dennis Roczek
+10. Strohmaier, Friedrich8. Vesic, Aleksandar
+11. Bachka
+
+Agenda
+------
+
+1. Opening Round - Introduction
+2. Insight into Mailsystem
+3. Infrastructure Overview
+4. Configuration, Software, Coordination Overview
+5. Salt Quickstart and new Concepts
+6. Wiki Details and Developements
+7. Silverstripe Details and Developements
+8. SSO concepts building a technician community looking at tech team of
+   community radio Freies Radio Wüste Welle,
+   :raw-latex:`\url{http://www.wueste-welle.de/}`
+
+Action Items
+
+"outsourcing" Mirrorbrain Mails
+
+Infra call on July 29
+=====================
+
+For call in details see
+:raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo}`,
+the room number is 53 71 38. Everyone should join #tdf-infra on Freenode
+##Participants
+
+1.  Dennis Roczek (until ~19:45)
+2.  Norbert Thiebaud
+3.  Christian Lohmaier
+4.  Florian Effenberger
+5.  Alexander Werner ##Agenda
+
+6.  Review of last Call
+7.  Recent developements since last call
+
+    1. Monitoring: add cloph and..... norbert
+
+8.  Status update on Thomas Krenn buildbots
+
+    1. Buildbot arriving end of the week
+    2. Setup of W2012 on them
+    3. Setup of Moggis Mac by Norbert
+    4. Send the 2 Servers and Core Router to Manitu
+
+9.  Review of dauntless Debian 8 upgrade
+10. Announcement of Askbot downtime to extend storage -> downtime during
+    next maintenance window, +100G, might be necessary to delete old
+    backup images
+11. Discussion of details for Admin meeting at Linuxhotel
+
+    1. Discussion of Agenda
+    2. Offer from Florian: Insight to Mailsystem
+    3. VM configuration overview
+    4. Salt Quickstart
+    5. Adding monitoring commands via salt
+    6. Wiki --> Dennis will test MW1.25 Upgrade on a testwiki esp.
+       extensions as the extension registration system had cahnged
+       dramatically
+    7. Silverstripe
+    8. SSO
+
+       1. create a migration plan
+       2. Potential test-service: HelpWiki and OwnClound - less user,
+          existing login not critical
+
+12. Upcoming Tasks
+
+    1. Debian 8 migration excelsior & falco
+
+       1. Planned date: 24 August -> Check for showstoppers, check for
+          free space
+
+    2. SaltStates for Debian 8 + recent Salt version (to a degree that
+       Salt throws no errors on Debian 8)
+    3. monitoring: SMS/Telegram notification
+    4. admin meeting
+    5. Debian 8 Gluster test
+    6. intranet VPN (LibOCon)
+
+13. Next call: August 26, 1700 UTC # #Infra call on June 24 For call in
+    details see
+    :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo}`,
+    the room number is 53 71 38. Everyone should join #tdf-infra on
+    Freenode ##Participants
+
+14. Werner, Alexander alex@documentfoundation.org
+15. Effenberger, Florian floeff@documentfoundation.org - might only be
+    around for ~20 minutes
+16. Einsle, Robert r.einsle@documentfoundation.org
+17. Vesic, Aleksandar vesic@linux.com
+18. Lohmaier, Christian cloph@documentfoundation.org
+19. Norbert Thiebaud##Agenda
+
+20. Review of last Call
+21. More feedback on distributed/network file system needed?
+
+    1. discussion with other admin group on HA solutions -> basically
+       they all suck
+    2. either we go for HA, or we don't - both has (dis)advantages, but
+       it seems to be worth the try => the benefit outweights the risks
+    3. proposal (as we had last times): go for testing and "unimportant"
+       machines first
+    4. conslusion: move on with reimplementing gluster after debian 8
+       upgrade as planned
+
+22. Admin meeting in September (4-6) or August (21-23) Linuxhotel Essen:
+    Robert, Cloph, Alex W., Florian, Friedrich, Alex V., Dennis; Alin?
+    -> offer remote participation if possible
+23. Discussing details of dauntless Debian 8 upgrade:
+
+    1. During Maintanance Window June 29
+    2. Cloph notifies users of vm138 during ESC call
+
+24. Status update about swiss hosting /external hosting
+25. Status update about IPMI problems
+26. Status: SQL Replication / Monitoring, any new developements,
+    Timeline planning
+27. Housekeeping: Bugzilla tickets into Redmine, dealing with incoming
+    Redmine tickets, deprecating internal wiki [everyone]
+28. Fixed call dates: Last Wednesday each month, 1900 CEST (1700 UTC) ->
+    next call is: July 29, 1700 UTC (1900 Berlin time) #Infra call on
+    May 27 If possible, define concrete follow-ups, responsibilities and
+    deadlines for the individual items. For call in details see
+    :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo}`,
+    the room number is 53 71 38. ##Participants
+
+29. Einsle, Robert r.einsle@documentfoundation.org
+30. Werner, Alexander alex@documentfoundation.org
+31. Effenberger, Florian floeff@documentfoundation.org
+32. Norbert Thiebaud
+33. Roczek, Dennis dennisroczek@libreoffice.org (only until 19:45 :-()
+34. Lohmaier, Christian cloph@documentfoundation.org\ ##Agenda
+
+35. Current state of infra and upcoming tasks
+
+    1. Decision: HA filesystem [everyone]
+
+       1. Robert: For performant ceph you need at least 6 servers
+       2. Decision 1: Is a HA Filesystem needed? 1. 5 yes, 1 abstention
+
+          1. not for all services needed
+
+       3. Decision 2: Should we go for gluster?
+
+          1. 5 yes, 1 abstention
+
+    2. Status: SQL replication [Norbert] -> no new developements, Robert
+       will confer with Norbert about Master-Slave replication, slave on
+       swiss backup machine
+    3. Status: Monitoring [Robert, Alex] -> move to icinga2? Robert will
+       setup Icinga2 on his own Machine first and then replicate the
+       setup to the new monitoring VM
+    4. Status: IPMI/Networking (bonding, performance issues) rdm#1197
+       [Alex, Robert, Cloph]
+
+       1. Inspect packages from machine-machine and machine-internet
+       2. Get stats from kernel
+       3. Decision: Dauntless upgrade to Debian 8 [Alex, Robert, Cloph]
+
+    5. Discussion: Upgrade Wiki version to 1.24 [Dennis] (1.23 LTS, 1.25
+       just released, not stable enough)
+
+       1. Decision: Upgrade to 1.24.
+       2. Should we use a LTS version
+
+    6. Discussion: Debian 8
+
+       1. Decision: Debian 8 as new base systems [everyone] -> yes.
+       2. Upgrade from Debian 7: time planning [Alex, Robert] -> First
+          upgrade then HA, First host to receive upgrade is dauntless
+       3. Status: Migration of other servers [Alex] -> First upgrade to
+          Debian 8
+
+    7. Discussion: Redmine upgrade and enhancements [Florian] ->
+       alongside 1.8
+    8. Discussion: pumbaa reinstall on new hardware with Debian 8
+       [Florian, Alex, Robert]
+    9. Decision: External backups [Alex, Florian]
+
+36. Discussion: Server housing & developer hardware [Norbert, Alex]
+37. Decision: Maintenance windows [Norbert, Alex] -> Tuesday
+    0300-0500UTC, rdm#1275
+38. Discussion: Service policy [everyone]
+
+    1. List of services, hosts and VMs
+    2. Salt inclusion, infra team access
+    3. Build machines and repositories
+
+39. Housekeeping: Bugzilla tickets into Redmine, dealing with incoming
+    Redmine tickets, deprecating internal wiki [everyone] -> file again
+    in redmine note with bot account, discussion postponed
+40. Decision: In-person admin meeting [everyone] -> mail with details
+41. Time for next call - Wednesday, June 24, 1700 UTC (1900 CEST) ->
+    fourth Wednesday in the month
+
+Infra call on March 25
+======================
+
+Participants
+------------
+
+1.  Werner, Alexander alex@documentfoundation.org
+2.  Effenberger, Florian floeff@documentfoundation.org
+3.  Einsle, Robert r.einsle@documentfoundation.org
+4.  Lohmaier, Christian cloph@documentfoundation.org
+5.  Emer, Cagri cagri@cagriemer.net
+6.  Roczek, Dennis dennsroczek@libreoffice.org
+7.  Thiebaud, Norbert nthiebaud@gmail.com
+8.  Andreas
+9.  Alin Crețu (cralin) cralin@gmail.com
+10. Alexandar Vesic (Alex) vesic@linux.com
+
+-  .. rubric:: Agenda [time proposals]
+      :name: agenda-time-proposals
+
+1. Welcome and introduction [5 minutes]
+
+   1. Welcome
+   2. Overview of communication mechanisms
+
+      1. Mailing lists: website@global.libreoffice.org (public mailing
+         list, subscribe by website+subscribe@global.libreoffice.org);
+         tdf-admin (internal), aliases are hostmaster@ourdomains,
+         postmaster@ourdomains
+      2. IRC channels: #tdf-infra (public, see
+         :raw-latex:`\url{http://webchat.freenode.net}` or rather use a
+         client) and #tdf-admin (private) on Freenode
+      3. Redmine project:
+         :raw-latex:`\url{https://redmine.documentfoundation.org/projects/infrastructure}`
+         (public) and internal Redmine project (private)
+
+2. Infra post-mortem/current analysis [10 minutes]
+
+   1. Blackout in February:
+      :raw-latex:`\url{http://listarchives.libreoffice.org/global/website/msg13820.html}`
+      -> Gluster with oVirt, extensive testing, migrating piece by
+      piece, running for ~4 months
+   2. Current issues with iowait and load
+
+      1. default disk-caching mode on debian 7 was writethrough
+         (slow....) - changed that to cache=none/native for productive
+         machines (safe choice) and cache=writeback for
+         non-productive/tinderboxes/test-VMs (might cause data-loss if
+         host dies midway)
+      2. when creating new VMs: don't use "default" - explicitly pick
+         caching method
+      3. problem with windows guest: when using lots of CPUs (cores
+         assigned to the VM), much host-CPU is used even when the guest
+         is completely idle - maybe qemu bug/see whether version in
+         backports helps with that (try on dauntless, only crashtest VM
+         is hosted there)
+
+   3. IPMI story:
+      :raw-latex:`\url{https://redmine.documentfoundation.org/issues/1152}`
+
+      1. even hoster has problems accessing it → currently we're calling
+         them and ask them to press the button
+      2. KVM as intermediate solution
+      3. hoster tried with newer bios from supermicro with no success,
+         so far no solution in sight
+
+3. How to proceed [20 minutes]
+
+   1. HA platform/virtualization environment; what about offsite?
+   2. Network file system/SAN
+
+      1. short-term proposal: just web-UI for kvm based solution
+      2. later add back glusterfs (no probs with gluster itself, easy to
+         recover in case of failure) → avoid automatisms, keep
+         individual components under human control
+      3. CEPH as alterantive to gluster: would need more nodes (Robert
+         to follow-up with small overview)
+      4. conclusion during this call (revisited during next call/on the
+         list): provide means for HA, e.g. Gluster FS, but not for all
+         hosts; in any case no "I do everything automagically" solution
+         again, we always need to be able to intervene manually
+
+4. Various [20 minutes]
+
+   1. Infra horsepower/buildbots: see e.g. www.thomas-krenn.com and poke
+      Alex with the proposed cart to get the price
+   2. Volunteers for SMS and/or e-mail notification
+
+      1. → irc notifications would be nice as well (Robert has
+         experience with that
+         :raw-latex:`\url{https://www.dragonsreach.it/2012/06/30/nagios-irc-notifications/)}`
+      2. cloph, reinsle, norbert in irc, alexv
+
+   3. Handling of unassigned tickets/workflow:
+      :raw-latex:`\url{https://redmine.documentfoundation.org/projects/infrastructure/issues?c}`\ ` <#section-4>`__\ =tracker&c\ ` <#section-4>`__\ =status&c\ ` <#section-4>`__\ =priority&c\ ` <#section-4>`__\ =subject&c\ ` <#section-4>`__\ =assigned\_to&c\ ` <#section-4>`__\ =updated\_on&c\ ` <#section-4>`__\ =due\_date&f\ ` <#section-4>`__\ =status\_id&f\ ` <#section-4>`__\ =assigned\_to\_id&f\ ` <#section-4>`__\ =&group\_by=&op[assigned\_to\_id]=!\*&op[status\_id]=o&set\_filter=1&sort=updated\_on%3Adesc%2Cdue\_date%2Cpriority%3Adesc&utf8=%E2%9C%93
+      ( :raw-latex:`\url{http://tinyurl.com/pcnoqlj}` )
+   4. Swiss hosting offer, e.g. as fallback, offsite backup, DB
+      replication etc. -> Florian to evaluate customs, shipment and
+      technical details
+
+      1. database replication? -> idea: don't backup/replicate whole VM,
+         but rather create database-clone/replicate the individual parts
+         (e.g. gerrit: repo synced to github, fdo,... - only postgresql
+         is important) - only makes sense if not in the same datacenter
+      2. database replication => not a substitute to regular backup/ha..
+         but a belt and suspender solution to try to guaranty that the
+         postgres and git are in sync as much as possible at all time.
+         (gerrit only issue)
+
+   5. TDF LDAP
+
+      1. freeipa -> batteries included, self signup needed, easy to
+         setup
+      2. openldap -> standard, but webfronted needs to be found, setup
+         more complex
+      3. Norbert found some Webinterface for generic ldap servers
+
+   6. Salt States contributions
+   7. Spreed Online Meeting Evaluation?
+
+5. Next call and upcoming personal meetings [5 minutes]
+
+Infra post-morten
+=================
+
+pre-going productive
+--------------------
+
+-  oVirt tested extensively with concrete CentOS, oVirt and Gluster
+   version
+-  non-critical test VMs migrated first
+-  outage was simulated twice, recovery happened as expected
+-  several further VMs migrated, without problems for weeks ##pre-FOSDEM
+
+-  Wed Jan 28 1440 UTC to Thu Jan 29 early morning
+-  host falco was disconnected for max. ~couple of minutes, probably
+   less
+
+   -  reason is (as of now) unclear, log files yield no results at all
+
+-  at the same time - unrelated - a file system corruption on excelsior,
+   a failure which has been existing since Jan 5
+
+   -  monitoring (via snmpd) claimed file system was not corrupted
+
+-  => 2 out of 3 Gluster bricks went offline => platform was stopped
+   (GlusterFS setup comparable to RAID 5)
+-  manual recovery required, as Gluster detected a possible split-brain
+   situation. Recovery went smooth but took hours to complete due to
+   bandwidth-limitation => downtime between 3 and 18 hours, depending on
+   individual service; also oVirt internal DB had issues
+-  most time consumed for carrying out the actual fix; kicking it off
+   was rather trivial with Gluster (in opposition to other networking
+   file systems)
+
+   -  **actions taken: monitoring scripts adjusted for detailed
+      glusterfs monitoring - early detection of failed bricks would have
+      resulted in no downtime**
+
+      -  **in progress: SMS notification for severe monitoring warnings
+         (Android AlarmBox etc. to the rescue)**
+
+   -  **in progress: better filtering of monitoring messages, to raise
+      threshold and raise awareness for urgent notifications**
+   -  **proposal for future: 10 Gibt/s or several individual Gbit/s for
+      recovery speedup and failure compensation**
+
+-  all infra volunteers and paid staff working on that together
+-  some issues with getting Gerrit and some other VMs back up
+
+   -  **proposal for future: enforce strict 2-people-per-service-policy,
+      enforce documentation policy, to avoid dependency on individuals;
+      set sensible deadline for this**
+
+-  oVirt had two network interfaces configures (internal and external)
+
+   -  engine and management on external interface, Gluster on internal
+      interface
+   -  worked like a charm, no problems, no error messages, even with
+      desaster test before
+   -  Alex attended oVirt talk during FOSDEM, where this - undocumented
+      (!) - issue has been communicated
+
+-  talked to Nicholas Christener during FOSDEM, who has experience with
+   Gluster and virtualization
+-  got in touch with oVirt and Gluster developers during FOSDEM
+-  his advice was that our approach is right, bad luck happened, and
+   "you should go on as planned"
+-  **possibility: NetApp storage offer** ##post-FOSDEM
+
+-  began around Tue Feb 17 1800 UTC, VMs began getting slow, Gluster had
+   no need to heal
+-  oVirt was migrating VMs from one host to another, for no valid reason
+   (could not connect to alternatively dauntless nor excelsior, although
+   they definitely were reachable and connected, fencing stuff) ->
+   internal connectivity issue
+-  Host excelsior was rebooted at 1946 UTC, and disconnected for at
+   least several minutes
+
+   -  reason is (as of now) unclear, log files yield no results at all
+   -  Gluster began to heal itself
+   -  despite healing, Gluster was available all of the time, no
+      split-brain situation occured
+   -  HostedEngine (manages and migrates VMs) didn't come up, needed
+      manual intervention
+   -  I/O was slow due to the internal network equipped with "only" 1
+      Gbit/s
+   -  **proposal for future: 10 Gibt/s or several individual Gbit/s for
+      recovery speedup and failure compensation**
+
+-  infra team was shutting down all non-critical VMs, systems were
+   stable around ~2100 UTC, waiting for Gluster heal to finish
+-  Host dauntless was frozen at 0155 UTC, reason unknown so far
+-  oVirt locked down the firewall, which disconnected Gluster from the
+   other bricks
+-  discovered next morning around 0700 UTC
+-  declined oVirt IPMI access, opened up firewall again
+-  **in progress: SMS notifcation for severe monitoring warnings
+   (Android AlarmBox etc. to the rescue)**
+-  separate web server machine ordered to not endanger the release,
+   website VM migrated there without problems
+-  after manually re-opening the firewall, Gluster began healing, no
+   split-brain, I/O was slow but always available
+-  **proposal for future: 10 Gibt/s or several individual Gbit/s for
+   recovery speedup and failure compensation**
+-  infra staff migrated machines to excelsior, to reboot falco and
+   dauntless
+-  falco was reinstalled with plain Debian with KVM, no oVirt, no
+   Gluster, KISS principle, several critical VMs (e.g. Bugzilla, ask,
+   Salt master) migrated in time
+-  Gerrit needed time due to large disk image
+
+   -  snapshot was synced while VM running, plan then to sync
+      outstanding data during a downtime
+   -  downtime to be scheduled during the weekend, with advance notice,
+      to not interrupt development
+
+-  Tue Feb 24, discovered 0843 UTC, Gerrit was down, with the image not
+   being fully copied to falco; after dauntless got stuck again w/o
+   reason
+
+   -  oVirt did not know the state of the VMs, or showed wrong status;
+      some KVM instances were defunct
+   -  Gluster ran without problems, but oVirt/KVM component was confused
+   -  manual intervention didn't help, not even manual editing of the
+      database
+   -  thus decided to migrate Gerrit right now instead of bringing it
+      back to the old platform
+   -  downtime around 3-4 hours
+
+-  assumption: kernel bug wrt. KVM
+
+   -  as dauntless in the end crashed with kernel panic related to KVM
+   -  website VM, which regulary was crashing after ~3 days, now runs
+      for ~11 days
+
+-  **in progress: communicate more often, more public and more
+   transparent via mailing list and IRC, to inform the community and get
+   more volunteers in**
+-  **in progress: move discussions from admin meetings to admin phone
+   calls, to lower barrier to entry**
+-  **in progress: migrate crashtest VM to its own dedicated host, but
+   keep as VM, as discussed with Moggi**
+-  **underlinefor next admin call: present alternatives, public
+   discussion and voteunderline**
+
+Liste der vms:
+:raw-latex:`\url{http://pastie.org/private/cnwirjcnyvfh8g6qnxsqg}`
+besonderheit: vm137 ist **32bit** (tinderbox/buildbot) Liste der disks:
+:raw-latex:`\url{http://pastie.org/private/ahahad4ylonfoj3gi7wira}`
+
+gibt zweimal vm138\_Disk1 weil vm140 als Klon von vm138 erstell wurde...
+
+-  :raw-latex:`\url{http://pastie.org/private/dkmjmuc3nzq7gn6xnhjoja}`
+   RAID0 für crashtest/tinderbox-VMs (~500GB)
+
+Monitoring:
+===========
+
+::
+
+    - <path\_to\_alex\_schatzi>/check\_snmp\_process.pl  -H vm158.documentfoundation.org -C public -n %ARG1% -F
+    - $USER5$/check\_snmp\_mem.pl -H vm158.documentfoundation.org -C public -w 80,85 -c 90,95 -f
+
+ssh-pub-key tdf: ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAACAQC2dMx1CDYrlzY5cvt6/Tx7bU6PbGfcwh7UFUglV8DO0yo6XuEXp8ESZgb2Gekl2rC7O+eLGmZPD5ENh2CAa7LPphTuzuxlf+wxBP0aZsA5YN2nKsDC72WtLqDHVeqXgoN6PbcQiyJi6caQsWR6YdNnMgZnyxt9JAGZkw4A+JNBSU6gyt1sp4DyIYYKuBCQA9RkLV1RPwXa/JKiQrLE36r2sOYu4D1X2VOW7nnz06ukv+n9PvBCTunlhRwRFg2CNsiDQz61PdI0Q6ob3n8s5sSWunJSod+Xo2AzCu3UTPs/7GRETJYBsArC5yIJq4Ucu25HKjMSbvIWum7XXLYNLmt1vJsAQGW9HytXzblnXbuPVlmMYk5otEMPGRmtUq57Uw50Qs05DVJfJkuKLlc4Q5f+zbW3GQGXJAXZQnNESA1KUa8ec4PbQPmcFtKct/yxlWPVWJ3g0BYg822FdhZgCBm8k6mgG5EwGHR/p63HxOlr8kkVk8yPD3whRv064Nuze3v3RJSBkczhSoymrsckSnXx8syXziN5wx7mzehan4pIbG1S56k2QIJ2OVmXYCUJ5nDgrLlck2Y7fFXc+K2usmBRTAY0JeNagrwHPfb4DPHq75RXXuF3u3jQKwTvMMoXcDhxb7zCReR60i/KGemEXj8NAzCrx6JTZ0oi07uofWJsXQ==
+tdf@monitoring.documentfoundation.org
+
+robert: ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEAneGwCj9DFL5qRs3hWyHG2Vnd4iTYX5cGl7ATgV72VPNngb5l63Fm9Hmwd4KnpCacyaXPWAyrc20cd26ffeTBsXTC8mI79GwUYENCpSxSKAmvy9gJ7AP1xxOwZGRx+J5drVWrejcPkqC2nnVddkD85rNEADJ5+2g4YuPDvdX9q24Yx7pwgPZ1VrbY6M9os1M7GtaC9AYbM6OYvWA8zvj/DYFDzmPzX/G3g58KbPQiLQjEWDFBlYfHONYYGFgpegOjEE3OZWBAX8AjrSyEhhaEKVadXXWC79LUEazH/2QvF8n88P3gyXnxerGyttB2PffcO0NK8Nu0OiujnfZMPmrPXw==
+SSH-Key Robert Einsle privat
+
+/usr/lib/nagios/plugins/check\_by\_ssh -l root -i
+/omd/sites/tdf/.ssh/id\_rsa -H vm156.documentfoundation.org -E -o
+StrictHostKeyChecking=no -C "/usr/lib/nagios/plugins/check\_snmp\_mem.pl
+-H localhost -C public -w 80,85 -c 90,95 -f"
+
+uwsgi simple snmp
+-----------------
+
+-  configure uwsgi to enable the snmp-server (e.g. "**snmp:
+   127.0.0.1:2222**" to listen on port 2222 on localhost,
+   "**snmp-community: public**" with the community string of "public")
+   :raw-latex:`\url{http://uwsgi-docs.readthedocs.org/en/latest/SNMP.html}`
+-  create proxy-entry in snmpd.conf to make it available to monitoring
+   without opening ports/configure different stuff:
+-  **proxy -v 2c -c public 127.0.0.1:2222 .1.3.6.1.4.1.35156.17**
+-  **view systemview included .1.3.6.1.4.1.35156.17 **
+-  query the simple request counter using .1.3.6.1.4.1.35156.17.1.1 e.g.
+-  **snmpget -v2c -c public 89.238.68.169 .1.3.6.1.4.1.35156.17.1.1**
+-  ./check\_snmp -P 2c -H 89.238.68.169 -C public -o
+   .1.3.6.1.4.1.35156.17.1.1
+
+Admin meeting Friday, January 9 2015
+====================================
+
+-  floeff put stuff in Redmine #Infra Call Wednesday, December 17 2014
+   For call in details see
+   :raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo}`,
+   the room number is 53 71 38.
+
+-  Finalize migration of bare metal servers except bilbo until 24
+   December
+-  Most migrations went smooth
+-  Some hikkups with gluster due to wrongly set quorum
+-  monitoring automatically setup via salt with help from robert
+-  easiest way to add monitored servers: install snmpd on them and allow
+   connections from 5.196.29.105: rocommunity public 5.196.29.105 disk /
+   10000 disk /var 5% includeAllDisks 10% load 12 10 5
+-  adding mac os minions to salt via pip/homebrew
+-  monitoring windows machines with snmpd/other ways to monitor windows
+   machines (ask Robert)
+-  FreeIPA for internal LDAP logins:
+   :raw-latex:`\url{https://ipa.documentfoundation.org/ipa/ui/}`
+-  Additional LDAP for external services
+-  How to handle Self-Signup?
+-  What about OpenID and LDAP
+-  Migration from OpenID -> LDAP in gerrit ***underline- Migration from
+   $service -> LDAPunderline***
+-  Need to check for LDAP support for all of our services
+-  :raw-latex:`\url{https://developers.google.com/+/api/auth-migration#timetable}`
+-  April 20, 2015: Google **shuts down** the OpenID 2.0 service.
+-  Give Norbert access to Falco and give him Resources to add new slaves
+   to jenkins
+-  Try to have infra call at FOSDEM
+-  Notify Norbert once floyd has finished migrating
+
+Infra Call Tuesday, September 9 2014
+====================================
+
+For call in details see
+:raw-latex:`\url{https://wiki.documentfoundation.org/Website/Talkyoo}`,
+the room number is 53 71 38.
+
+Outline of the next steps in our Infra development - see also
+:raw-latex:`\url{http://de.slideshare.net/alexanderwerner/the-next-generation-infrastructure-of-the-document-foundation}`
+Migration to new machines Setup of a cloud/VM infrastructure
+Orchestration of the whole infrastructure with Salt Inclusion of new
+volunteers
+
+-  Start of migration October 1 2014
+
+-  
+
+   -  2 Weeks platform setup
+
+-  
+
+   -  2 Weeks VM migration
+
+-  
+
+   -  afterwards bare metal migration- Debian Wheezy with Backports for
+      all new machines
+
+-  Switch to PostgreSQL where possible because of memory consumption,
+   reliability under heavy load, crash resistance, easier
+   maintainability for big setups
+
+-  
+
+   -  MediaWiki:
+      :raw-latex:`\url{https://www.mediawiki.org/wiki/Manual:PostgreSQL}`
+      - not only test core but also extensions
+
+-  
+
+   -  HelpWiki (at the current Stage read-only) might be a candidate to
+      migrate
+
+-  
+
+   -  Silverstripe: Works with postgres, migration needed- Timeline for
+      Database switch: until around end of year
+
+-  Pootle: Migrate, but no too high priority
+-  Monthly Infra-Calls from now on.
+
+Improving the Plone sites (here: extensions.libreoffice.org)
+============================================================
+
+-  The content structure and the linguistic quality of the page "Home"
+   are terrible. The text bounces several times between information for
+   users and information for contributors. The formulations have the
+   linguistic quality of a manual for a cheap chinese product that has
+   been translated repeatedly from Chinese to English and then from
+   English to French an then from French to German without foreign
+   language skills. The linguistic chaos is reflected in the overall
+   structure of the homepage.
+
+   -  Proposed Solution: Discard the previous website completely. First,
+      a logical structure must be developed. Then, build the website
+      from scratch.
+
+-  improve accessibility
+-  just short (sorry): I avoid to go there, because I get lost...
+   serious
+-  And I know it's not because of the technology, but the implementation
+   can be improved :) -- cornouws 2013-11-25 12:11 UTC+1
+-  (However... if I had to do the implementation, it would have been not
+   good at all!) -- cornouws 2013-11-26 16:17 UTC+1
+-  
+-  Actually the use of Plone is a lot unfriendly...
+-  I have 2 extensions to load there but I just it takes so much time to
+   follow them into approval...
+-  Anyway... I did it... but I had to guess I need approval. No visual
+   feedback received from the "Approval" button that I have submitted.
+-  jeeezzz someone else submitted the same extension in the past...
+   aaarrgghhh. Abandoning.
+-  Interface:
+
+   -  The download button does not exist (you don't know where to click)
+   -  it takes about three clicks to download an extension
+   -  we could do with a nicer theme or CSS
+
+-  Localization - i18n
+
+   -  make sure we can drop comments in languages other than in English
+
+-  Contact the authors: contact the author of each extensions
+-  Much more user friendly layout with fluid width
+-  Organize categorization and tagging more clearly
+-  Releases table is not even remotely comprehensible
+-  Autodetection of UI Language
+-  Many Templates/Extensions without releases - hide them?
+-  Warning that Templates that are over one year old may be unmaintained
+   should be hidden
+-  Integrate Templates/Extensions with LO - direct installation as in
+   Chrome/Firefox
+-  Big preview of Template on their details page
+-  Comment/Discuss on details page
+-  Too much text on the landing page
+-  Filter special characters on Titles if they shouldn't appear
+-  Language Metadata field should default to Neutral
+-  Adding new Templates/Extensions should not take a couple of days
+-  Adding Releases has *way* too much fields.
+-  All the "Caution"-paragraphs in the publishing manuals are avoidable
+   by the software
+-  It should be possible to add & publish a release at the same time
+-  Direct integration with GitHub/Bitbucket etc.
+
+   -  more "social" development
+   -  direct build of extensions on tdf hardware from sources
+
+-  Maybe 'fork extension' for getting an extension under a new developer
+   ;)
+-  inegration with bugzilla or contact author. (should be public, author
+   should be notified)
+-  easier workflow (As said above). Streighther workflow (if a step
+   needs to be done next, it should be advertised
+-  Uploading and setup is a pain with way too many steps -- I gave up
+   and just bumped my extension in the wiki instead
+-  Layout is already width restricted and then adding the Donate button
+   to the right with lots of whitespave below eats huge amounts of
+   screenspace
+-  allow uploading the source of an extension
+-  tricky to find out how to get involved -- the login button is way
+   hidden and setting up a new account -- I dont know how I did that
+   actually.
+-  Layout: "Submit your extension" seems to have a bitmap background.
+   For me the white "submit your extension" text is half rendered
+   white-on-white (as I likely have a different font used
+-  Skip the homepage, landing page will be the extension list -
+   comparable with :raw-latex:`\url{https://addons.mozilla.org}`
+   including TopLists, recommendations etc.
+-  Two coloumn or line format will look better than one coloumn list
+-  The current "RED" (unmaintained?) warnings are scary. They should be
+   yellow or gray. Many of the extensions have no frequent update, they
+   just work.
+-  Add support for searching on version and language when comming from
+   LO itself
+-  Add full localization support
+-  Easier steps to add extension or new version from extension
+-  Mark old extensions as such
+-  Easier delete of extension or be able to mark an extension as "Not
+   maintained" by maintainer so somebody else is able to pick that
+   extension to maintain
+-  sberg: what I'm missing with the current Extensions site is a way to
+   send feedback to extension authors (I occasionally stumble over
+   problems with some extension and would like to be able to contact its
+   developers, but there's no information how to reach them)##
+
+Requirements for ticketing and project management system
+========================================================
+
+-  -> Rationale: usable as public and private ticketing system, as well
+   as poor man's project management [x] Redmine
+-  -> limitations: must be FLOSS, and self-hosted [x] Redmine
+-  several projects with distinct access control [x] Redmine
+-  Public view of certain (not all) tasks [x] Redmine
+-  web interface [x] Redmine
+-  e-mail notification [x] Redmine
+
+   -  easy adding of cc ` <#section-4>`__ Redmine NOT; plugin exists,
+      but does not run with current version
+   -  needs lots and lots of metadata (like bug-id, project, status) in
+      mail header for easy and reliable filtering with procmail and
+      friends [x] Redmine
+
+-  ticket creation for external, third parties (not necessarily without
+   authentication) [x] Redmine
+-  milestones and deadlines, i.e. with concrete date [x] Redmine, e.g.
+   with versions
+-  priorities (precisely: task order) [x] Redmine
+-  grouping by tags/whiteboard/custom fields [x] Redmine
+-  simple reporting options (show edited or closed tasks during a
+   certion period to create work reports) [x] Redmine
+-  caret browsing, no popups, no senseless auto scrolling [x] Redmine
+-  attachments [x] Redmine
+-  optional: e-mail interface - closing, prioritizing, (re)assigning, at
+   least commenting [x] Redmine
+-  optional: mobile app [x] Redmine
+-  optional: desktop client [x] Redmine
+-  optional: dashboard-stlye of issues relevant to me (stuff I need to
+   take action) [x] Redmine
+-  dependencies - one task needs another first, blocks the other,
+   taskgroups [x] Redmine
+-  packages to possibly consider: OTRS, RT, trac, Mantis, Flyspray,
+   Bugzilla, Redmine So far only Redmine evaluated, but looks very
+   promising
+-  in respect to tool consolidation: OpenID auth would be very welcome
+   (as askbot and gerrit already do) [-] Redmine
+-  easily accessible RSS-feeds for cross-tool integration [x] Redmine
+-  optional: scriptable access/automation (e.g. for syncing stuff with
+   public bugzilla, convert/demote to an ask.lo.org question etc.) [x]
+   Redmine
+-  bug description should be updatable (unlike bugzilla were the first
+   clumsy draft attempt of a description is set in stone for eternity)
+   -- see e.g. launchpad for a better solution [x] Redmine
+-  optional: it should ideally be possible to hide/delete comments
+   without fiddling deep inside the production DB (keeping abusive
+   comments around would be nasty) [x] author and admin can delete
+   comment, plus private mode for individual comments, but no real
+   hiding
+-  optional: stats over time -- does the number of tickets in one area
+   indicate trouble? [x] Redmine, when versions are used
+-  optional: work item burndown to deadline would be nice:
+   :raw-latex:`\url{http://status.ubuntu.com/ubuntu-quantal/canonical-desktop-team.html}`
+   [?] Redmine untested ###Limitations of OTRS (AKA what OTRS
+   lacks/needs to be improved on)
+-  focus/view-shifting when writing a reply - annoying on smaller
+   monitors when you have to keep scrolling (not only on small monitors;
+   it's always anoying)
+-  replying forces to copy the reporter's address, not copied
+   automatically
+-  tedious marking of duplicates and similar (basically enforces
+   one-window, multiple tabs don't work well)
+-  no email-interaction (is possible, but must be implemented /
+   configured)
+-  possible to subscribe to queues, bot not to individual tickets (or
+   overlooked that feature) (this is possible!) → should then be more
+   visible/offer to follow a ticket when sending a reply/otherwise
+   handling the ticket
+-  public tickets not available
+-  ticket on waiting for reminder doesn't work properly: would expect to
+   get a display of such tickets once I logged in.
+-  "blocked" (assigned to the one single person locking a ticket)
+   tickets don't really suit our workflow
+
+Limitations of others? I never used RT or Mantis or Flyspray, at least
+not conciously, neither as user nor as visitor. Trac is known, but not
+so comfortable as a user filing bugs/requests or looking for stuff.
+
+Minus for all others: migration of existing data
+
+Redmine
+~~~~~~~
+
+-  basic bugworkflow working (duplicates, dependencies/relations,
+   different categories, different states)
+-  has "Activity" view (which is nice to see recent changes)
+-  supports inline images (also nice to link to externally hosted pics)
+-  supports interaction via email (if enabled)
+-  supports private and public projects (and thus tickets that can be
+   moved in between)
+-  supports basic formatting in comments
+-  no popups/multi-tab friendly
+
+-  search is little cumbersome ("add criteria"...) but also has global
+   search that can be used for "maybe I'll get a hit" searches
+-  not possible to add non-registered members to cc/unclear how it works
+   with many users -
+   :raw-latex:`\url{http://www.redmine.org/plugins/anonymous-watchers}`
+
+unregistered users might create issues via an external frontend that
+feeds stuff using api to redmine unregistered users can create tasks -
+see :raw-latex:`\url{http://www.redmine.org/issues/490}`
+
+RT
+~~
+
+just had a quick glance over it - the "my day" view is nice \* lists all
+"your" issues with comment box and resolution listbox → can handle all
+issues from a single page
+:raw-latex:`\url{http://issues.bestpractical.com/Tools/MyDay.html}`
+(user guest, pw guest)
+
+LibreOffice Admin Meeting, July 2013
+====================================
+
+\*- all times are German local time, UTC+2 -
+
+Agenda
+------
+
+-  **Friday, July 26**
+
+   -  1500/1600 arrival (Alex, Andre and Florian around 2400)
+   -  meet & greet, getting to know each other
+   -  2000 dinner: either BBQ or pizza
+
+-  **Saturday, July 27**
+
+   -  0900-1000 breakfast
+   -  1000-1100 introduction and status quo - remote participation via
+      IRC (#tdf-infra on Freenode) and phone
+      <:raw-latex:`\url{https://wiki.documentfoundation.org/Talkyoo}`> -
+
+      -  introduction of the participants
+      -  fixing the agenda for the weekend
+      -  overview of our current infrastructure
+      -  glimpse into future plans and ideas
+
+   -  1100-1115 coffee break
+   -  1115-1245 introduction to deployment with SaltStack (theory)
+   -  1245-1345 lunch break: BBQ
+   -  1345-1515 introduction to deployment with SaltStack (practical
+      part)
+   -  1515-1530 coffee break
+   -  sout1530-1630 moving to fully virtualized hosts, migration to new
+      ISP and hardwaresout
+
+      -  soutfailover, heartbeatsout
+      -  soutDRBDsout
+
+   -  1630-1645 coffee break
+   -  1645-1800 various tasks and action items
+
+      -  soutreviewing the list of open taskssout
+      -  proposal: PostgreSQL/MariaDB instead of MySQL < - setup a test
+         case ->
+      -  proposal: Nginx instead of Apache< - setup a test case ->
+      -  discussion: distribution to be used in the future
+      -  OTRS, Trac, RT
+      -  soutpenetration testingsout
+
+   -  sout1800-1830 easening the process of involving new adminssout
+   -  1830 dinner, discussions and evening program at Unperfekthaus
+
+-  **Sunday, July 28**
+
+   -  0900-1000 breakfast
+   -  1000-1130 insight into one or services of choice, like
+      (participants can choose)
+
+      -  documentation incl. git repository
+      -  the mail system, including filtering and mailing lists
+
+         -  Postfix
+         -  Dovecot
+         -  amavisd-new, SpamAssassin, ClamAV
+         -  Mailman
+         -  mlmmj
+         -  Sieve
+
+      -  MirrorBrain and the rsync process
+      -  tinderboxes and buildbots
+      -  external services for members: Jabber/XMPP, e-mail and SIP
+      -  MediaWiki
+      -  ownCloud
+      -  SilverStripe
+      -  Amazon EC2
+
+   -  1130-1200 lunch break: pizza
+   -  1200-1230 final discussion
+
+      -  summary and feedback of the weekend
+      -  participants' feedback
+      -  planning of further meetings via phone and in person
+
+   -  1230 departure #Current state of infrastructure
+
+-  rented servers at Hetzner (:raw-latex:`\url{http://www.hetzner.de)}`
+-  total count of 6 machines at the time, 5 in production
+-  floyd: internal server, backup, salt
+-  grisu: VMs, gerrit, askbot, testing vms like silverstripe, plone,
+   jforum
+-  kermit: webserver - website, wiki, etherpad, piwik
+-  bilbo: public mailing lists, public mail system, rsync mirrors,
+   mirrorbrain (also BitTorrent tracker and primary seed)
+-  pumbaa: internal webdav, intranet, infra-doc, internal lists,
+   .documentfoundation.org email
+-  Downs: No load balancing, no fallback
+-  External machines:
+
+   -  kajszi: Backup machine from hungarian FSF, pootle translation
+   -  gimli: SUSE Nuremberg, developement related, master build sync
+      (daily-builds, pre-release builds prior to official announcement),
+      tinderbox (server part)
+   -  gandalf: SUSE Nuremberg, dev related
+
+-  External services:
+
+   -  blog at Wordpress (but planet is on our hw)
+   -  phone system at Sipgate
+   -  teleconferencing by talkyoo
+
+-  At the moment Ubuntu 12.04 LTS on our servers
+-  Apache (& also nginx), Postfix, Dovecot, PHP, Silverstripe etc.
+-  Scriptable Documentation -> Salt States (buggy spaghetti code,
+   current) -> Salt States (nice code, future)
+-  
+-  Current stats of servers (bandwidth / load)
+-  Future plans / why to migrate to another ISP?)
+
+Ein Fleißsternchen für Cloph: ★
+
+Remote User Input
+=================
+
+Andrew Cassidy
+--------------
+
+-  nginx + fastcgi + php
+
+   -  lighter weight than apache, easier to configure
+   -  php and nginx do not have to be on the same machine
+   -  can load balance the application directly, fewer layers (therefor
+      lower memory/cpu usage) than load balancing reverse proxy in front
+      of a web server (ie, 1 nginx server looking at multiple fcgi
+      servers)
+   -  load balancing requires either sticky sessions to make sure all
+      requests for a particular user hit the same server, or a shared
+      session storage (Database/Memcache?)
+
+-  PostgreSQL
+
+   -  Obvious main advantage over MySQL, not owned by oracle. Although
+      other potential drop-in replacements exist such as MariaDB.
+
+      -  Easier migration path than postgres.
+
+   -  I prefer PostgreSQL but I think the motivation for changing needs
+      to be explored (or explained to me)
+
+-  Virtualization
+
+   -  I understand you are currently investigating KVM
+   -  I've used Citrix XenServer before, as well as the Rackspace Cloud
+
+      -  Some providers charge by the hour rather than by the month
+      -  Rackspace Cloud / Amazon EC2 are less cost effective than
+         virtualizing ourselves, but it makes hardware not our problem
+      -  APIs are available to copy /resize /delete virtual machines on
+         the fly. We could potentially build auto-scale scripts for busy
+         periods
+      -  Static files can be stored using object storage and pushed to a
+         Akamai CDN (Rackspace)
+      -  Full Disclosure: I'm in the application process for Rackspace
+         UK Cloud Reseller Scheme
+
+   -  Perhaps a hybrid system is a viable option. Spin up a few VM's
+      just for the time we need the extra capacity.
+
+-  External Member Services
+
+   -  SIP
+
+      -  I'm SSCA certified, and regularly deploy FreeSWITCH
+      -  Useful features FreeSWITCH or Asterisk can offer us:
+
+         -  G.722 (HD) audio codec for conference calls
+         -  Both hardware and software phones exists
+         -  We can potentially make the conferece sip address public and
+            unauthenticated, giving more dial-in options.
+         -  WebRTC - softphone in the browser, no plugins required
+            (Google Chrome/Firefox only at this time) Demo:
+            :raw-latex:`\url{https://webrtc.freeswitch.org/webrtc/portal.html}`
+         -  Everything else a PBX can do and more. FreeSWITCH supports
+            faxing, scripting directly in Python/Javascript/Lua and
+            others.
+
+   -  FreeSWITCH can connect directly to a Jabber Server in Component
+      Mode. Never done this before.
+
+      -  Can use Jingle-supporting jabber clients to connect to a Jabber
+         server, conference calls can be served by FreeSWITCH
