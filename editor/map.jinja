@@ -1,10 +1,14 @@
 {% set editor = salt['grains.filter_by']({
-    'Debian': {
+    'Debian-7': {
         'vim': 'vim',
         'emacs_nox': 'emacs23-nox',
     },
-    'RedHat': {
+    'Debian-8': {
+        'vim': 'vim',
+        'emacs_nox': 'emacs-nox',
+    },
+    'default': {
         'vim': 'vim-enhanced',
         'emacs_nox': 'emacs23-nox',
     },
-}, merge=salt['pillar.get']('editor:lookup')) %}
+}, grain='osfinger', merge=salt['pillar.get']('editor:lookup')) %}
