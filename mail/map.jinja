@@ -11,4 +11,14 @@
         'amavis_milter_service': 'amavisd-milter',
         'clamav_service': 'clamav-daemon'
     },
+    'RedHat': {
+        'postfix_package': 'postfix',
+        'postfix_service': 'postfix',
+        'dovecot_packages': ['dovecot'],
+        'dovecot_service': 'dovecot',
+        'amavis_packages': ['amavisd-new'],
+        'amavis_service': 'amavis',
+        'amavis_milter_service': 'amavisd-milter',
+        'clamav_service': 'clamav-daemon'
+    },
 }, merge=salt['pillar.get']('mail:lookup')) %}

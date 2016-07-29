@@ -4,4 +4,9 @@
         'server_service': 'ssh',
         'client': ['openssh-client'],
     },
+    'RedHat': {
+        'server': ['openssh-server'],
+        'server_service': 'sshd',
+        'client': ['openssh-client'],
+    },
 }, merge=salt['pillar.get']('ssh:lookup')) %}
