@@ -572,12 +572,11 @@ See these changes in :file:`template/en/default/global/user-error.html.tmpl`
 Custom access permissions for Importance fields
 -----------------------------------------------
 
-Access to the Priority and Severity fields has been restricted, with
-further tweaks to the Severity field forthcoming. New users have often
-mis-prioritized bugs, ascribing levels far higher than the content of
-the report would ever suggest, so restricting them slightly before
-we've had an opportunity to triage the bugs ourselves seems like a
-reasonable precaution.
+Access to the Priority and Severity fields has been restricted.
+New users have often mis-prioritized bugs, ascribing levels far
+higher than the content of the report would ever suggest, so
+restricting them slightly before we've had an opportunity to
+triage the bugs ourselves seems like a reasonable precaution.
 
 We will continue to be very liberal about granting access to the
 **Contributors** group, using group membership as a qualification for
@@ -816,7 +815,7 @@ Example: Using the QA Administrators bugzilla account, to bulk-notify re: dusty 
 See some of our current procedures on the `Bugzilla Gardening
 <http://wiki.documentfoundation.org/QA/Bugzilla/Gardening>`_. At the
 moment in the TDF Bugzilla, most bulk-updating tasks are carried out
-by Joel Madero. If additional team members are interested in helping
+by the QA engineer. If additional team members are interested in helping
 with these tasks, we just need to make sure that we're not working at
 cross-purposes.
 
@@ -877,7 +876,7 @@ Using Salt with our Bugzilla installation
 
 In general, we don't administer Bugzilla via salt, beyond the initial
 setup of the machine. For more detailed information regarding Salt,
-please see our `Salt Guide <http://wiki.documentfoundation.org/Infra/Guide to using Salt>`_ for anyone
+please see our `Salt Guide <http://salt-states-base.readthedocs.io/en/latest/>`_ for anyone
 who's new to using this tool, or who'd like more specifics on how we
 use it internally at TDF.
 
@@ -905,7 +904,7 @@ Getting access
 
 Access to the bugzilla-test VM is limited to QA developers. If you're
 interested in authoring new improvements or helping test the result of
-a system upgrade, please chat with `Robinson <http://wiki.documentfoundation.org/User:Qubit>`_ about your goals and experience, or join a weekly QA Meeting and introduce yourself.
+a system upgrade, please chat with `Xisco <https://wiki.documentfoundation.org/User:X1sc0>`_ about your goals and experience, or join a QA Meeting and introduce yourself.
 
 After chatting with QA, an account can be created by one of our Sysadmins.
 
